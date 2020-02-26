@@ -10,12 +10,11 @@ import UIKit
 
 class MovieCell: UICollectionViewCell {
   
-    @IBOutlet weak var movieImage1: UIImageView!
+    @IBOutlet weak var movieImage: UIImageView!
     
     func configureImage() {
-        movieImage1.image = #imageLiteral(resourceName: "malevola")
-        movieImage1.layer.cornerRadius = 15
+        movieImage.image = #imageLiteral(resourceName: "malevola")
+        movieImage.layer.cornerRadius = 15
     }
-    
-    
+  
 }

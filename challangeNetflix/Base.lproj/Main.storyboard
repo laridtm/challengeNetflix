@@ -50,7 +50,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="170" height="260"/>
                                         <connections>
-                                            <outlet property="movieImage1" destination="PZC-Or-epo" id="HL0-u5-hIK"/>
+                                            <outlet property="movieImage" destination="PZC-Or-epo" id="cqG-Ak-fS4"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
