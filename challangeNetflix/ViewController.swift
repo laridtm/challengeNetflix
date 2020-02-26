@@ -12,41 +12,34 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-//    var propCollectionView: UICollectionView {
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .vertical
-//        let width = view.frame.size.width / 2
-//        layout.itemSize =
-//        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//        cv.register(UICollectionView.self, forCellWithReuseIdentifier: "MovieCell")
-//        return cv
-//    }
+    let movies: [String] = ["Malévola", "Comer, rezar e amar", "O Círculo", "O menino de pijma listrado", "Mulan", "Minha mãe é uma peça"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.collectionViewLayout = configureLayout()
+//        collectionView.collectionViewLayout = configureLayout()
         
     }
     
-    func configureLayout() -> UICollectionViewCompositionalLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(170), heightDimension: .absolute(260))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(100), heightDimension: .fractionalHeight(100))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        
-        let section = NSCollectionLayoutSection(group: group)
-        return UICollectionViewCompositionalLayout(section: section)
-    }
+//    func configureLayout() -> UICollectionViewCompositionalLayout {
+//        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.1), heightDimension: .fractionalHeight(0.3))
+//        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+//
+//        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+//        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+//
+//        let section = NSCollectionLayoutSection(group: group)
+//        return UICollectionViewCompositionalLayout(section: section)
+//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-           return 6
-       }
+        return 2
+    }
        
     func collectionView(_ collectionView: UICollectionView,     cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieCell
+        cell.movieImage1.image = #imageLiteral(resourceName: "malevola")
         
         return cell
     }
