@@ -12,17 +12,32 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var propCollectionView: UICollectionView {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.register(UICollectionView.self, forCellWithReuseIdentifier: "MovieCell")
-        return cv
-    }
+//    var propCollectionView: UICollectionView {
+//        let layout = UICollectionViewFlowLayout()
+//        layout.scrollDirection = .vertical
+//        let width = view.frame.size.width / 2
+//        layout.itemSize =
+//        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+//        cv.register(UICollectionView.self, forCellWithReuseIdentifier: "MovieCell")
+//        return cv
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        collectionView.collectionViewLayout = configureLayout()
+        
+    }
+    
+    func configureLayout() -> UICollectionViewCompositionalLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(170), heightDimension: .absolute(260))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(100), heightDimension: .fractionalHeight(100))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        return UICollectionViewCompositionalLayout(section: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
