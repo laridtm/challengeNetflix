@@ -12,4 +12,10 @@ class MovieCell: UICollectionViewCell {
   
     @IBOutlet weak var movieImage1: UIImageView!
     
+    func configureImage() {
+        movieImage1.image = #imageLiteral(resourceName: "malevola")
+        movieImage1.layer.cornerRadius = 15
+    }
+    
+    
 }
