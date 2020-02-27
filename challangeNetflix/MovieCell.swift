@@ -12,9 +12,13 @@ class MovieCell: UICollectionViewCell {
   
     @IBOutlet weak var movieImage: UIImageView!
     
+    override func awakeFromNib() {
+        self.layoutIfNeeded()
+        layer.cornerRadius = 15
+    }
+    
     func configureImage() {
-        movieImage.image = #imageLiteral(resourceName: "malevola")
-        movieImage.layer.cornerRadius = 15
+         movieImage.image = #imageLiteral(resourceName: "malevola")
     }
   
 }

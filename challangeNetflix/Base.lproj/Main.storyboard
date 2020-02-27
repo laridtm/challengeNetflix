@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yfk-lW-wEY">
-                                <rect key="frame" x="20" y="104" width="374" height="758"/>
+                                <rect key="frame" x="20" y="20" width="374" height="758"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="20" minimumInteritemSpacing="20" id="AO3-dm-j9S">
@@ -33,7 +33,21 @@
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MF6-By-Jin" customClass="MovieCell" customModule="challangeNetflix" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="170" height="260"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PZC-Or-epo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="260"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="260" id="XlO-I0-gyc"/>
+                                                        <constraint firstAttribute="width" constant="170" id="nIb-Yq-raL"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
                                             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="PZC-Or-epo" secondAttribute="bottom" id="MBq-7X-rdT"/>
+                                                <constraint firstItem="PZC-Or-epo" firstAttribute="top" secondItem="MF6-By-Jin" secondAttribute="top" id="OhR-gO-Hjn"/>
+                                                <constraint firstItem="PZC-Or-epo" firstAttribute="leading" secondItem="MF6-By-Jin" secondAttribute="leading" id="YHs-E5-JBe"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="170" height="260"/>
                                         <connections>
@@ -46,23 +60,12 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ZyV-j5-Lts"/>
                                 </connections>
                             </collectionView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PZC-Or-epo">
-                                <rect key="frame" x="20" y="20" width="170" height="260"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="12U-VA-CJy"/>
-                                    <constraint firstAttribute="width" constant="170" id="8eD-4e-L4m"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" header="YES"/>
                         </accessibility>
-                        <constraints>
-                            <constraint firstItem="PZC-Or-epo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="1uJ-Sk-2D5"/>
-                            <constraint firstItem="PZC-Or-epo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="RDU-EN-gKu"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movies" id="W6h-ll-2qU">
