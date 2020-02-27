@@ -18,7 +18,7 @@ class MovieCell: UICollectionViewCell {
     }
     
     func configureImage() {
-         movieImage.image = #imageLiteral(resourceName: "malevola")
+        movieImage.image = UIImage(named: "malevola")
     }
   
 }
