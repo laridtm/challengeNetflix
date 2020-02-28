@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -33,18 +33,24 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return cell
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if(!(searchBar.text?.isEmpty)!){
-            //reload your data source if necessary
-            self.collectionView?.reloadData()
-        }
-    }
-
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if(searchText.isEmpty){
-            //reload your data source if necessary
-            self.collectionView?.reloadData()
-        }
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        if(!(searchBar.text?.isEmpty)!){
+//            //reload your data source if necessary
+//            self.collectionView?.reloadData()
+//        }
+//    }
+//
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if(searchText.isEmpty){
+//            //reload your data source if necessary
+//            self.collectionView?.reloadData()
+//        }
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let searchView: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
+        return searchView
     }
        
 
