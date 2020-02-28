@@ -269,6 +269,7 @@
 				152C9B1B23FECD5000B970BD /* ViewController.swift in Sources */,
 				156A991F2408304100ADF085 /* SearchCollectionReusableView.swift in Sources */,
 				152C9B1723FECD5000B970BD /* AppDelegate.swift in Sources */,
+				156A99292409AB6600ADF085 /* AllMovies.swift in Sources */,
 				156A991D2406CF5500ADF085 /* MovieCell.swift in Sources */,
 				152C9B1923FECD5000B970BD /* SceneDelegate.swift in Sources */,
 				156A99232409911000ADF085 /* Movie.swift in Sources */,

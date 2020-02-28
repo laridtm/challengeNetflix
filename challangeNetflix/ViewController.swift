@@ -12,9 +12,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var allMovies: [Movie] = []
-    
     let decoder = JSONDecoder()
+    var allMovies: [Movie] = []
     let session = URLSession.shared
     let url = URL(string: "http://localhost:8080/response.json")!
     
