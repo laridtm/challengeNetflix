@@ -12,12 +12,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let decoder = JSONDecoder()
+    let session = URLSession.shared
+    let url = URL(string: "http://localhost:8080/response.json")!
+    
     let movies: [String] = ["Malévola", "Comer, rezar e amar", "O Círculo", "O menino de pijma listrado", "Mulan", "Minha mãe é uma peça"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let task = session.dataTask(with: url) {
+            data, response, error in
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode) else {
+                    print(error)
+                    return
+            }
         
+//        task.resume()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

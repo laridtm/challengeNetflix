@@ -112,6 +112,7 @@
 				152C9B1F23FECD5200B970BD /* Assets.xcassets */,
 				152C9B2123FECD5200B970BD /* LaunchScreen.storyboard */,
 				152C9B2423FECD5200B970BD /* Info.plist */,
+				156A992024098BA000ADF085 /* Movies.swift */,
 			);
 			path = challangeNetflix;
 			sourceTree = "<group>";
@@ -265,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				156A992124098BA000ADF085 /* Movies.swift in Sources */,
 				152C9B1B23FECD5000B970BD /* ViewController.swift in Sources */,
 				156A991F2408304100ADF085 /* SearchCollectionReusableView.swift in Sources */,
 				152C9B1723FECD5000B970BD /* AppDelegate.swift in Sources */,
