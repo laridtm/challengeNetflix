@@ -12,11 +12,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var allMovies: [Movie] = []
+    
     let decoder = JSONDecoder()
     let session = URLSession.shared
     let url = URL(string: "http://localhost:8080/response.json")!
-    
-    let movies: [String] = ["Malévola", "Comer, rezar e amar", "O Círculo", "O menino de pijma listrado", "Mulan", "Minha mãe é uma peça"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +29,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     print(error)
                     return
             }
-        
-//        task.resume()
+            
+            do {
+                self.allMovies = try self.decoder.decode([Movie].self, from: data!)
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            } catch {
+                print(error)
+            }
         }
+        task.resume()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        return allMovies.count
     }
        
     func collectionView(_ collectionView: UICollectionView,     cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

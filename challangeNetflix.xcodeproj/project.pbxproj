@@ -112,7 +112,6 @@
 				152C9B1F23FECD5200B970BD /* Assets.xcassets */,
 				152C9B2123FECD5200B970BD /* LaunchScreen.storyboard */,
 				152C9B2423FECD5200B970BD /* Info.plist */,
-				156A992024098BA000ADF085 /* Movies.swift */,
 			);
 			path = challangeNetflix;
 			sourceTree = "<group>";
@@ -239,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				156A99252409932500ADF085 /* response.json in Resources */,
 				152C9B2323FECD5200B970BD /* LaunchScreen.storyboard in Resources */,
 				152C9B2023FECD5200B970BD /* Assets.xcassets in Resources */,
 				152C9B1E23FECD5000B970BD /* Main.storyboard in Resources */,
@@ -266,12 +266,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				156A992124098BA000ADF085 /* Movies.swift in Sources */,
 				152C9B1B23FECD5000B970BD /* ViewController.swift in Sources */,
 				156A991F2408304100ADF085 /* SearchCollectionReusableView.swift in Sources */,
 				152C9B1723FECD5000B970BD /* AppDelegate.swift in Sources */,
 				156A991D2406CF5500ADF085 /* MovieCell.swift in Sources */,
 				152C9B1923FECD5000B970BD /* SceneDelegate.swift in Sources */,
+				156A99232409911000ADF085 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

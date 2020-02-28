@@ -1,5 +1,5 @@
 //
-//  Movies.swift
+//  Movie.swift
 //  challangeNetflix
 //
 //  Created by Larissa Diniz  on 28/02/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Movies: Codable {
+struct Movie: Codable {
 
     let title: String
     let year: Int
