@@ -10,5 +10,5 @@ import Foundation
 
 struct AllMovies: Codable {
     
-    let allMovies: [Movie] = []
+    var allMovies: [Movie] = []
 }
