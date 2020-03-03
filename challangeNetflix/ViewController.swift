@@ -13,7 +13,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var collectionView: UICollectionView!
     
     let decoder = JSONDecoder()
-    var allMovies: [Movie] = []
+    var movies: [Movie] = []
     let session = URLSession.shared
     let url = URL(string: "http://localhost:8080/response.json")!
     
@@ -30,7 +30,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
             
             do {
-                self.allMovies = try self.decoder.decode([Movie].self, from: data!)
+                self.movies = try self.decoder.decode([Movie].self, from: data!)
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
@@ -43,14 +43,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allMovies.count
+        return movies.count
     }
        
     func collectionView(_ collectionView: UICollectionView,     cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
-        let urlImage: URL? = allMovies[indexPath.row].images[2]
+        let urlImage: URL? = movies[indexPath.row].images[2]
         
         cell.configureImage(url: urlImage!)
         
