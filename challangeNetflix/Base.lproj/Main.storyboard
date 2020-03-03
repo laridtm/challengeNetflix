@@ -37,16 +37,16 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PZC-Or-epo">
                                                     <rect key="frame" x="0.0" y="0.0" width="170" height="260"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="260" id="XlO-I0-gyc"/>
-                                                        <constraint firstAttribute="width" constant="170" id="nIb-Yq-raL"/>
+                                                        <constraint firstAttribute="height" constant="260" id="Sgq-DG-XcM"/>
+                                                        <constraint firstAttribute="width" constant="170" id="pzY-O3-kvD"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="PZC-Or-epo" secondAttribute="bottom" id="MBq-7X-rdT"/>
-                                                <constraint firstItem="PZC-Or-epo" firstAttribute="top" secondItem="MF6-By-Jin" secondAttribute="top" id="OhR-gO-Hjn"/>
-                                                <constraint firstItem="PZC-Or-epo" firstAttribute="leading" secondItem="MF6-By-Jin" secondAttribute="leading" id="YHs-E5-JBe"/>
+                                                <constraint firstItem="PZC-Or-epo" firstAttribute="leading" secondItem="MF6-By-Jin" secondAttribute="leading" id="FyA-5n-uXi"/>
+                                                <constraint firstItem="PZC-Or-epo" firstAttribute="top" secondItem="MF6-By-Jin" secondAttribute="top" id="VYv-MM-ls2"/>
+                                                <constraint firstAttribute="bottom" secondItem="PZC-Or-epo" secondAttribute="bottom" id="mZF-Pd-xdn"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="170" height="260"/>

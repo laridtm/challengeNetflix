@@ -29,27 +29,6 @@ struct Movie: Codable {
     let hdr: Bool
     let images: [URL]
     
-//    init(title: String, year: String, rated: String, released: String, runtime: String, genre: String, director: String, writer: String, actors: String, plot: String, language:String, country: String, awards: String, poster: String, metascore: String, resolution: Bool, hdr: Bool, images: [String]) {
-//        self.title = title
-//        self.year = year
-//        self.rated = rated
-//        self.released = released
-//        self.runtime = runtime
-//        self.genre = genre
-//        self.director = director
-//        self.writer = writer
-//        self.actors = actors
-//        self.plot = plot
-//        self.language = language
-//        self.country = country
-//        self.awards = awards
-//        self.poster = poster
-//        self.metascore = metascore
-//        self.resolution = resolution
-//        self.hdr = hdr
-//        self.images = images
-//    }
-    
     enum CodingKeys: String, CodingKey {
         case title, year, rated, released, runtime, genre, director, writer,
         actors, plot, language, country, awards, poster, metascore
