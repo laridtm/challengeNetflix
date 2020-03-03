@@ -18,7 +18,7 @@ class MovieCell: UICollectionViewCell {
     }
     
     func configureImage(url: URL) {
-        var request = URLRequest(url: url)
+        let request = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             if error == nil {
                 DispatchQueue.main.async {
