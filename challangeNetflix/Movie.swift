@@ -27,7 +27,7 @@ struct Movie: Codable {
     let metascore: String
     let resolution: Bool
     let hdr: Bool
-    let images: [String]
+    let images: [URL]
     
 //    init(title: String, year: String, rated: String, released: String, runtime: String, genre: String, director: String, writer: String, actors: String, plot: String, language:String, country: String, awards: String, poster: String, metascore: String, resolution: Bool, hdr: Bool, images: [String]) {
 //        self.title = title
@@ -77,7 +77,7 @@ struct Movie: Codable {
         metascore = try values.decode(String.self, forKey: .metascore)
         resolution = try values.decode(Bool.self, forKey: .resolution)
         hdr = try values.decode(Bool.self, forKey: .hdr)
-        images = try values.decode([String].self, forKey: .images)
+        images = try values.decode([URL].self, forKey: .images)
     }
 
 }

@@ -38,6 +38,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 print(error)
             }
         }
+        
         task.resume()
     }
     
@@ -49,7 +50,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
-        cell.configureImage()
+        let urlImage: URL? = allMovies[indexPath.row].images[2]
+        
+        cell.configureImage(url: urlImage!)
         
         return cell
     }
@@ -63,4 +66,5 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
 
 }
+
 
