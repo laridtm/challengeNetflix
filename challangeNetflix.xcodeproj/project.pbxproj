@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15169B38240EEF2D00568CCB /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15169B37240EEF2D00568CCB /* Movie.swift */; };
 		152C9B1723FECD5000B970BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C9B1623FECD5000B970BD /* AppDelegate.swift */; };
 		152C9B1923FECD5000B970BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C9B1823FECD5000B970BD /* SceneDelegate.swift */; };
 		152C9B1B23FECD5000B970BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C9B1A23FECD5000B970BD /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15169B37240EEF2D00568CCB /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		152C9B1323FECD5000B970BD /* challangeNetflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = challangeNetflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		152C9B1623FECD5000B970BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		152C9B1823FECD5000B970BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				152C9B1823FECD5000B970BD /* SceneDelegate.swift */,
 				152C9B1A23FECD5000B970BD /* ViewController.swift */,
 				156A991C2406CF5500ADF085 /* MovieCell.swift */,
+				15169B37240EEF2D00568CCB /* Movie.swift */,
 				156A991E2408304100ADF085 /* SearchCollectionReusableView.swift */,
 				152C9B1C23FECD5000B970BD /* Main.storyboard */,
 				152C9B1F23FECD5200B970BD /* Assets.xcassets */,
@@ -267,11 +270,10 @@
 			files = (
 				152C9B1B23FECD5000B970BD /* ViewController.swift in Sources */,
 				156A991F2408304100ADF085 /* SearchCollectionReusableView.swift in Sources */,
+				15169B38240EEF2D00568CCB /* Movie.swift in Sources */,
 				152C9B1723FECD5000B970BD /* AppDelegate.swift in Sources */,
-				156A99292409AB6600ADF085 /* AllMovies.swift in Sources */,
 				156A991D2406CF5500ADF085 /* MovieCell.swift in Sources */,
 				152C9B1923FECD5000B970BD /* SceneDelegate.swift in Sources */,
-				156A99232409911000ADF085 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
