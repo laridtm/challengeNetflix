@@ -17,8 +17,18 @@ class MovieCell: UICollectionViewCell {
         layer.cornerRadius = 15
     }
     
-    func configureImage() {
-        movieImage.image = UIImage(named: "malevola")
+    func configureImage(url: URL) {
+        let request = URLRequest(url: url)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            if error == nil {
+                DispatchQueue.main.async {
+                    let loadedImage = UIImage(data: data!)
+                    self.movieImage.image = loadedImage
+                    print(error)
+                }
+            }
+        }
+        task.resume()
     }
   
 }

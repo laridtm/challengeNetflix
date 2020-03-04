@@ -12,12 +12,34 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let movies: [String] = ["Malévola", "Comer, rezar e amar", "O Círculo", "O menino de pijma listrado", "Mulan", "Minha mãe é uma peça"]
+    let decoder = JSONDecoder()
+    var movies: [Movie] = []
+    let session = URLSession.shared
+    let url = URL(string: "http://localhost:8080/response.json")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let task = session.dataTask(with: url) {
+            data, response, error in
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode) else {
+                    print(error)
+                    return
+            }
+            
+            do {
+                self.movies = try self.decoder.decode([Movie].self, from: data!)
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            } catch {
+                print(error)
+            }
+        }
         
+        task.resume()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -28,7 +50,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
-        cell.configureImage()
+        let urlImage: URL? = movies[indexPath.row].images[2]
+        
+        cell.configureImage(url: urlImage!)
         
         return cell
     }
@@ -42,4 +66,5 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
 
 }
+
 
