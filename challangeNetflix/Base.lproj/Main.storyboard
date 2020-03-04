@@ -52,6 +52,7 @@
                                         <size key="customSize" width="170" height="260"/>
                                         <connections>
                                             <outlet property="movieImage" destination="PZC-Or-epo" id="cqG-Ak-fS4"/>
+                                            <segue destination="JyC-Cz-tj5" kind="show" identifier="Details" id="Wzf-3b-ZWv"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -100,17 +101,16 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Yfk-lW-wEY" id="9uN-Ko-z0f"/>
-                        <segue destination="JyC-Cz-tj5" kind="show" id="eyD-yO-qvG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="818.84057971014499" y="138.61607142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="WbO-9j-5B9">
             <objects>
-                <viewController id="JyC-Cz-tj5" sceneMemberID="viewController">
+                <viewController id="JyC-Cz-tj5" customClass="DetailsViewController" customModule="challangeNetflix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KZa-U2-UXN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,6 +165,10 @@
                     <navigationItem key="navigationItem" id="lkR-FF-I1m">
                         <barButtonItem key="backBarButtonItem" title="Back" id="6nz-1R-eys"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="coverImage" destination="qXC-jg-xta" id="5AQ-ao-lm9"/>
+                        <outlet property="nameFilm" destination="Pzb-cx-aPW" id="G1Y-nD-kVA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fH-y1-Ltz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
