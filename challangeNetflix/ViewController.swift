@@ -14,6 +14,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     let decoder = JSONDecoder()
     var movies: [Movie] = []
+    var realData: [Movie] = []
     let session = URLSession.shared
     let url = URL(string: "http://localhost:8080/response.json")!
     
@@ -32,6 +33,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             do {
                 self.movies = try self.decoder.decode([Movie].self, from: data!)
                 DispatchQueue.main.async {
+                    self.realData = self.movies
                     self.collectionView.reloadData()
                 }
             } catch {
@@ -63,7 +65,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return searchView
     }
 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.movies.removeAll()
 
+        for item in self.realData {
+            if (item.title.lowercased().contains(searchBar.text!.lowercased())) {
+                self.movies.append(item)
+            }
+        }
+
+        if (searchBar.text!.isEmpty) {
+            self.movies = self.realData
+        }
+
+        self.collectionView.reloadData()
+    }
 
 }
 
