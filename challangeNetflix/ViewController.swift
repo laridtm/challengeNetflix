@@ -62,16 +62,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let teste = movies[indexPath.row]
-        print(teste)
+        movieSelected = movies[indexPath.row]
+        
+        performSegue(withIdentifier: "Details", sender: nil)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-//        movieSelected = movies[indexPath.row]
-//        
-//        performSegue(withIdentifier: "Details", sender: nil)
-//        return true
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let details = segue.destination as? DetailsViewController else {
