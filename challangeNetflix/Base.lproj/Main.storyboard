@@ -21,38 +21,38 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="20" minimumInteritemSpacing="20" id="AO3-dm-j9S">
-                                    <size key="itemSize" width="170" height="260"/>
+                                    <size key="itemSize" width="170" height="240"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="20" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCell" id="0Af-3Z-RBm" customClass="MovieCell" customModule="challangeNetflix" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="50" width="170" height="260"/>
+                                        <rect key="frame" x="5" y="70" width="170" height="240"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MF6-By-Jin" customClass="MovieCell" customModule="challangeNetflix" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="170" height="260"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" id="klI-0f-BJa">
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="240"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PZC-Or-epo">
-                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="260"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="200"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="260" id="Sgq-DG-XcM"/>
-                                                        <constraint firstAttribute="width" constant="170" id="pzY-O3-kvD"/>
+                                                        <constraint firstAttribute="height" constant="200" id="jDE-zt-ql8"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="PZC-Or-epo" firstAttribute="leading" secondItem="MF6-By-Jin" secondAttribute="leading" id="FyA-5n-uXi"/>
-                                                <constraint firstItem="PZC-Or-epo" firstAttribute="top" secondItem="MF6-By-Jin" secondAttribute="top" id="VYv-MM-ls2"/>
-                                                <constraint firstAttribute="bottom" secondItem="PZC-Or-epo" secondAttribute="bottom" id="mZF-Pd-xdn"/>
+                                                <constraint firstItem="PZC-Or-epo" firstAttribute="top" secondItem="klI-0f-BJa" secondAttribute="top" constant="20" symbolic="YES" id="6DI-a5-PRb"/>
+                                                <constraint firstItem="PZC-Or-epo" firstAttribute="leading" secondItem="klI-0f-BJa" secondAttribute="leading" constant="20" symbolic="YES" id="OHF-vv-dHq"/>
+                                                <constraint firstAttribute="trailing" secondItem="PZC-Or-epo" secondAttribute="trailing" constant="20" symbolic="YES" id="SBT-2e-2nz"/>
+                                                <constraint firstAttribute="bottom" secondItem="PZC-Or-epo" secondAttribute="bottom" constant="40" id="YbK-JT-Ev7"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="170" height="260"/>
+                                        <size key="customSize" width="170" height="240"/>
                                         <connections>
                                             <outlet property="movieImage" destination="PZC-Or-epo" id="cqG-Ak-fS4"/>
-                                            <segue destination="JyC-Cz-tj5" kind="show" identifier="Details" id="Wzf-3b-ZWv"/>
+                                            <segue destination="JyC-Cz-tj5" kind="show" identifier="Details" id="opr-JJ-OoB"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -82,8 +82,8 @@
                                     </connections>
                                 </collectionReusableView>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="d59-5F-MHN"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ZyV-j5-Lts"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="pHF-jl-0Tw"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="BXl-To-y48"/>
                                 </connections>
                             </collectionView>
                         </subviews>
