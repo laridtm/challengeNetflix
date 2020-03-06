@@ -20,7 +20,7 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mountScreen()
+        createScreen()
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -28,23 +28,23 @@ class DetailsViewController: UIViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
     }
     
-    func mountScreen() {
+    func createScreen() {
         guard let selectedMovie = self.movie else {
             return
         }
-        setPoster(urlImage: selectedMovie.images.first!)
-        setBackground(urlImage: selectedMovie.images[1])
+        createPoster(urlImage: selectedMovie.images.first!)
+        createBackground(urlImage: selectedMovie.images[1])
         self.nameFilm.text = selectedMovie.title
     }
     
-    func setPoster(urlImage: URL) {
+    func createPoster(urlImage: URL) {
         guard let data = try? Data(contentsOf: urlImage) else { return }
         coverImage.image = UIImage(data: data)
         coverImage.layer.cornerRadius = 10
         
     }
     
-    func setBackground(urlImage: URL) {
+    func createBackground(urlImage: URL) {
         guard let data = try? Data(contentsOf: urlImage) else { return }
         backgroundImage.image = UIImage(data: data)
     }
