@@ -44,6 +44,7 @@ class DetailsViewController: UIViewController {
         createBackground(urlImage: selectedMovie.images[1])
         self.nameFilm.text = selectedMovie.title
         self.metascore.text = "(\(selectedMovie.metascore))"
+        selectEvaluation(metascore: selectedMovie.metascore)
     }
     
     func createPoster(urlImage: URL) {
@@ -56,6 +57,17 @@ class DetailsViewController: UIViewController {
     func createBackground(urlImage: URL) {
         guard let data = try? Data(contentsOf: urlImage) else { return }
         backgroundImage.image = UIImage(data: data)
+    }
+    
+    func selectEvaluation(metascore: String) {
+        if metascore == "0" {
+            self.star1.image = UIImage(named: "star")
+            self.star2.image = UIImage(named: "star")
+            self.star3.image = UIImage(named: "star")
+            self.star4.image = UIImage(named: "star")
+            self.star5.image = UIImage(named: "star")
+            
+        }
     }
 
 }
