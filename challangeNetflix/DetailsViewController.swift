@@ -60,8 +60,16 @@ class DetailsViewController: UIViewController {
     }
     
     func selectEvaluation(metascore: String) {
-        if metascore == "0" {
+        guard let metascoreInt = Int(metascore) else { return }
+        if metascoreInt == 0 {
             self.star1.image = UIImage(named: "star")
+            self.star2.image = UIImage(named: "star")
+            self.star3.image = UIImage(named: "star")
+            self.star4.image = UIImage(named: "star")
+            self.star5.image = UIImage(named: "star")
+            
+        } else if metascoreInt > 0 && metascoreInt <= 20 {
+            self.star1.image = UIImage(named: "bright-star")
             self.star2.image = UIImage(named: "star")
             self.star3.image = UIImage(named: "star")
             self.star4.image = UIImage(named: "star")

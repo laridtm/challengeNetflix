@@ -154,13 +154,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bright-star" translatesAutoresizingMaskIntoConstraints="NO" id="c7N-8N-Q7m">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="c7N-8N-Q7m">
                                 <rect key="frame" x="43" y="343" width="16" height="15"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bright-star" translatesAutoresizingMaskIntoConstraints="NO" id="EGz-Ov-2uq">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="EGz-Ov-2uq">
                                 <rect key="frame" x="59" y="343" width="16" height="15"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bright-star" translatesAutoresizingMaskIntoConstraints="NO" id="uRh-Ak-ViR">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="uRh-Ak-ViR">
                                 <rect key="frame" x="75" y="343" width="16" height="15"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="mnH-c0-qmd">
@@ -273,7 +273,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bright-star" width="16" height="15"/>
         <image name="star" width="16" height="15"/>
     </resources>
 </document>
