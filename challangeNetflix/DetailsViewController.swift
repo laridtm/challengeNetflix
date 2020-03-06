@@ -14,6 +14,14 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var nameFilm: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var metascore: UILabel!
+    
+    @IBOutlet weak var star1: UIImageView!
+    @IBOutlet weak var star2: UIImageView!
+    @IBOutlet weak var star3: UIImageView!
+    @IBOutlet weak var star4: UIImageView!
+    @IBOutlet weak var star5: UIImageView!
+    
     
     var movie: Movie?
     
@@ -35,6 +43,7 @@ class DetailsViewController: UIViewController {
         createPoster(urlImage: selectedMovie.images.first!)
         createBackground(urlImage: selectedMovie.images[1])
         self.nameFilm.text = selectedMovie.title
+        self.metascore.text = "(\(selectedMovie.metascore))"
     }
     
     func createPoster(urlImage: URL) {

@@ -154,13 +154,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="c7N-8N-Q7m">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bright-star" translatesAutoresizingMaskIntoConstraints="NO" id="c7N-8N-Q7m">
                                 <rect key="frame" x="43" y="343" width="16" height="15"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="EGz-Ov-2uq">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bright-star" translatesAutoresizingMaskIntoConstraints="NO" id="EGz-Ov-2uq">
                                 <rect key="frame" x="59" y="343" width="16" height="15"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="uRh-Ak-ViR">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bright-star" translatesAutoresizingMaskIntoConstraints="NO" id="uRh-Ak-ViR">
                                 <rect key="frame" x="75" y="343" width="16" height="15"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="mnH-c0-qmd">
@@ -169,6 +169,12 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="MBe-oD-9Xu">
                                 <rect key="frame" x="105" y="343" width="16" height="15"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(x)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XkS-uF-D4R">
+                                <rect key="frame" x="129" y="340" width="36" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -181,13 +187,16 @@
                             <constraint firstItem="f2n-4f-5Cn" firstAttribute="trailing" secondItem="ly4-e2-TrE" secondAttribute="trailing" constant="285" id="54H-qF-mVK"/>
                             <constraint firstItem="nlm-2n-Xoa" firstAttribute="leading" secondItem="f2n-4f-5Cn" secondAttribute="leading" constant="39" id="5mK-RW-962"/>
                             <constraint firstItem="c7N-8N-Q7m" firstAttribute="top" secondItem="Pzb-cx-aPW" secondAttribute="bottom" constant="4" id="5rr-ro-Zp2"/>
+                            <constraint firstItem="nlm-2n-Xoa" firstAttribute="top" secondItem="XkS-uF-D4R" secondAttribute="bottom" constant="90" id="6T9-dt-0YZ"/>
                             <constraint firstItem="f2n-4f-5Cn" firstAttribute="trailing" secondItem="nlm-2n-Xoa" secondAttribute="trailing" constant="39" id="7Et-9T-K2h"/>
                             <constraint firstItem="nlm-2n-Xoa" firstAttribute="top" secondItem="Ke7-fw-tbG" secondAttribute="bottom" constant="11" id="8oY-Qk-AmO"/>
                             <constraint firstItem="Ke7-fw-tbG" firstAttribute="top" secondItem="uRh-Ak-ViR" secondAttribute="bottom" constant="64" id="CGX-4j-oBG"/>
+                            <constraint firstItem="XkS-uF-D4R" firstAttribute="top" secondItem="Pzb-cx-aPW" secondAttribute="bottom" constant="1" id="CeL-8e-bUn"/>
                             <constraint firstItem="MBe-oD-9Xu" firstAttribute="leading" secondItem="uRh-Ak-ViR" secondAttribute="trailing" constant="14" id="DA8-ki-ObV"/>
                             <constraint firstItem="mnH-c0-qmd" firstAttribute="top" secondItem="Pzb-cx-aPW" secondAttribute="bottom" constant="4" id="F7j-ua-SOq"/>
                             <constraint firstItem="f2n-4f-5Cn" firstAttribute="trailing" secondItem="nlm-2n-Xoa" secondAttribute="trailing" constant="39" id="FgO-nA-d2W"/>
                             <constraint firstItem="ly4-e2-TrE" firstAttribute="top" secondItem="MBe-oD-9Xu" secondAttribute="bottom" constant="64" id="Gmz-re-yto"/>
+                            <constraint firstItem="XkS-uF-D4R" firstAttribute="leading" secondItem="MBe-oD-9Xu" secondAttribute="trailing" constant="8" id="HUN-JM-e1e"/>
                             <constraint firstItem="f2n-4f-5Cn" firstAttribute="trailing" secondItem="Pzb-cx-aPW" secondAttribute="trailing" constant="43" id="ICq-gT-Orw"/>
                             <constraint firstItem="EGz-Ov-2uq" firstAttribute="leading" secondItem="c7N-8N-Q7m" secondAttribute="trailing" id="Nht-Wq-Kzu"/>
                             <constraint firstItem="ly4-e2-TrE" firstAttribute="leading" secondItem="Ke7-fw-tbG" secondAttribute="trailing" constant="15" id="PSo-fY-XeM"/>
@@ -214,6 +223,7 @@
                             <constraint firstItem="f2n-4f-5Cn" firstAttribute="trailing" secondItem="MBe-oD-9Xu" secondAttribute="trailing" constant="293" id="qSF-rd-4L6"/>
                             <constraint firstItem="c7N-8N-Q7m" firstAttribute="top" secondItem="Pzb-cx-aPW" secondAttribute="bottom" constant="4" id="tiL-tm-elu"/>
                             <constraint firstItem="f2n-4f-5Cn" firstAttribute="bottom" secondItem="nlm-2n-Xoa" secondAttribute="bottom" constant="32" id="uuS-JJ-nXG"/>
+                            <constraint firstItem="f2n-4f-5Cn" firstAttribute="trailing" secondItem="XkS-uF-D4R" secondAttribute="trailing" constant="249" id="xlK-IQ-8F6"/>
                             <constraint firstItem="Pzb-cx-aPW" firstAttribute="top" secondItem="qXC-jg-xta" secondAttribute="bottom" constant="4" id="yL8-DD-Lul"/>
                             <constraint firstItem="f2n-4f-5Cn" firstAttribute="trailing" secondItem="mnH-c0-qmd" secondAttribute="trailing" constant="307" id="yOs-xY-HcT"/>
                             <constraint firstAttribute="bottom" secondItem="6xx-1n-odV" secondAttribute="bottom" constant="447" id="ybq-UU-gyf"/>
@@ -228,7 +238,13 @@
                     <connections>
                         <outlet property="backgroundImage" destination="6xx-1n-odV" id="VH4-rq-PWO"/>
                         <outlet property="coverImage" destination="qXC-jg-xta" id="qtE-Cu-Yfh"/>
+                        <outlet property="metascore" destination="XkS-uF-D4R" id="y0w-8J-BNk"/>
                         <outlet property="nameFilm" destination="Pzb-cx-aPW" id="G1Y-nD-kVA"/>
+                        <outlet property="star1" destination="c7N-8N-Q7m" id="Ib3-04-TUq"/>
+                        <outlet property="star2" destination="EGz-Ov-2uq" id="uZE-xk-JXo"/>
+                        <outlet property="star3" destination="uRh-Ak-ViR" id="Iqq-q5-laP"/>
+                        <outlet property="star4" destination="mnH-c0-qmd" id="sgl-Fb-gvr"/>
+                        <outlet property="star5" destination="MBe-oD-9Xu" id="Kef-MZ-0Tf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fH-y1-Ltz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -257,6 +273,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bright-star" width="16" height="15"/>
         <image name="star" width="16" height="15"/>
     </resources>
 </document>
