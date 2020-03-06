@@ -14,7 +14,7 @@ class MovieCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         self.layoutIfNeeded()
-        layer.cornerRadius = 15
+        layer.cornerRadius = 10
     }
     
     func configureImage(url: URL) {

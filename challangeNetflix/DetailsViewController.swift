@@ -40,6 +40,7 @@ class DetailsViewController: UIViewController {
     func setPoster(urlImage: URL) {
         guard let data = try? Data(contentsOf: urlImage) else { return }
         coverImage.image = UIImage(data: data)
+        coverImage.layer.cornerRadius = 10
         
     }
     
