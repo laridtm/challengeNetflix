@@ -17,7 +17,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var realData: [Movie] = []
     let session = URLSession.shared
     let url = URL(string: "http://localhost:8080/response.json")!
-    
+    var movieSelected: Movie?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +41,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 print(error)
             }
         }
-        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         task.resume()
     }
     
@@ -57,6 +59,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.configureImage(url: urlImage!)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        movieSelected = movies[indexPath.row]
+        
+        performSegue(withIdentifier: "Details", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let details = segue.destination as? DetailsViewController else {
+            return
+        }
+        details.movie = movieSelected
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
