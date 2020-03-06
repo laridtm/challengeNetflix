@@ -10,7 +10,6 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
-    
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var nameFilm: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -21,7 +20,6 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var star3: UIImageView!
     @IBOutlet weak var star4: UIImageView!
     @IBOutlet weak var star5: UIImageView!
-    
     
     var movie: Movie?
     
@@ -61,40 +59,28 @@ class DetailsViewController: UIViewController {
     
     func selectEvaluation(metascore: String) {
         guard let metascoreInt = Int(metascore) else { return }
-        if metascoreInt == 0 {
-            self.star1.image = UIImage(named: "star")
-            self.star2.image = UIImage(named: "star")
-            self.star3.image = UIImage(named: "star")
-            self.star4.image = UIImage(named: "star")
-            self.star5.image = UIImage(named: "star")
-            
-        } else if metascoreInt > 0 && metascoreInt <= 20 {
-            self.star1.image = UIImage(named: "bright-star")
-            self.star2.image = UIImage(named: "star")
-            self.star3.image = UIImage(named: "star")
-            self.star4.image = UIImage(named: "star")
-            self.star5.image = UIImage(named: "star")
+        
+        if metascoreInt <= 20 {
+            if metascoreInt == 0 {
+               self.star1.image = UIImage(named: "star")
+            } else {
+               self.star1.image = UIImage(named: "bright-star")
+            }
             
         } else if metascoreInt > 20 && metascoreInt <= 40 {
             self.star1.image = UIImage(named: "bright-star")
             self.star2.image = UIImage(named: "bright-star")
-            self.star3.image = UIImage(named: "star")
-            self.star4.image = UIImage(named: "star")
-            self.star5.image = UIImage(named: "star")
             
         } else if metascoreInt > 40 && metascoreInt <= 60 {
             self.star1.image = UIImage(named: "bright-star")
             self.star2.image = UIImage(named: "bright-star")
             self.star3.image = UIImage(named: "bright-star")
-            self.star4.image = UIImage(named: "star")
-            self.star5.image = UIImage(named: "star")
             
         } else if metascoreInt > 60 && metascoreInt <= 80 {
             self.star1.image = UIImage(named: "bright-star")
             self.star2.image = UIImage(named: "bright-star")
             self.star3.image = UIImage(named: "bright-star")
             self.star4.image = UIImage(named: "bright-star")
-            self.star5.image = UIImage(named: "star")
             
         } else if metascoreInt > 80 {
             self.star1.image = UIImage(named: "bright-star")
@@ -102,8 +88,8 @@ class DetailsViewController: UIViewController {
             self.star3.image = UIImage(named: "bright-star")
             self.star4.image = UIImage(named: "bright-star")
             self.star5.image = UIImage(named: "bright-star")
-            
         }
+
     }
 
 }
