@@ -124,6 +124,7 @@ iOSInjectionProject/
 !*.xcodeproj/xcshareddata/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
+*.xcuserdata/larissa.diniz.xcuserdatad
 
 ### Xcode Patch ###
 **/xcshareddata/WorkspaceSettings.xcsettings
