@@ -18,19 +18,23 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//         self.navigationController?.navigationBar.isTranslucent = true
+        
+        mountScreen()
+        self.navigationController?.navigationBar.isTranslucent = true
     }
     
     func mountScreen() {
-        setPoster(urlImage: movie!.poster)
+        guard let selectedMovie = self.movie else {
+            return
+        }
+        setPoster(urlImage: selectedMovie.images.first!)
+        self.nameFilm.text = selectedMovie.title
     }
     
-    func setPoster(urlImage: String) {
-        if let url = URL(string: urlImage) {
-            guard let data = try? Data(contentsOf: url) else { return }
-            coverImage.image = UIImage(data: data)
-        }
+    func setPoster(urlImage: URL) {
+        guard let data = try? Data(contentsOf: urlImage) else { return }
+        coverImage.image = UIImage(data: data)
+        
     }
 
 }
