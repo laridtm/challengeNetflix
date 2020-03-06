@@ -75,6 +75,34 @@ class DetailsViewController: UIViewController {
             self.star4.image = UIImage(named: "star")
             self.star5.image = UIImage(named: "star")
             
+        } else if metascoreInt > 20 && metascoreInt <= 40 {
+            self.star1.image = UIImage(named: "bright-star")
+            self.star2.image = UIImage(named: "bright-star")
+            self.star3.image = UIImage(named: "star")
+            self.star4.image = UIImage(named: "star")
+            self.star5.image = UIImage(named: "star")
+            
+        } else if metascoreInt > 40 && metascoreInt <= 60 {
+            self.star1.image = UIImage(named: "bright-star")
+            self.star2.image = UIImage(named: "bright-star")
+            self.star3.image = UIImage(named: "bright-star")
+            self.star4.image = UIImage(named: "star")
+            self.star5.image = UIImage(named: "star")
+            
+        } else if metascoreInt > 60 && metascoreInt <= 80 {
+            self.star1.image = UIImage(named: "bright-star")
+            self.star2.image = UIImage(named: "bright-star")
+            self.star3.image = UIImage(named: "bright-star")
+            self.star4.image = UIImage(named: "bright-star")
+            self.star5.image = UIImage(named: "star")
+            
+        } else if metascoreInt > 80 {
+            self.star1.image = UIImage(named: "bright-star")
+            self.star2.image = UIImage(named: "bright-star")
+            self.star3.image = UIImage(named: "bright-star")
+            self.star4.image = UIImage(named: "bright-star")
+            self.star5.image = UIImage(named: "bright-star")
+            
         }
     }
 
