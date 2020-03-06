@@ -158,6 +158,10 @@
                                     <constraint firstAttribute="width" constant="166" id="qGv-5q-jhn"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xx-1n-odV">
+                                <rect key="frame" x="0.0" y="-90" width="414" height="448"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -172,6 +176,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="6nz-1R-eys"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="backgroundImage" destination="6xx-1n-odV" id="VH4-rq-PWO"/>
                         <outlet property="coverImage" destination="qXC-jg-xta" id="qtE-Cu-Yfh"/>
                         <outlet property="nameFilm" destination="Pzb-cx-aPW" id="G1Y-nD-kVA"/>
                     </connections>

@@ -13,6 +13,7 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var nameFilm: UILabel!
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     var movie: Movie?
     
@@ -28,6 +29,7 @@ class DetailsViewController: UIViewController {
             return
         }
         setPoster(urlImage: selectedMovie.images.first!)
+        setBackground(urlImage: selectedMovie.images[1])
         self.nameFilm.text = selectedMovie.title
     }
     
@@ -35,6 +37,11 @@ class DetailsViewController: UIViewController {
         guard let data = try? Data(contentsOf: urlImage) else { return }
         coverImage.image = UIImage(data: data)
         
+    }
+    
+    func setBackground(urlImage: URL) {
+        guard let data = try? Data(contentsOf: urlImage) else { return }
+        backgroundImage.image = UIImage(data: data)
     }
 
 }
