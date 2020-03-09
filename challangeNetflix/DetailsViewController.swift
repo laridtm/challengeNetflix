@@ -58,57 +58,51 @@ class DetailsViewController: UIViewController {
     }
     
     func selectEvaluation(metascore: String) {
-        guard let metascoreInt = Int(metascore) else { return }
+        guard let metascoreDouble = Double(metascore) else { return }
         
-        if metascoreInt <= 35 {
-            if metascoreInt == 0 {
-                self.star1.image = UIImage(named: "star")
-            } else if metascoreInt <= 15 {
-                self.star1.image = UIImage(named: "kindOfbright-star")
-            } else if metascoreInt > 15 && metascoreInt >= 20 {
-                self.star1.image = UIImage(named: "bright-star")
-            } else if metascoreInt > 20 && metascoreInt >= 35 {
-                self.star1.image = UIImage(named: "bright-star")
-                self.star2.image = UIImage(named: "kindOfbright-star")
-            }
+        var numberStars: Double = metascoreDouble/20
+        
+        if numberStars == 0 {
+            self.star1.image = UIImage(named: "star")
             
-        } else if metascoreInt > 35 && metascoreInt <= 55 {
-            if metascoreInt > 35 && metascoreInt <= 40 {
-                self.star1.image = UIImage(named: "bright-star")
-                self.star2.image = UIImage(named: "bright-star")
-            } else {
-                self.star1.image = UIImage(named: "bright-star")
-                self.star2.image = UIImage(named: "bright-star")
-                self.star3.image = UIImage(named: "kindOfbright-star")
-            }
+        } else if numberStars > 0.5 && numberStars < 1 {
+            self.star1.image = UIImage(named: "kindOfbright-star")
             
-        } else if metascoreInt > 55 && metascoreInt <= 75 {
-            if metascoreInt > 55 && metascoreInt <= 60 {
-                self.star1.image = UIImage(named: "bright-star")
-                self.star2.image = UIImage(named: "bright-star")
-                self.star3.image = UIImage(named: "bright-star")
-            } else {
-                self.star1.image = UIImage(named: "bright-star")
-                self.star2.image = UIImage(named: "bright-star")
-                self.star3.image = UIImage(named: "bright-star")
-                self.star4.image = UIImage(named: "kindOfbright-star")
-            }
-
-        } else if metascoreInt > 75 && metascoreInt <= 95 {
-            if metascoreInt > 75 && metascoreInt <= 90 {
-                self.star1.image = UIImage(named: "bright-star")
-                self.star2.image = UIImage(named: "bright-star")
-                self.star3.image = UIImage(named: "bright-star")
-                self.star4.image = UIImage(named: "bright-star")
-            } else {
-                self.star1.image = UIImage(named: "bright-star")
-                self.star2.image = UIImage(named: "bright-star")
-                self.star3.image = UIImage(named: "bright-star")
-                self.star4.image = UIImage(named: "bright-star")
-                self.star5.image = UIImage(named: "kindOfbright-star")
-            }
+        } else if numberStars >= 1 && numberStars < 1.5 {
+            self.star1.image = UIImage(named: "bright-star")
             
-        } else if metascoreInt > 95 {
+        } else if numberStars >= 1.5 && numberStars < 2 {
+            self.star1.image = UIImage(named: "bright-star")
+            self.star2.image = UIImage(named: "kindOfbright-star")
+            
+        } else if numberStars >= 2 && numberStars < 2.5 {
+            self.star1.image = UIImage(named: "bright-star")
+            self.star2.image = UIImage(named: "bright-star")
+            
+        } else if numberStars >= 2.5 && numberStars < 3 {
+            self.star1.image = UIImage(named: "bright-star")
+            self.star2.image = UIImage(named: "bright-star")
+            self.star3.image = UIImage(named: "kindOfbright-star")
+            
+        } else if numberStars >= 3 && numberStars < 3.5 {
+            self.star1.image = UIImage(named: "bright-star")
+            self.star2.image = UIImage(named: "bright-star")
+            self.star3.image = UIImage(named: "bright-star")
+            
+        } else if numberStars >= 3.5 && numberStars < 4 {
+            self.star1.image = UIImage(named: "bright-star")
+            self.star2.image = UIImage(named: "bright-star")
+            self.star3.image = UIImage(named: "bright-star")
+            self.star4.image = UIImage(named: "kindOfbright-star")
+            
+        } else if numberStars >= 4 && numberStars < 4.5 {
+            self.star1.image = UIImage(named: "bright-star")
+            self.star2.image = UIImage(named: "bright-star")
+            self.star3.image = UIImage(named: "bright-star")
+            self.star4.image = UIImage(named: "bright-star")
+            self.star5.image = UIImage(named: "kindOfbright-star")
+            
+        } else if numberStars >= 4.5 && numberStars < 5 {
             self.star1.image = UIImage(named: "bright-star")
             self.star2.image = UIImage(named: "bright-star")
             self.star3.image = UIImage(named: "bright-star")
