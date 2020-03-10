@@ -245,6 +245,7 @@
                         <outlet property="star3" destination="uRh-Ak-ViR" id="Iqq-q5-laP"/>
                         <outlet property="star4" destination="mnH-c0-qmd" id="sgl-Fb-gvr"/>
                         <outlet property="star5" destination="MBe-oD-9Xu" id="Kef-MZ-0Tf"/>
+                        <outlet property="textFilm" destination="nlm-2n-Xoa" id="Ywp-OG-xrg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fH-y1-Ltz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

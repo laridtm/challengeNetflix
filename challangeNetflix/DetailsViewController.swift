@@ -14,6 +14,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var nameFilm: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var metascore: UILabel!
+    @IBOutlet weak var textFilm: UITextView!
     
     @IBOutlet weak var star1: UIImageView!
     @IBOutlet weak var star2: UIImageView!
@@ -42,6 +43,7 @@ class DetailsViewController: UIViewController {
         createBackground(urlImage: selectedMovie.images[1])
         self.nameFilm.text = selectedMovie.title
         self.metascore.text = "(\(selectedMovie.metascore))"
+        self.textFilm.text = selectedMovie.plot
         selectEvaluation(metascore: selectedMovie.metascore)
     }
     
