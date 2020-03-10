@@ -122,7 +122,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nlm-2n-Xoa">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nlm-2n-Xoa">
                                 <rect key="frame" x="39" y="480" width="336" height="294"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -169,11 +169,17 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKX-1v-3w9" customClass="UIMinionButton" customModule="challangeNetflix">
-                                <rect key="frame" x="36" y="378" width="343" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="94m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ly4-e2-TrE">
+                                <rect key="frame" x="115" y="461" width="256" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKX-1v-3w9" customClass="UIMinionButton" customModule="challangeNetflix">
+                                <rect key="frame" x="43" y="388" width="343" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="   Watch Trailler" image="play">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -191,12 +197,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="94m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ly4-e2-TrE">
-                                <rect key="frame" x="115" y="461" width="256" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -205,12 +205,10 @@
                             <constraint firstItem="6xx-1n-odV" firstAttribute="leading" secondItem="f2n-4f-5Cn" secondAttribute="leading" id="0UR-R8-prj"/>
                             <constraint firstItem="uRh-Ak-ViR" firstAttribute="top" secondItem="Pzb-cx-aPW" secondAttribute="bottom" constant="4" id="0fe-1D-mtX"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Ke7-fw-tbG" secondAttribute="bottom" constant="295" id="15v-x9-dW8"/>
-                            <constraint firstItem="hKX-1v-3w9" firstAttribute="leading" secondItem="KZa-U2-UXN" secondAttribute="leadingMargin" constant="16" id="2QU-vY-HVe"/>
                             <constraint firstItem="c7N-8N-Q7m" firstAttribute="top" secondItem="Pzb-cx-aPW" secondAttribute="bottom" constant="4" id="5rr-ro-Zp2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hKX-1v-3w9" secondAttribute="trailing" constant="15" id="6mO-R2-EoY"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="hKX-1v-3w9" secondAttribute="bottom" constant="346" id="8BC-dg-Ygh"/>
                             <constraint firstItem="XkS-uF-D4R" firstAttribute="top" secondItem="Pzb-cx-aPW" secondAttribute="bottom" constant="1" id="CeL-8e-bUn"/>
                             <constraint firstItem="MBe-oD-9Xu" firstAttribute="leading" secondItem="uRh-Ak-ViR" secondAttribute="trailing" constant="14" id="DA8-ki-ObV"/>
+                            <constraint firstItem="hKX-1v-3w9" firstAttribute="top" secondItem="KZa-U2-UXN" secondAttribute="topMargin" constant="388" id="DB8-m3-cST"/>
                             <constraint firstItem="mnH-c0-qmd" firstAttribute="top" secondItem="Pzb-cx-aPW" secondAttribute="bottom" constant="4" id="F7j-ua-SOq"/>
                             <constraint firstItem="XkS-uF-D4R" firstAttribute="leading" secondItem="MBe-oD-9Xu" secondAttribute="trailing" constant="8" id="HUN-JM-e1e"/>
                             <constraint firstItem="f2n-4f-5Cn" firstAttribute="trailing" secondItem="Pzb-cx-aPW" secondAttribute="trailing" constant="43" id="ICq-gT-Orw"/>
@@ -230,13 +228,15 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Ke7-fw-tbG" secondAttribute="trailing" constant="287" id="h1Q-vH-fbG"/>
                             <constraint firstItem="qXC-jg-xta" firstAttribute="leading" secondItem="f2n-4f-5Cn" secondAttribute="leading" constant="108" id="hUW-1y-K17"/>
                             <constraint firstItem="EGz-Ov-2uq" firstAttribute="top" secondItem="Pzb-cx-aPW" secondAttribute="bottom" constant="4" id="jAX-xW-Ezo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hKX-1v-3w9" secondAttribute="trailing" constant="8" id="lYm-e3-dT6"/>
                             <constraint firstItem="ly4-e2-TrE" firstAttribute="top" secondItem="KZa-U2-UXN" secondAttribute="topMargin" constant="461" id="mUF-oQ-7FY"/>
                             <constraint firstItem="nlm-2n-Xoa" firstAttribute="bottom" secondItem="KZa-U2-UXN" secondAttribute="bottomMargin" id="oIB-e2-ZRD"/>
                             <constraint firstItem="6xx-1n-odV" firstAttribute="top" secondItem="KZa-U2-UXN" secondAttribute="top" constant="-90" id="q9I-rc-ruI"/>
                             <constraint firstItem="f2n-4f-5Cn" firstAttribute="trailing" secondItem="MBe-oD-9Xu" secondAttribute="trailing" constant="293" id="qSF-rd-4L6"/>
                             <constraint firstItem="c7N-8N-Q7m" firstAttribute="top" secondItem="Pzb-cx-aPW" secondAttribute="bottom" constant="4" id="tiL-tm-elu"/>
                             <constraint firstItem="nlm-2n-Xoa" firstAttribute="top" secondItem="Ke7-fw-tbG" secondAttribute="bottom" constant="1" id="u0x-lt-Wr6"/>
-                            <constraint firstItem="hKX-1v-3w9" firstAttribute="top" secondItem="KZa-U2-UXN" secondAttribute="topMargin" constant="378" id="wg8-ww-Alp"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="hKX-1v-3w9" secondAttribute="bottom" constant="338" id="wL0-pC-ash"/>
+                            <constraint firstItem="hKX-1v-3w9" firstAttribute="leading" secondItem="KZa-U2-UXN" secondAttribute="leadingMargin" constant="23" id="xif-iH-Grg"/>
                             <constraint firstItem="f2n-4f-5Cn" firstAttribute="trailing" secondItem="XkS-uF-D4R" secondAttribute="trailing" constant="249" id="xlK-IQ-8F6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ly4-e2-TrE" secondAttribute="trailing" constant="23" id="yDo-xT-rP2"/>
                             <constraint firstItem="Pzb-cx-aPW" firstAttribute="top" secondItem="qXC-jg-xta" secondAttribute="bottom" constant="4" id="yL8-DD-Lul"/>
@@ -291,6 +291,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="play" width="17" height="20"/>
         <image name="star" width="16" height="15"/>
     </resources>
 </document>
