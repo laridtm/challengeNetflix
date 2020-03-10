@@ -124,7 +124,6 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nlm-2n-Xoa">
                                 <rect key="frame" x="39" y="480" width="336" height="294"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -215,6 +214,7 @@
                             <constraint firstItem="mnH-c0-qmd" firstAttribute="top" secondItem="Pzb-cx-aPW" secondAttribute="bottom" constant="4" id="F7j-ua-SOq"/>
                             <constraint firstItem="XkS-uF-D4R" firstAttribute="leading" secondItem="MBe-oD-9Xu" secondAttribute="trailing" constant="8" id="HUN-JM-e1e"/>
                             <constraint firstItem="f2n-4f-5Cn" firstAttribute="trailing" secondItem="Pzb-cx-aPW" secondAttribute="trailing" constant="43" id="ICq-gT-Orw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nlm-2n-Xoa" secondAttribute="trailing" constant="19" id="K1q-NX-zF5"/>
                             <constraint firstItem="Ke7-fw-tbG" firstAttribute="top" secondItem="KZa-U2-UXN" secondAttribute="topMargin" constant="461" id="KD1-yl-rzZ"/>
                             <constraint firstItem="EGz-Ov-2uq" firstAttribute="leading" secondItem="c7N-8N-Q7m" secondAttribute="trailing" id="Nht-Wq-Kzu"/>
                             <constraint firstItem="c7N-8N-Q7m" firstAttribute="leading" secondItem="f2n-4f-5Cn" secondAttribute="leading" constant="43" id="Php-Si-xnF"/>
@@ -223,6 +223,7 @@
                             <constraint firstItem="qXC-jg-xta" firstAttribute="top" secondItem="KZa-U2-UXN" secondAttribute="topMargin" constant="20" id="UGU-fx-iK1"/>
                             <constraint firstAttribute="bottomMargin" secondItem="ly4-e2-TrE" secondAttribute="bottom" constant="295" id="XmU-jW-2P1"/>
                             <constraint firstItem="6xx-1n-odV" firstAttribute="trailing" secondItem="f2n-4f-5Cn" secondAttribute="trailing" id="bj0-0e-7NT"/>
+                            <constraint firstItem="nlm-2n-Xoa" firstAttribute="leading" secondItem="KZa-U2-UXN" secondAttribute="leadingMargin" constant="19" id="caa-Ni-Iwr"/>
                             <constraint firstItem="Ke7-fw-tbG" firstAttribute="leading" secondItem="KZa-U2-UXN" secondAttribute="leadingMargin" constant="23" id="dzr-Xd-SKC"/>
                             <constraint firstAttribute="bottomMargin" secondItem="qXC-jg-xta" secondAttribute="bottom" constant="468" id="e7a-pV-5H6"/>
                             <constraint firstItem="f2n-4f-5Cn" firstAttribute="trailing" secondItem="qXC-jg-xta" secondAttribute="trailing" constant="108" id="eL8-HK-UW1"/>
@@ -230,9 +231,11 @@
                             <constraint firstItem="qXC-jg-xta" firstAttribute="leading" secondItem="f2n-4f-5Cn" secondAttribute="leading" constant="108" id="hUW-1y-K17"/>
                             <constraint firstItem="EGz-Ov-2uq" firstAttribute="top" secondItem="Pzb-cx-aPW" secondAttribute="bottom" constant="4" id="jAX-xW-Ezo"/>
                             <constraint firstItem="ly4-e2-TrE" firstAttribute="top" secondItem="KZa-U2-UXN" secondAttribute="topMargin" constant="461" id="mUF-oQ-7FY"/>
+                            <constraint firstItem="nlm-2n-Xoa" firstAttribute="bottom" secondItem="KZa-U2-UXN" secondAttribute="bottomMargin" id="oIB-e2-ZRD"/>
                             <constraint firstItem="6xx-1n-odV" firstAttribute="top" secondItem="KZa-U2-UXN" secondAttribute="top" constant="-90" id="q9I-rc-ruI"/>
                             <constraint firstItem="f2n-4f-5Cn" firstAttribute="trailing" secondItem="MBe-oD-9Xu" secondAttribute="trailing" constant="293" id="qSF-rd-4L6"/>
                             <constraint firstItem="c7N-8N-Q7m" firstAttribute="top" secondItem="Pzb-cx-aPW" secondAttribute="bottom" constant="4" id="tiL-tm-elu"/>
+                            <constraint firstItem="nlm-2n-Xoa" firstAttribute="top" secondItem="Ke7-fw-tbG" secondAttribute="bottom" constant="1" id="u0x-lt-Wr6"/>
                             <constraint firstItem="hKX-1v-3w9" firstAttribute="top" secondItem="KZa-U2-UXN" secondAttribute="topMargin" constant="378" id="wg8-ww-Alp"/>
                             <constraint firstItem="f2n-4f-5Cn" firstAttribute="trailing" secondItem="XkS-uF-D4R" secondAttribute="trailing" constant="249" id="xlK-IQ-8F6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ly4-e2-TrE" secondAttribute="trailing" constant="23" id="yDo-xT-rP2"/>
