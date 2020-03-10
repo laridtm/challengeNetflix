@@ -17,6 +17,9 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var textFilm: UITextView!
     @IBOutlet weak var yearFilm: UILabel!
     @IBOutlet weak var timeFilm: UILabel!
+    @IBOutlet weak var resolution4k: UIImageView!
+    @IBOutlet weak var resolutionHDR: UIImageView!
+    @IBOutlet weak var traillerButton: UIMinionButton!
     
     @IBOutlet weak var star1: UIImageView!
     @IBOutlet weak var star2: UIImageView!
