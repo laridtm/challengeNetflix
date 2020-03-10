@@ -10,10 +10,16 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
-    
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var nameFilm: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var metascore: UILabel!
+    
+    @IBOutlet weak var star1: UIImageView!
+    @IBOutlet weak var star2: UIImageView!
+    @IBOutlet weak var star3: UIImageView!
+    @IBOutlet weak var star4: UIImageView!
+    @IBOutlet weak var star5: UIImageView!
     
     var movie: Movie?
     
@@ -35,6 +41,8 @@ class DetailsViewController: UIViewController {
         createPoster(urlImage: selectedMovie.images.first!)
         createBackground(urlImage: selectedMovie.images[1])
         self.nameFilm.text = selectedMovie.title
+        self.metascore.text = "(\(selectedMovie.metascore))"
+        selectEvaluation(metascore: selectedMovie.metascore)
     }
     
     func createPoster(urlImage: URL) {
@@ -47,6 +55,25 @@ class DetailsViewController: UIViewController {
     func createBackground(urlImage: URL) {
         guard let data = try? Data(contentsOf: urlImage) else { return }
         backgroundImage.image = UIImage(data: data)
+    }
+    
+    func selectEvaluation(metascore: String) {
+        guard var metascoreDouble = Double(metascore) else { return }
+        
+        let images = [star1, star2, star3, star4, star5]
+        var i = 1
+
+        while i <= 5 {
+            
+            if metascoreDouble / 20 >= 1 {
+                images[i - 1]?.image = UIImage(named: "bright-star")
+            } else if metascoreDouble / 20 >= 0.5 {
+                images[i - 1]?.image = UIImage(named: "kindOfbright-star")
+            }
+            
+            metascoreDouble -= 20
+                i += 1
+        }
     }
 
 }
