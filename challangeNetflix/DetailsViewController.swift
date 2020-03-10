@@ -52,6 +52,7 @@ class DetailsViewController: UIViewController {
         self.yearFilm.text = selectedMovie.year
         self.timeFilm.text = selectedMovie.runtime
         selectEvaluation(metascore: selectedMovie.metascore)
+        resolution(k: selectedMovie.resolution, HDR: selectedMovie.hdr)
     }
     
     func createPoster(urlImage: URL) {
@@ -82,6 +83,15 @@ class DetailsViewController: UIViewController {
             
             metascoreDouble -= 20
                 i += 1
+        }
+    }
+    
+    func resolution(k: Bool, HDR: Bool) {
+        if k {
+            resolution4k.image = UIImage(named: "4K")
+        }
+        if HDR {
+            resolutionHDR.image = UIImage(named: "hdr")
         }
     }
 
