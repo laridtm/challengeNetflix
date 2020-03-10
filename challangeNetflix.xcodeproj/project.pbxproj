@@ -17,6 +17,7 @@
 		152C9B2E23FECD5300B970BD /* challangeNetflixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C9B2D23FECD5300B970BD /* challangeNetflixTests.swift */; };
 		152C9B3923FECD5300B970BD /* challangeNetflixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C9B3823FECD5300B970BD /* challangeNetflixUITests.swift */; };
 		155EAB3424104027001A42A6 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155EAB3324104027001A42A6 /* DetailsViewController.swift */; };
+		155EAB362417F944001A42A6 /* UIMinionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155EAB352417F944001A42A6 /* UIMinionButton.swift */; };
 		156A991D2406CF5500ADF085 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A991C2406CF5500ADF085 /* MovieCell.swift */; };
 		156A991F2408304100ADF085 /* SearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A991E2408304100ADF085 /* SearchCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		152C9B3823FECD5300B970BD /* challangeNetflixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challangeNetflixUITests.swift; sourceTree = "<group>"; };
 		152C9B3A23FECD5300B970BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		155EAB3324104027001A42A6 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		155EAB352417F944001A42A6 /* UIMinionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMinionButton.swift; sourceTree = "<group>"; };
 		156A991C2406CF5500ADF085 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		156A991E2408304100ADF085 /* SearchCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +116,7 @@
 				15169B37240EEF2D00568CCB /* Movie.swift */,
 				156A991E2408304100ADF085 /* SearchCollectionReusableView.swift */,
 				155EAB3324104027001A42A6 /* DetailsViewController.swift */,
+				155EAB352417F944001A42A6 /* UIMinionButton.swift */,
 				152C9B1C23FECD5000B970BD /* Main.storyboard */,
 				152C9B1F23FECD5200B970BD /* Assets.xcassets */,
 				152C9B2123FECD5200B970BD /* LaunchScreen.storyboard */,
@@ -274,6 +277,7 @@
 				152C9B1B23FECD5000B970BD /* ViewController.swift in Sources */,
 				156A991F2408304100ADF085 /* SearchCollectionReusableView.swift in Sources */,
 				15169B38240EEF2D00568CCB /* Movie.swift in Sources */,
+				155EAB362417F944001A42A6 /* UIMinionButton.swift in Sources */,
 				152C9B1723FECD5000B970BD /* AppDelegate.swift in Sources */,
 				155EAB3424104027001A42A6 /* DetailsViewController.swift in Sources */,
 				156A991D2406CF5500ADF085 /* MovieCell.swift in Sources */,
