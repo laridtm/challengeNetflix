@@ -13,12 +13,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBAction func searchButton(_ sender: Any) {
-        
-//        self.searchBar.toShowSearch()
-        
-//        self.searchDisplayController?.searchBar.isHidden = false;
-//        self.searchDisplayController?.displaysSearchBarInNavigationBar = true;
-//        self.searchDisplayController?.searchBar.showsCancelButton = true;
+        toShowSearchView()
     }
     
     let decoder = JSONDecoder()
@@ -29,8 +24,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var movieSelected: Movie?
     
     var searchView = UICollectionReusableView()
-    
-    var searchBar = SearchCollectionReusableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,6 +92,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func toHideSearchView() {
         searchView.isHidden = true
+    }
+    
+    func toShowSearchView() {
+        searchView.isHidden = false
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
