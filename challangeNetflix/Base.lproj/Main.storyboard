@@ -262,11 +262,12 @@
                         <viewLayoutGuide key="safeArea" id="f2n-4f-5Cn"/>
                     </view>
                     <navigationItem key="navigationItem" id="lkR-FF-I1m">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="6nz-1R-eys"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Captura de Tela 2020-03-05 às 13" width="16" style="plain" id="wmt-IZ-4uy"/>
                     </navigationItem>
                     <connections>
                         <outlet property="backgroundImage" destination="6xx-1n-odV" id="VH4-rq-PWO"/>
                         <outlet property="coverImage" destination="qXC-jg-xta" id="qtE-Cu-Yfh"/>
+                        <outlet property="markButton" destination="wmt-IZ-4uy" id="emM-Tz-uCz"/>
                         <outlet property="metascore" destination="XkS-uF-D4R" id="y0w-8J-BNk"/>
                         <outlet property="nameFilm" destination="Pzb-cx-aPW" id="G1Y-nD-kVA"/>
                         <outlet property="resolution4k" destination="6i4-6I-sUf" id="3LY-Wd-yxc"/>
@@ -308,6 +309,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Captura de Tela 2020-03-05 às 13" width="15.5" height="17"/>
         <image name="play" width="17" height="20"/>
         <image name="star" width="16" height="15"/>
     </resources>
