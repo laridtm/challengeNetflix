@@ -12,12 +12,25 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBAction func searchButton(_ sender: Any) {
+        
+//        self.searchBar.toShowSearch()
+        
+//        self.searchDisplayController?.searchBar.isHidden = false;
+//        self.searchDisplayController?.displaysSearchBarInNavigationBar = true;
+//        self.searchDisplayController?.searchBar.showsCancelButton = true;
+    }
+    
     let decoder = JSONDecoder()
     var movies: [Movie] = []
     var realData: [Movie] = []
     let session = URLSession.shared
     let url = URL(string: "http://localhost:8080/response.json")!
     var movieSelected: Movie?
+    
+    var searchView = UICollectionReusableView()
+    
+    var searchBar = SearchCollectionReusableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,8 +89,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let searchView: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
+        searchView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
+        
+        toHideSearchView()
+        
         return searchView
+        
+    }
+    
+    func toHideSearchView() {
+        searchView.isHidden = true
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
