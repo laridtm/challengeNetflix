@@ -12,11 +12,4 @@ class SearchCollectionReusableView: UICollectionReusableView {
   
     @IBOutlet weak var searchBar: UISearchBar!
     
-//    public func toHideSearch() {
-//        searchBar.isHidden = true
-//    }
-//
-//    public func toShowSearch() {
-//        searchBar.isHidden = false
-//    }
 }
