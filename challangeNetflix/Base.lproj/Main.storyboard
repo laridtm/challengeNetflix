@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yfk-lW-wEY">
-                                <rect key="frame" x="0.0" y="16" width="414" height="758"/>
+                                <rect key="frame" x="0.0" y="-56" width="414" height="830"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="20" minimumInteritemSpacing="10" id="AO3-dm-j9S">
                                     <size key="itemSize" width="170" height="240"/>
@@ -55,7 +55,7 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CollectionViewHeader" id="yOB-ky-GUW" customClass="SearchCollectionReusableView" customModule="challangeNetflix" customModuleProvider="target">
+                                <collectionReusableView key="sectionHeaderView" hidden="YES" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CollectionViewHeader" id="yOB-ky-GUW" customClass="SearchCollectionReusableView" customModule="challangeNetflix" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -74,8 +74,8 @@
                                             </connections>
                                         </searchBar>
                                     </subviews>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <connections>
                                         <outlet property="searchBar" destination="YnS-kH-zxP" id="weL-b7-UvB"/>
                                     </connections>
@@ -92,10 +92,10 @@
                             <accessibilityTraits key="traits" header="YES"/>
                         </accessibility>
                         <constraints>
-                            <constraint firstItem="Yfk-lW-wEY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="I9R-oP-IdI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yfk-lW-wEY" secondAttribute="trailing" id="W6u-jy-42t"/>
                             <constraint firstItem="Yfk-lW-wEY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ccD-MH-Ecn"/>
                             <constraint firstItem="Yfk-lW-wEY" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jtm-Jp-jyi"/>
+                            <constraint firstItem="Yfk-lW-wEY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-56" id="rh6-RI-yaM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -110,6 +110,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Yfk-lW-wEY" id="9uN-Ko-z0f"/>
+                        <outlet property="constraintTopCollectionView" destination="rh6-RI-yaM" id="dGL-fk-4bh"/>
                         <segue destination="JyC-Cz-tj5" kind="show" identifier="Details" id="Fw8-bw-1e9"/>
                     </connections>
                 </viewController>

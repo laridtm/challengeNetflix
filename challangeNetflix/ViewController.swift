@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var constraintTopCollectionView: NSLayoutConstraint!
     
     @IBAction func searchButton(_ sender: Any) {
         toShowSearchView()
@@ -95,7 +96,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func toShowSearchView() {
-        searchView.isHidden = false
+        if searchView.isHidden {
+            UIView.animate(withDuration: 3.0) {
+                self.constraintTopCollectionView.constant = 0
+                self.searchView.isHidden = false
+            }
+        } else if searchView.isHidden == false {
+            UIView.animate(withDuration: 3.0) {
+                self.constraintTopCollectionView.constant = -56
+                self.searchView.isHidden = true
+            }
+        }
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
