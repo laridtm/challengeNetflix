@@ -14,7 +14,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var constraintTopCollectionView: NSLayoutConstraint!
     
     @IBAction func searchButton(_ sender: Any) {
-        ShowSearchView()
+        showSearchView()
     }
     
     let decoder = JSONDecoder()
@@ -85,17 +85,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         searchView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
         
-        HideSearchView()
+        hideSearchView()
         
         return searchView
         
     }
     
-    func HideSearchView() {
+    func hideSearchView() {
         searchView.isHidden = true
     }
     
-    func ShowSearchView() {
+    func showSearchView() {
         if searchView.isHidden {
             UIView.animate(withDuration: 3.0) {
                 self.constraintTopCollectionView.constant = 0
