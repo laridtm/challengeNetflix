@@ -11,6 +11,11 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var constraintTopCollectionView: NSLayoutConstraint!
+    
+    @IBAction func searchButton(_ sender: Any) {
+        showSearchView()
+    }
     
     let decoder = JSONDecoder()
     var movies: [Movie] = []
@@ -18,6 +23,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     let session = URLSession.shared
     let url = URL(string: "http://localhost:8080/response.json")!
     var movieSelected: Movie?
+    
+    var searchView = UICollectionReusableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,8 +83,30 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let searchView: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
+        searchView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
+        
+        hideSearchView()
+        
         return searchView
+        
+    }
+    
+    func hideSearchView() {
+        searchView.isHidden = true
+    }
+    
+    func showSearchView() {
+        if searchView.isHidden {
+            UIView.animate(withDuration: 3.0) {
+                self.constraintTopCollectionView.constant = 0
+                self.searchView.isHidden = false
+            }
+        } else if searchView.isHidden == false {
+            UIView.animate(withDuration: 3.0) {
+                self.constraintTopCollectionView.constant = -56
+                self.searchView.isHidden = true
+            }
+        }
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
