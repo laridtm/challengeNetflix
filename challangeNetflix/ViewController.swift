@@ -61,9 +61,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
-        let urlImage: URL? = movies[indexPath.row].images[2]
+        guard let urlImage: URL = movies[indexPath.row].images[2] else {
+            print(Error.self)
+            return UICollectionViewCell()
+        }
         
-        cell.configureImage(url: urlImage!)
+        cell.configureImage(url: urlImage)
         
         return cell
     }
