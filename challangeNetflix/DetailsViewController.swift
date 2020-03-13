@@ -29,7 +29,10 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func favButton(_ sender: Any) {
-        favorites?.append(movie!)
+        guard let selectedMovieFavorite = self.movie else {
+            return
+        }
+        favorites?.append(selectedMovieFavorite)
         print(favorites)
     }
     
