@@ -269,12 +269,15 @@
                         <viewLayoutGuide key="safeArea" id="f2n-4f-5Cn"/>
                     </view>
                     <navigationItem key="navigationItem" id="lkR-FF-I1m">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="Captura de Tela 2020-03-05 às 13" width="16" style="plain" id="wmt-IZ-4uy"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Captura de Tela 2020-03-05 às 13" width="16" style="plain" id="wmt-IZ-4uy">
+                            <connections>
+                                <action selector="favButton:" destination="JyC-Cz-tj5" id="1II-V2-Lfh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="backgroundImage" destination="6xx-1n-odV" id="VH4-rq-PWO"/>
                         <outlet property="coverImage" destination="qXC-jg-xta" id="qtE-Cu-Yfh"/>
-                        <outlet property="markButton" destination="wmt-IZ-4uy" id="emM-Tz-uCz"/>
                         <outlet property="metascore" destination="XkS-uF-D4R" id="y0w-8J-BNk"/>
                         <outlet property="nameFilm" destination="Pzb-cx-aPW" id="G1Y-nD-kVA"/>
                         <outlet property="resolution4k" destination="6i4-6I-sUf" id="3LY-Wd-yxc"/>

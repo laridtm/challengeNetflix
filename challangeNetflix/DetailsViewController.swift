@@ -19,7 +19,6 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var timeFilm: UILabel!
     @IBOutlet weak var resolution4k: UIImageView!
     @IBOutlet weak var resolutionHDR: UIImageView!
-    @IBOutlet weak var markButton: UIBarButtonItem!
     
     @IBAction func traillerButton(_ sender: UIMinionButton) {
         
@@ -29,6 +28,11 @@ class DetailsViewController: UIViewController {
         UIApplication.shared.open(trailerUrl)
     }
     
+    @IBAction func favButton(_ sender: Any) {
+        favorites?.append(movie!)
+        print(favorites)
+    }
+    
     @IBOutlet weak var star1: UIImageView!
     @IBOutlet weak var star2: UIImageView!
     @IBOutlet weak var star3: UIImageView!
@@ -36,6 +40,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var star5: UIImageView!
     
     var movie: Movie?
+    var favorites: [Movie]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
