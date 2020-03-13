@@ -19,8 +19,15 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var timeFilm: UILabel!
     @IBOutlet weak var resolution4k: UIImageView!
     @IBOutlet weak var resolutionHDR: UIImageView!
-    @IBOutlet weak var traillerButton: UIMinionButton!
     @IBOutlet weak var markButton: UIBarButtonItem!
+    
+    @IBAction func traillerButton(_ sender: UIMinionButton) {
+        
+        guard let trailerUrl =  movie?.trailer else {
+            return
+        }
+        UIApplication.shared.open(trailerUrl)
+    }
     
     @IBOutlet weak var star1: UIImageView!
     @IBOutlet weak var star2: UIImageView!

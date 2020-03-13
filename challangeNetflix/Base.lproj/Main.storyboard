@@ -194,6 +194,9 @@
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="traillerButton:" destination="JyC-Cz-tj5" eventType="touchUpInside" id="zRu-vt-qP1"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="94m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ly4-e2-TrE">
                                 <rect key="frame" x="115" y="461" width="256" height="18"/>
@@ -283,7 +286,6 @@
                         <outlet property="star5" destination="MBe-oD-9Xu" id="Kef-MZ-0Tf"/>
                         <outlet property="textFilm" destination="nlm-2n-Xoa" id="Ywp-OG-xrg"/>
                         <outlet property="timeFilm" destination="ly4-e2-TrE" id="1kr-tu-SiQ"/>
-                        <outlet property="traillerButton" destination="hKX-1v-3w9" id="KIL-kd-WrS"/>
                         <outlet property="yearFilm" destination="Ke7-fw-tbG" id="ET8-h1-v2w"/>
                     </connections>
                 </viewController>
