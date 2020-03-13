@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import AVFoundation
-import AVKit
+//import AVFoundation
+//import AVKit
 
 class DetailsViewController: UIViewController {
 
@@ -23,9 +23,11 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var resolutionHDR: UIImageView!
     @IBOutlet weak var markButton: UIBarButtonItem!
     
-    @IBAction func traillerButton(_ sender: UIMinionButton) {
-        
-    }
+//    @IBAction func traillerButton(_ sender: UIMinionButton) {
+//
+//        self.present(self.avPlayerViewController, animated: true) { () -> Void in self.avPlayerViewController.player?.play()
+//        }
+//    }
     
     @IBOutlet weak var star1: UIImageView!
     @IBOutlet weak var star2: UIImageView!
@@ -35,8 +37,8 @@ class DetailsViewController: UIViewController {
     
     var movie: Movie?
     
-    let avPlayerViewController = AVPlayerViewController()
-    var avPlayer: AVPlayer?
+//    let avPlayerViewController = AVPlayerViewController()
+//    var avPlayer: AVPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,18 +106,18 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    func playTrailer() {
-        
-        guard let trailerUrl: URL? = movie?.trailer else {
-            print(Error.self)
-            return
-        }
-        
-        if let url = trailerUrl {
-            
-            self.avPlayer = AVPlayer(url: url)
-            self.avPlayerViewController.player = self.avPlayer
-        }
-    }
+//    func playTrailer() {
+//
+//        guard let trailerUrl: URL? = movie?.trailer else {
+//            print(Error.self)
+//            return
+//        }
+//
+//        if let url = trailerUrl {
+//
+//            self.avPlayer = AVPlayer(url: url)
+//            self.avPlayerViewController.player = self.avPlayer
+//        }
+//    }
 
 }

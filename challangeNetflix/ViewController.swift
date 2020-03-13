@@ -7,8 +7,6 @@
 //
 
 import UIKit
-//import AVFoundation
-//import AVKit
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
@@ -27,9 +25,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var movieSelected: Movie?
     
     var searchView = UICollectionReusableView()
-    
-//    let avPlayerViewController = AVPlayerViewController()
-//    var avPlayer: AVPlayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,20 +127,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
         self.collectionView.reloadData()
     }
-    
-//    func playTrailer(indexPath: IndexPath) {
-//        
-//        guard let trailerUrl: URL? = movies[indexPath.row].trailer else {
-//            print(Error.self)
-//            return
-//        }
-//        
-//        if let url = trailerUrl {
-//            
-//            self.avPlayer = AVPlayer(url: url)
-//            self.avPlayerViewController.player = self.avPlayer
-//        }
-//    }
 
 }
 
