@@ -269,7 +269,7 @@
                         <viewLayoutGuide key="safeArea" id="f2n-4f-5Cn"/>
                     </view>
                     <navigationItem key="navigationItem" id="lkR-FF-I1m">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="Captura de Tela 2020-03-05 às 13" width="16" style="plain" id="wmt-IZ-4uy"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Captura de Tela 2020-03-05 às 13" width="16" style="plain" id="wmt-IZ-4uy"/>
                     </navigationItem>
                     <connections>
                         <outlet property="backgroundImage" destination="6xx-1n-odV" id="VH4-rq-PWO"/>
@@ -315,7 +315,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Captura de Tela 2020-03-05 às 13" width="15.5" height="17"/>
+        <image name="Captura de Tela 2020-03-05 às 13" width="15.5" height="17"/>
         <image name="play" width="17" height="20"/>
         <image name="star" width="16" height="15"/>
     </resources>
