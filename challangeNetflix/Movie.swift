@@ -27,13 +27,14 @@ struct Movie: Codable {
     let metascore: String
     let resolution: Bool
     let hdr: Bool
+    let trailer: URL
     let images: [URL]
     
     enum CodingKeys: String, CodingKey {
         case title, year, rated, released, runtime, genre, director, writer,
         actors, plot, language, country, awards, poster, metascore
         case resolution = "4k"
-        case hdr, images
+        case hdr, trailer, images
         
     }
     
@@ -56,6 +57,7 @@ struct Movie: Codable {
         metascore = try values.decode(String.self, forKey: .metascore)
         resolution = try values.decode(Bool.self, forKey: .resolution)
         hdr = try values.decode(Bool.self, forKey: .hdr)
+        trailer = try values.decode(URL.self, forKey: .trailer)
         images = try values.decode([URL].self, forKey: .images)
     }
 
