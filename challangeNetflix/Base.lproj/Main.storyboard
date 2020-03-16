@@ -69,6 +69,11 @@
                                                 <string>Title</string>
                                                 <string>Title</string>
                                             </scopeButtonTitles>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="searchField.textColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <outlet property="delegate" destination="BYZ-38-t0r" id="bGT-oo-8wB"/>
                                             </connections>
