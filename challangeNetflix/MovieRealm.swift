@@ -15,6 +15,7 @@ class MovieRealm: Object {
     @objc dynamic var year = ""
     @objc dynamic var rated = ""
     @objc dynamic var released = ""
+    @objc dynamic var runtime = ""
     @objc dynamic var genre = ""
     @objc dynamic var director = ""
     @objc dynamic var writer = ""

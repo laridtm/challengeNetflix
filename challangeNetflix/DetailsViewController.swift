@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DetailsViewController: UIViewController {
 
@@ -109,6 +110,32 @@ class DetailsViewController: UIViewController {
         if HDR {
             resolutionHDR.image = UIImage(named: "hdr")
         }
+    }
+    
+    func createRealm() {
+        
+        let movieRealm = MovieRealm()
+        
+        movieRealm.title = self.movie!.title
+        movieRealm.year = self.movie!.year
+        movieRealm.runtime = self.movie!.runtime
+        movieRealm.metascore = self.movie!.metascore
+        movieRealm.resolution = self.movie!.resolution
+        movieRealm.hdr = self.movie!.hdr
+//        movieRealm.trailer = self.movie!.trailer
+//        movieRealm.images = self.movie!.images
+        
+        do {
+            let realm = try Realm()
+            
+            try realm.write {
+                realm.add(movieRealm)
+            }
+            
+        } catch let error as NSError {
+            print(error)
+        }
+        
     }
 
 }
