@@ -108,7 +108,6 @@
 			children = (
 				152C9B1523FECD5000B970BD /* challangeNetflix */,
 				152C9B2C23FECD5300B970BD /* challangeNetflixTests */,
-				152C9B3723FECD5300B970BD /* challangeNetflixUITests */,
 				152C9B1423FECD5000B970BD /* Products */,
 				3EB7FD7815FDD7660E79167F /* Pods */,
 				6FED058B69D1F511F51024A6 /* Frameworks */,
@@ -179,6 +178,7 @@
 		6FED058B69D1F511F51024A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				152C9B3723FECD5300B970BD /* challangeNetflixUITests */,
 				0844A08E235F6B1791C5B52D /* Pods_challangeNetflix.framework */,
 				B2E174DA42823DAA1BF84DA3 /* Pods_challangeNetflix_challangeNetflixUITests.framework */,
 				77203C35350DBABA1352518F /* Pods_challangeNetflixTests.framework */,
