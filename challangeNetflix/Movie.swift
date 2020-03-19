@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Movie: Codable {
-
+class Movie: Codable {
+    
     let title: String
     let year: String
     let rated: String
@@ -38,7 +39,7 @@ struct Movie: Codable {
         
     }
     
-    init(from Decoder: Decoder) throws {
+    required init(from Decoder: Decoder) throws {
         let values = try Decoder.container(keyedBy: CodingKeys.self)
         title = try values.decode(String.self, forKey: .title)
         year = try values.decode(String.self, forKey: .year)
