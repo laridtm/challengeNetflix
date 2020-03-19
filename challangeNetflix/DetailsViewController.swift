@@ -20,6 +20,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var timeFilm: UILabel!
     @IBOutlet weak var resolution4k: UIImageView!
     @IBOutlet weak var resolutionHDR: UIImageView!
+    @IBOutlet weak var markButton: UIBarButtonItem!
     
     @IBAction func traillerButton(_ sender: UIMinionButton) {
         
@@ -33,8 +34,9 @@ class DetailsViewController: UIViewController {
         guard let selectedMovieFavorite = self.movie else {
             return
         }
-        favorites?.append(selectedMovieFavorite)
-        print(favorites)
+        createRealm()
+        
+        checkFavButton()
     }
     
     @IBOutlet weak var star1: UIImageView!
@@ -44,14 +46,11 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var star5: UIImageView!
     
     var movie: Movie?
-    var favorites: [Movie]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         createScreen()
-        
-        createRealm()
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -111,6 +110,15 @@ class DetailsViewController: UIViewController {
         }
         if HDR {
             resolutionHDR.image = UIImage(named: "hdr")
+        }
+    }
+    
+    func checkFavButton() {
+        
+        if markButton == UIImage(contentsOfFile: "mark") {
+            markButton.image = UIImage(contentsOfFile: "marked")
+        } else {
+            markButton.image = UIImage(contentsOfFile: "mark")
         }
     }
     
