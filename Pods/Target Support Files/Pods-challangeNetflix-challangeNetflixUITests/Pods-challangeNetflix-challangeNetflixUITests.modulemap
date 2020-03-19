@@ -1,6 +1,0 @@
-framework module Pods_challangeNetflix_challangeNetflixUITests {
-  umbrella header "Pods-challangeNetflix-challangeNetflixUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
