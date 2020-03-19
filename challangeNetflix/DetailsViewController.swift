@@ -116,9 +116,9 @@ class DetailsViewController: UIViewController {
     func checkFavButton() {
         
         if markButton == UIImage(contentsOfFile: "mark") {
-            markButton.image = UIImage(contentsOfFile: "marked")
+            markButton.image = UIImage(named: "marked")
         } else {
-            markButton.image = UIImage(contentsOfFile: "mark")
+            markButton.image = UIImage(named: "mark")
         }
     }
     
