@@ -34,9 +34,16 @@ class DetailsViewController: UIViewController {
         guard let selectedMovieFavorite = self.movie else {
             return
         }
-        createRealm()
         
         var isFavorite = favExist(title: selectedMovieFavorite.title)
+        
+        if isFavorite {
+            //deleta do banco
+            isFavorite = false
+        } else {
+            createRealm()
+            isFavorite = true
+        }
         
         toggleFavButton(isFavorite: isFavorite)
     }
