@@ -38,7 +38,7 @@ class DetailsViewController: UIViewController {
         var isFavorite = favExist(title: selectedMovieFavorite.title)
         
         if isFavorite {
-            //deleta do banco
+            deleteRealm(title: selectedMovieFavorite.title)
             isFavorite = false
         } else {
             createRealm()
@@ -152,6 +152,17 @@ class DetailsViewController: UIViewController {
             return true
         } else {
             return false
+        }
+    }
+    
+    func deleteRealm(title: String) {
+        
+        let realm = try! Realm()
+        
+        let objects = realm.objects(MovieRealm.self).filter("title = \"\(title)\"")
+
+        try! realm.write {
+            realm.delete(objects)
         }
     }
 
