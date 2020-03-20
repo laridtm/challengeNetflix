@@ -30,13 +30,15 @@ class DetailsViewController: UIViewController {
         UIApplication.shared.open(trailerUrl)
     }
     
-    @IBAction func favButton(_ sender: Any) {
+    @IBAction func favButton(_ sender: UIBarButtonItem) {
         guard let selectedMovieFavorite = self.movie else {
             return
         }
         createRealm()
         
-        checkFavButton()
+        var isFavorite = favExist(title: selectedMovieFavorite.title)
+        
+        toggleFavButton(isFavorite: isFavorite)
     }
     
     @IBOutlet weak var star1: UIImageView!
@@ -47,8 +49,17 @@ class DetailsViewController: UIViewController {
     
     var movie: Movie?
     
+    var realm: Realm?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        do {
+            realm = try Realm()
+            
+        } catch let error as NSError {
+            print(error)
+        }
         
         createScreen()
         
@@ -113,15 +124,30 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    func checkFavButton() {
-        
-        if markButton == UIImage(contentsOfFile: "mark") {
+    func toggleFavButton(isFavorite: Bool) {
+
+        if isFavorite {
             markButton.image = UIImage(named: "marked")
         } else {
             markButton.image = UIImage(named: "mark")
         }
+
+
     }
     
+    func favExist (title: String) -> Bool {
+        
+        let realm = try! Realm()
+        
+        let objects = realm.objects(MovieRealm.self).filter("title = \"\(title)\"")
+
+        if objects.count > 0 {
+            return true
+        } else {
+            return false
+        }
+    }
+
     func createRealm() {
         
         let movieRealm = MovieRealm()
@@ -134,17 +160,16 @@ class DetailsViewController: UIViewController {
         movieRealm.hdr = self.movie!.hdr
 //        movieRealm.trailer = self.movie!.trailer
 //        movieRealm.images = self.movie!.images
-        
+           
         do {
-            let realm = try Realm()
-            
-            try realm.write {
-                realm.add(movieRealm)
+            try realm?.write {
+                realm?.add(movieRealm)
             }
-            
         } catch let error as NSError {
             print(error)
         }
+        
+       
         
     }
 
