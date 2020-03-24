@@ -38,7 +38,7 @@ class DetailsViewController: UIViewController {
         var isFavorite = favExist(title: selectedMovieFavorite.title)
         
         if isFavorite {
-            deleteRealm(title: selectedMovieFavorite.title)
+            deleteFavFilm(title: selectedMovieFavorite.title)
             isFavorite = false
         } else {
             createRealm()
@@ -158,7 +158,7 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    func deleteRealm(title: String) {
+    func deleteFavFilm(title: String) {
         
         let realm = try! Realm()
         
