@@ -182,8 +182,6 @@ class DetailsViewController: UIViewController {
         movieRealm.metascore = selectedMovie.metascore
         movieRealm.resolution = selectedMovie.resolution
         movieRealm.hdr = selectedMovie.hdr
-//        movieRealm.trailer = self.movie!.trailer
-//        movieRealm.images = self.movie!.images
            
         do {
             try realm?.write {
