@@ -41,7 +41,7 @@ class DetailsViewController: UIViewController {
             deleteFavFilm(title: selectedMovieFavorite.title)
             isFavorite = false
         } else {
-            createRealm()
+            addFavFilm()
             isFavorite = true
         }
         
@@ -169,7 +169,7 @@ class DetailsViewController: UIViewController {
         }
     }
 
-    func createRealm() {
+    func addFavFilm() {
         
         let movieRealm = MovieRealm()
         
