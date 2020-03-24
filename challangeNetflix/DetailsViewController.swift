@@ -173,12 +173,15 @@ class DetailsViewController: UIViewController {
         
         let movieRealm = MovieRealm()
         
-        movieRealm.title = self.movie!.title
-        movieRealm.year = self.movie!.year
-        movieRealm.runtime = self.movie!.runtime
-        movieRealm.metascore = self.movie!.metascore
-        movieRealm.resolution = self.movie!.resolution
-        movieRealm.hdr = self.movie!.hdr
+        guard let selectedMovie = self.movie else {
+            return
+        }
+        movieRealm.title = selectedMovie.title
+        movieRealm.year = selectedMovie.year
+        movieRealm.runtime = selectedMovie.runtime
+        movieRealm.metascore = selectedMovie.metascore
+        movieRealm.resolution = selectedMovie.resolution
+        movieRealm.hdr = selectedMovie.hdr
 //        movieRealm.trailer = self.movie!.trailer
 //        movieRealm.images = self.movie!.images
            
