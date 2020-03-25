@@ -56,17 +56,8 @@ class DetailsViewController: UIViewController {
     
     var movie: Movie?
     
-    var realm: Realm?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        do {
-            realm = try Realm()
-            
-        } catch let error as NSError {
-            print(error)
-        }
         
         createScreen()
         
@@ -75,7 +66,7 @@ class DetailsViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
         
-        var isFavorite = favExist(title: movie!.title)
+        let isFavorite = favExist(title: movie!.title)
         toggleFavButton(isFavorite: isFavorite)
     }
     
@@ -136,37 +127,49 @@ class DetailsViewController: UIViewController {
     
     func toggleFavButton(isFavorite: Bool) {
 
-        if isFavorite {
-            markButton.image = UIImage(named: "marked")
-        } else {
-            markButton.image = UIImage(named: "mark")
-        }
+        markButton.image = UIImage(named: isFavorite ? "marked" : "mark")
 
 
     }
     
     func favExist (title: String) -> Bool {
         
-        let realm = try! Realm()
-        
-        let objects = realm.objects(MovieRealm.self).filter("title = \"\(title)\"")
-
-        if objects.count > 0 {
-            return true
-        } else {
-            return false
+        do {
+            
+            let realm = try Realm()
+            
+            let objects = realm.objects(MovieRealm.self).filter("title = \"\(title)\"")
+            
+            return objects.count > 0
+            
+        } catch let error as NSError {
+            print(error)
         }
+    
+        return false
     }
     
     func deleteFavFilm(title: String) {
         
-        let realm = try! Realm()
-        
-        let objects = realm.objects(MovieRealm.self).filter("title = \"\(title)\"")
-
-        try! realm.write {
-            realm.delete(objects)
+        do {
+                 
+            let realm = try! Realm()
+            
+            let objects = realm.objects(MovieRealm.self).filter("title = \"\(title)\"")
+            
+            do {
+                try realm.write {
+                    realm.delete(objects)
+                }
+            } catch let error as NSError {
+                print(error)
+            }
+            
+            
+        } catch let error as NSError {
+            print(error)
         }
+        
     }
 
     func addFavFilm() {
@@ -182,17 +185,23 @@ class DetailsViewController: UIViewController {
         movieRealm.metascore = selectedMovie.metascore
         movieRealm.resolution = selectedMovie.resolution
         movieRealm.hdr = selectedMovie.hdr
-           
+        
         do {
-            try realm?.write {
-                realm?.add(movieRealm)
+             
+            let realm = try! Realm()
+            
+            do {
+                try realm.write {
+                    realm.add(movieRealm)
+                }
+            } catch let error as NSError {
+                print(error)
             }
+        
         } catch let error as NSError {
             print(error)
         }
-        
-       
-        
-    }
 
+    }
+    
 }
