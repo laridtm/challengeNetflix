@@ -65,7 +65,7 @@ class DetailsViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
-        
+    
         let isFavorite = favExist(title: movie!.title)
         toggleFavButton(isFavorite: isFavorite)
     }
