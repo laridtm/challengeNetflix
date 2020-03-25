@@ -153,7 +153,7 @@ class DetailsViewController: UIViewController {
         
         do {
                  
-            let realm = try! Realm()
+            let realm = try Realm()
             
             let objects = realm.objects(MovieRealm.self).filter("title = \"\(title)\"")
             
@@ -188,15 +188,13 @@ class DetailsViewController: UIViewController {
         
         do {
              
-            let realm = try! Realm()
+            let realm = try Realm()
             
-            do {
-                try realm.write {
-                    realm.add(movieRealm)
-                }
-            } catch let error as NSError {
-                print(error)
+        
+            try realm.write {
+                realm.add(movieRealm)
             }
+       
         
         } catch let error as NSError {
             print(error)
