@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
@@ -51,6 +52,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.delegate = self
         collectionView.dataSource = self
         task.resume()
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -67,6 +69,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         
         cell.configureImage(url: urlImage)
+        
+        addFilmDB(movie: movies[indexPath.row])
         
         return cell
     }
@@ -126,6 +130,36 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
 
         self.collectionView.reloadData()
+    }
+    
+    func addFilmDB(movie: Movie) {
+        
+        let movieRealm = MovieRealm()
+
+         movieRealm.title = movie.title
+         movieRealm.year = movie.year
+         movieRealm.runtime = movie.runtime
+         movieRealm.metascore = movie.metascore
+         movieRealm.resolution = movie.resolution
+         movieRealm.hdr = movie.hdr
+         
+         do {
+              
+             let realm = try Realm()
+             
+         
+             try realm.write {
+                 realm.add(movieRealm)
+             }
+        
+         
+         } catch let error as NSError {
+             print(error)
+         }
+        
+        
+        
+
     }
 
 }
