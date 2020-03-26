@@ -152,7 +152,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
               
              let realm = try Realm()
              
-         
              try realm.write {
                 realm.add(movieRealm, update: .modified)
              }
