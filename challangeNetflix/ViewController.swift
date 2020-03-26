@@ -142,6 +142,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
          movieRealm.metascore = movie.metascore
          movieRealm.resolution = movie.resolution
          movieRealm.hdr = movie.hdr
+        
+         movieRealm.setup()
          
          do {
               
@@ -149,7 +151,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
              
          
              try realm.write {
-                 realm.add(movieRealm)
+                realm.add(movieRealm, update: .modified)
              }
         
          

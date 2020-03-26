@@ -19,5 +19,18 @@ class MovieRealm: Object {
     @objc dynamic var hdr = false
     @objc dynamic var trailer = ""
     let images = List<String>()
+    @objc dynamic var compoundKey = ""
+    
+    override static func primaryKey() -> String? {
+        return "compoundKey"
+    }
+    
+    func setup() {
+        self.compoundKey = compoundKeyValue()
+    }
+    
+    func compoundKeyValue() -> String {
+        return "\(title),\(year)"
+    }
     
 }
