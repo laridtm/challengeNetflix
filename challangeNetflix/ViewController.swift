@@ -153,15 +153,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
              try realm.write {
                 realm.add(movieRealm, update: .modified)
              }
-        
-         
+    
          } catch let error as NSError {
              print(error)
          }
-        
-        
-        
-
+    
     }
 
 }
