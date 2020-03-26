@@ -41,6 +41,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             do {
                 self.movies = try self.decoder.decode([Movie].self, from: data!)
+                
+                for movie in self.movies {
+                    self.addFilmDB(movie: movie)
+                }
+                
                 DispatchQueue.main.async {
                     self.realData = self.movies
                     self.collectionView.reloadData()
@@ -69,8 +74,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         
         cell.configureImage(url: urlImage)
-        
-        addFilmDB(movie: movies[indexPath.row])
         
         return cell
     }
