@@ -11,6 +11,7 @@ import RealmSwift
 
 struct Movie: Codable {
     
+    let id: String
     let title: String
     let year: String
     let rated: String
@@ -32,7 +33,7 @@ struct Movie: Codable {
     let images: [URL]
     
     enum CodingKeys: String, CodingKey {
-        case title, year, rated, released, runtime, genre, director, writer,
+        case id, title, year, rated, released, runtime, genre, director, writer,
         actors, plot, language, country, awards, poster, metascore
         case resolution = "4k"
         case hdr, trailer, images
