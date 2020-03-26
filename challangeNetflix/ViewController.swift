@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
@@ -25,7 +26,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var movieSelected: Movie?
     
     var searchView = UICollectionReusableView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +41,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             do {
                 self.movies = try self.decoder.decode([Movie].self, from: data!)
+                
+                for movie in self.movies {
+                    self.addFilmDB(movie: movie)
+                }
+                
                 DispatchQueue.main.async {
                     self.realData = self.movies
                     self.collectionView.reloadData()
@@ -51,14 +57,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.delegate = self
         collectionView.dataSource = self
         task.resume()
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }
-       
+    
     func collectionView(_ collectionView: UICollectionView,     cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
         guard let urlImage: URL = movies[indexPath.row].images[2] else {
@@ -111,23 +118,49 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
         }
     }
-
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.movies.removeAll()
-
+        
         for item in self.realData {
             if (item.title.lowercased().contains(searchBar.text!.lowercased())) {
                 self.movies.append(item)
             }
         }
-
+        
         if (searchBar.text!.isEmpty) {
             self.movies = self.realData
         }
-
+        
         self.collectionView.reloadData()
     }
-
+    
+    func addFilmDB(movie: Movie) {
+        
+        let movieRealm = MovieRealm()
+        
+        movieRealm.id = movie.id
+        movieRealm.title = movie.title
+        movieRealm.year = movie.year
+        movieRealm.runtime = movie.runtime
+        movieRealm.metascore = movie.metascore
+        movieRealm.resolution = movie.resolution
+        movieRealm.hdr = movie.hdr
+        
+        do {
+            
+            let realm = try Realm()
+            
+            try realm.write {
+                realm.add(movieRealm, update: .modified)
+            }
+            
+        } catch let error as NSError {
+            print(error)
+        }
+        
+    }
+    
 }
 
 
