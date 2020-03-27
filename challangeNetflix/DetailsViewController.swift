@@ -138,9 +138,7 @@ class DetailsViewController: UIViewController {
             
             let realm = try Realm()
             
-            let objects = realm.objects(MovieFavRealm.self).filter("id = \"\(id)\"")
-            
-            return objects.count > 0
+            return realm.object(ofType: MovieFavRealm.self, forPrimaryKey: id) != nil
             
         } catch let error as NSError {
             print(error)
@@ -155,11 +153,13 @@ class DetailsViewController: UIViewController {
 
             let realm = try Realm()
 
-            let objects = realm.objects(MovieFavRealm.self).filter("id = \"\(id)\"")
+            guard let object = realm.object(ofType: MovieFavRealm.self, forPrimaryKey: id) else {
+                return
+            }
 
             do {
                 try realm.write {
-                    realm.delete(objects)
+                    realm.delete(object)
                 }
             } catch let error as NSError {
                 print(error)
