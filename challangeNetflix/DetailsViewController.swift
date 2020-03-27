@@ -35,10 +35,10 @@ class DetailsViewController: UIViewController {
             return
         }
         
-        var isFavorite = favExist(title: selectedMovieFavorite.title)
+        var isFavorite = favExist(id: selectedMovieFavorite.id)
         
         if isFavorite {
-            deleteFavFilm(title: selectedMovieFavorite.title)
+            deleteFavFilm(id: selectedMovieFavorite.id)
             isFavorite = false
         } else {
             addFavFilm()
@@ -66,7 +66,7 @@ class DetailsViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
     
-        let isFavorite = favExist(title: movie!.title)
+        let isFavorite = favExist(id: movie!.id)
         toggleFavButton(isFavorite: isFavorite)
     }
     
@@ -132,13 +132,13 @@ class DetailsViewController: UIViewController {
 
     }
     
-    func favExist (title: String) -> Bool {
+    func favExist (id: String) -> Bool {
         
         do {
             
             let realm = try Realm()
             
-            let objects = realm.objects(MovieRealm.self).filter("title = \"\(title)\"")
+            let objects = realm.objects(MovieFavRealm.self).filter("id = \"\(id)\"")
             
             return objects.count > 0
             
@@ -149,14 +149,14 @@ class DetailsViewController: UIViewController {
         return false
     }
     
-    func deleteFavFilm(title: String) {
-        
+    func deleteFavFilm(id: String) {
+
         do {
-                 
+
             let realm = try Realm()
-            
-            let objects = realm.objects(MovieRealm.self).filter("title = \"\(title)\"")
-            
+
+            let objects = realm.objects(MovieFavRealm.self).filter("id = \"\(id)\"")
+
             do {
                 try realm.write {
                     realm.delete(objects)
@@ -164,38 +164,31 @@ class DetailsViewController: UIViewController {
             } catch let error as NSError {
                 print(error)
             }
-            
-            
+
+
         } catch let error as NSError {
             print(error)
         }
-        
+
     }
 
     func addFavFilm() {
         
-        let movieRealm = MovieRealm()
+        let movieFavRealm = MovieFavRealm()
         
         guard let selectedMovie = self.movie else {
             return
         }
-        movieRealm.title = selectedMovie.title
-        movieRealm.year = selectedMovie.year
-        movieRealm.runtime = selectedMovie.runtime
-        movieRealm.metascore = selectedMovie.metascore
-        movieRealm.resolution = selectedMovie.resolution
-        movieRealm.hdr = selectedMovie.hdr
+        movieFavRealm.id = selectedMovie.id
         
         do {
              
             let realm = try Realm()
             
-        
             try realm.write {
-                realm.add(movieRealm)
+                realm.add(movieFavRealm)
             }
        
-        
         } catch let error as NSError {
             print(error)
         }
