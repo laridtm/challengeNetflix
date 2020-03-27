@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15169B38240EEF2D00568CCB /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15169B37240EEF2D00568CCB /* Movie.swift */; };
+		151B50A8242E48C400EBABBA /* MovieFavRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151B50A7242E48C400EBABBA /* MovieFavRealm.swift */; };
 		152C9B1723FECD5000B970BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C9B1623FECD5000B970BD /* AppDelegate.swift */; };
 		152C9B1923FECD5000B970BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C9B1823FECD5000B970BD /* SceneDelegate.swift */; };
 		152C9B1B23FECD5000B970BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C9B1A23FECD5000B970BD /* ViewController.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		0844A08E235F6B1791C5B52D /* Pods_challangeNetflix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_challangeNetflix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15169B37240EEF2D00568CCB /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		151B50A7242E48C400EBABBA /* MovieFavRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFavRealm.swift; sourceTree = "<group>"; };
 		152C9B1323FECD5000B970BD /* challangeNetflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = challangeNetflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		152C9B1623FECD5000B970BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		152C9B1823FECD5000B970BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,13 +135,14 @@
 				156A991C2406CF5500ADF085 /* MovieCell.swift */,
 				15169B37240EEF2D00568CCB /* Movie.swift */,
 				154AC6562423DB6400143FA1 /* MovieRealm.swift */,
+				151B50A7242E48C400EBABBA /* MovieFavRealm.swift */,
+				152C9B2423FECD5200B970BD /* Info.plist */,
 				156A991E2408304100ADF085 /* SearchCollectionReusableView.swift */,
 				155EAB3324104027001A42A6 /* DetailsViewController.swift */,
 				155EAB352417F944001A42A6 /* UIMinionButton.swift */,
 				152C9B1C23FECD5000B970BD /* Main.storyboard */,
 				152C9B1F23FECD5200B970BD /* Assets.xcassets */,
 				152C9B2123FECD5200B970BD /* LaunchScreen.storyboard */,
-				152C9B2423FECD5200B970BD /* Info.plist */,
 			);
 			path = challangeNetflix;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				154AC6572423DB6400143FA1 /* MovieRealm.swift in Sources */,
 				156A991F2408304100ADF085 /* SearchCollectionReusableView.swift in Sources */,
 				15169B38240EEF2D00568CCB /* Movie.swift in Sources */,
+				151B50A8242E48C400EBABBA /* MovieFavRealm.swift in Sources */,
 				155EAB362417F944001A42A6 /* UIMinionButton.swift in Sources */,
 				152C9B1723FECD5000B970BD /* AppDelegate.swift in Sources */,
 				155EAB3424104027001A42A6 /* DetailsViewController.swift in Sources */,
