@@ -175,7 +175,7 @@ class DetailsViewController: UIViewController {
     func addFavFilm() {
         
         let movieFavRealm = MovieFavRealm()
-        
+         
         guard let selectedMovie = self.movie else {
             return
         }
