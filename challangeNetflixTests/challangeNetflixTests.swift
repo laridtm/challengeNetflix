@@ -11,44 +11,13 @@ import XCTest
 
 class challangeNetflixTests: XCTestCase {
     
-    class Movie: Codable {
-        
-        let id: String
-        let title: String
-        let year: String
-        let rated: String
-        let released: String
-        let runtime: String
-        let genre: String
-        let director: String
-        let writer: String
-        let actors: String
-        let plot: String
-        let language: String
-        let country: String
-        let awards: String
-        let poster: String
-        let metascore: String
-        let resolution: Bool
-        let hdr: Bool
-        let trailer: URL?
-        let images: [URL]
-        
-        enum CodingKeys: String, CodingKey {
-            case id, title, year, rated, released, runtime, genre, director, writer,
-            actors, plot, language, country, awards, poster, metascore
-            case resolution = "4k"
-            case hdr, trailer, images
-            
-        }
-    }
-    
     let decoder = JSONDecoder()
-    
-    var movies = [Movie].self
+    var movies: [Movie] = []
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        movies = decodeMovies(nameFile: "movies")
     }
 
     override func tearDown() {
@@ -80,12 +49,25 @@ class challangeNetflixTests: XCTestCase {
     
     func testDecodingIsCorrect() {
         
-        let moviesDecoded = decodeMovies(nameFile: "movies")
-        
-        XCTAssertEqual(moviesDecoded.count, 4)
+        XCTAssertEqual(movies.count, 4)
     }
     
-    
+//    func testIfTheCellContainsAnImage() {
+//
+//        let cell: MovieCell
+//        cell = MovieCell()
+//
+//        guard let urlImage: URL = self.movies[0].images[2] else {
+//            print(Error.self)
+//            return
+//        }
+//
+//        XCTAssertNil(cell.movieImage)
+//
+//        cell.configureImage(url: urlImage)
+//
+//        XCTAssertNotNil(cell.movieImage)
+//    }
     
   
 

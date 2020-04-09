@@ -119,21 +119,28 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        self.movies.removeAll()
+//
+//        for item in self.realData {
+//            if (item.title.lowercased().contains(searchBar.text!.lowercased())) {
+//                self.movies.append(item)
+//            }
+//        }
+//
+//        if (searchBar.text!.isEmpty) {
+//            self.movies = self.realData
+//        }
+//
+//        self.collectionView.reloadData()
+//    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.movies.removeAll()
         
-        for item in self.realData {
-            if (item.title.lowercased().contains(searchBar.text!.lowercased())) {
-                self.movies.append(item)
-            }
-        }
-        
-        if (searchBar.text!.isEmpty) {
-            self.movies = self.realData
-        }
-        
-        self.collectionView.reloadData()
-    }
+        self.movies = MovieAux.searchMovie(movies: realData, search: searchBar.text!)
+         
+         self.collectionView.reloadData()
+     }
     
     func addFilmDB(movie: Movie) {
         
