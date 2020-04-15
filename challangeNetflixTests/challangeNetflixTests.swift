@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import challangeNetflix
+import RealmSwift
 
 class challangeNetflixTests: XCTestCase {
     
@@ -17,6 +18,9 @@ class challangeNetflixTests: XCTestCase {
     override func setUp() {
         super.setUp()
         self.movies = decodeMovies(nameFile: "movies")
+        //Use an in-memory Realm
+        Realm.Configuration.defaultConfiguration.inMemoryIdentifier = "database A"
+//        let realm = try! Realm()
     }
 
     override func tearDown() {
@@ -82,5 +86,14 @@ class challangeNetflixTests: XCTestCase {
         
     }
     
+    func testIfTheDatabaseIsAddingCorrectly() {
+        
+//        var dataBase: [Movie] = []
+        
+        for movie in self.movies {
+            ViewController.addFilmDB(movie)
+        }
+        
+    }
 
 }

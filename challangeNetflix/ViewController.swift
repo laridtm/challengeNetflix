@@ -42,8 +42,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             do {
                 self.movies = try self.decoder.decode([Movie].self, from: data!)
                 
+                var database: MovieDatabase = MovieDatabase()
                 for movie in self.movies {
-                    self.addFilmDB(movie: movie)
+                    database.addFilmDB(movie: movie)
                 }
                 
                 DispatchQueue.main.async {
@@ -119,55 +120,29 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        self.movies.removeAll()
-//
-//        for item in self.realData {
-//            if (item.title.lowercased().contains(searchBar.text!.lowercased())) {
-//                self.movies.append(item)
-//            }
-//        }
-//
-//        if (searchBar.text!.isEmpty) {
-//            self.movies = self.realData
-//        }
-//
-//        self.collectionView.reloadData()
-//    }
+    //    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    //        self.movies.removeAll()
+    //
+    //        for item in self.realData {
+    //            if (item.title.lowercased().contains(searchBar.text!.lowercased())) {
+    //                self.movies.append(item)
+    //            }
+    //        }
+    //
+    //        if (searchBar.text!.isEmpty) {
+    //            self.movies = self.realData
+    //        }
+    //
+    //        self.collectionView.reloadData()
+    //    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         let movieAux: MovieAux = MovieAux()
         
         self.movies = movieAux.searchMovie(movies: realData, search: searchBar.text!)
-         
-         self.collectionView.reloadData()
-     }
-    
-    func addFilmDB(movie: Movie) {
         
-        let movieRealm = MovieRealm()
-        
-        movieRealm.id = movie.id
-        movieRealm.title = movie.title
-        movieRealm.year = movie.year
-        movieRealm.runtime = movie.runtime
-        movieRealm.metascore = movie.metascore
-        movieRealm.resolution = movie.resolution
-        movieRealm.hdr = movie.hdr
-        
-        do {
-            
-            let realm = try Realm()
-            
-            try realm.write {
-                realm.add(movieRealm, update: .modified)
-            }
-            
-        } catch let error as NSError {
-            print(error)
-        }
-        
+        self.collectionView.reloadData()
     }
     
 }
