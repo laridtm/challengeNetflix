@@ -88,11 +88,16 @@ class challangeNetflixTests: XCTestCase {
     
     func testIfTheDatabaseIsAddingCorrectly() {
         
-//        var dataBase: [Movie] = []
+        let database: MovieDatabase = MovieDatabase()
         
         for movie in self.movies {
-            ViewController.addFilmDB(movie)
+            database.addFilmDB(movie: movie)
         }
+        
+        let allObjects = database.retrieveAllObjects()
+        
+        XCTAssertEqual(allObjects.count, 4)
+        
         
     }
 
