@@ -71,12 +71,14 @@ class challangeNetflixTests: XCTestCase {
     
     func testIfTheSearchIsCorrect() {
         
-        var moviesAux: [Movie] = []
+        var moviesSearch: [Movie] = []
         
-        moviesAux = MovieAux.searchMovie(movies: movies, search: "Av")
+        let movieAux: MovieAux = MovieAux()
         
-        XCTAssertEqual(moviesAux.count, 1)
-        XCTAssertEqual(moviesAux[0].title, "Avatar")
+        moviesSearch = movieAux.searchMovie(movies: movies, search: "Av")
+        
+        XCTAssertEqual(moviesSearch.count, 1)
+        XCTAssertEqual(moviesSearch[0].title, "Avatar")
         
     }
     

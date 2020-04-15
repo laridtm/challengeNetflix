@@ -10,7 +10,7 @@ import Foundation
 
 class MovieAux {
     
-    static func searchMovie(movies: [Movie], search: String) -> [Movie] {
+    func searchMovie(movies: [Movie], search: String) -> [Movie] {
         
         var moviesAux: [Movie] = []
         
