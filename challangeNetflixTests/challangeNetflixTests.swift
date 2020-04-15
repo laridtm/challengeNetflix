@@ -97,6 +97,10 @@ class challangeNetflixTests: XCTestCase {
         let allObjects = database.retrieveAllObjects()
         
         XCTAssertEqual(allObjects.count, 4)
+        XCTAssertEqual(allObjects[0].title, "Avatar")
+        XCTAssertEqual(allObjects[1].title, "Interstellar")
+        XCTAssertEqual(allObjects[2].title, "Assassin's Creed")
+        XCTAssertEqual(allObjects[3].title, "Rogue One: A Star Wars Story")
         
         
     }
