@@ -11,6 +11,17 @@ import RealmSwift
 
 class MovieDatabase {
     
+    let realm: Realm
+
+    init(config: Realm.Configuration) {
+        do {
+            self.realm = try Realm(configuration: config)
+        } catch let error as NSError {
+            print(error)
+            self.realm = try! Realm()
+        }
+    }
+    
     func addFilmDB(movie: Movie) {
         
         let movieRealm = MovieRealm()
@@ -24,8 +35,6 @@ class MovieDatabase {
         movieRealm.hdr = movie.hdr
         
         do {
-            
-            let realm = try Realm()
             
             try realm.write {
                 realm.add(movieRealm, update: .modified)
@@ -43,7 +52,6 @@ class MovieDatabase {
         
         do {
             
-            let realm = try Realm()
             var realmResults = realm.objects(MovieRealm.self)
             
             for movieRealm in realmResults {

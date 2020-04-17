@@ -42,7 +42,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             do {
                 self.movies = try self.decoder.decode([Movie].self, from: data!)
                 
-                var database: MovieDatabase = MovieDatabase()
+                var database: MovieDatabase = MovieDatabase(config: Realm.Configuration())
                 for movie in self.movies {
                     database.addFilmDB(movie: movie)
                 }
