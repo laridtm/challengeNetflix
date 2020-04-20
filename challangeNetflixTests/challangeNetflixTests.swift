@@ -74,7 +74,7 @@ class challangeNetflixTests: XCTestCase {
         
         var moviesSearch: [Movie] = []
         
-        let movieAux: MovieAux = MovieAux()
+        let movieAux: MovieController = MovieController()
         
         moviesSearch = movieAux.searchMovie(movies: movies, search: "Av")
         
