@@ -41,25 +41,43 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 //            }
 //        }
         
+        let closure:(Data) -> Void = { data in
+            print(String(decoding: data, as: UTF8.self))
+            
+            do {
+                self.movies = try self.decoder.decode([Movie].self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.realData = self.movies
+                    self.collectionView.reloadData()
+                }
+            } catch {
+                print(error)
+            }
+            
+        }
+        
         //executar a task atraves da func request??? aqui preciso da data
         
-        var data = movieAux.request(urlName: "http://localhost:8080/response.json")
+//        var data = movieAux.request(urlName: "http://localhost:8080/response.json")
         
-        do {
-            self.movies = try self.decoder.decode([Movie].self, from: data)
-            
-            var database: MovieDatabase = MovieDatabase(config: Realm.Configuration())
-            for movie in self.movies {
-                database.addFilmDB(movie: movie)
-            }
-            
-            DispatchQueue.main.async {
-                self.realData = self.movies
-                self.collectionView.reloadData()
-            }
-        } catch {
-            print(error)
-        }
+        movieAux.request(urlName: "http://localhost:8080/response.json", closure: closure)
+        
+//        do {
+//            self.movies = try self.decoder.decode([Movie].self, from: data)
+//
+//            var database: MovieDatabase = MovieDatabase(config: Realm.Configuration())
+//            for movie in self.movies {
+//                database.addFilmDB(movie: movie)
+//            }
+//
+//            DispatchQueue.main.async {
+//                self.realData = self.movies
+//                self.collectionView.reloadData()
+//            }
+//        } catch {
+//            print(error)
+//        }
         
         collectionView.delegate = self
         collectionView.dataSource = self
