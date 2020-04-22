@@ -22,7 +22,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var movies: [Movie] = []
     var realData: [Movie] = []
     let session = URLSession.shared
-    let url = URL(string: "http://localhost:8080/response.json")!
+    let url: String = "http://localhost:8080/response.json"
     var movieSelected: Movie?
     let movieAux: MovieController = MovieController()
     
@@ -30,59 +30,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-//        let task = session.dataTask(with: url) {
-//            data, response, error in
-//
-//            guard let httpResponse = response as? HTTPURLResponse,
-//                (200...299).contains(httpResponse.statusCode) else {
-//                    print(error)
-//                    return
-//            }
-//        }
         
         let closure:(Data) -> Void = { data in
-            print(String(decoding: data, as: UTF8.self))
             
-            do {
-                self.movies = try self.decoder.decode([Movie].self, from: data)
-                
-                DispatchQueue.main.async {
-                    self.realData = self.movies
-                    self.collectionView.reloadData()
-                }
-            } catch {
-                print(error)
+            self.movies = self.movieAux.decoder(data: data)
+            
+            DispatchQueue.main.async {
+                self.realData = self.movies
+                self.collectionView.reloadData()
             }
-            
         }
         
-        //executar a task atraves da func request??? aqui preciso da data
-        
-//        var data = movieAux.request(urlName: "http://localhost:8080/response.json")
-        
-        movieAux.request(urlName: "http://localhost:8080/response.json", closure: closure)
-        
-//        do {
-//            self.movies = try self.decoder.decode([Movie].self, from: data)
-//
-//            var database: MovieDatabase = MovieDatabase(config: Realm.Configuration())
-//            for movie in self.movies {
-//                database.addFilmDB(movie: movie)
-//            }
-//
-//            DispatchQueue.main.async {
-//                self.realData = self.movies
-//                self.collectionView.reloadData()
-//            }
-//        } catch {
-//            print(error)
-//        }
+        movieAux.request(urlName: self.url, closure: closure)
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class MovieController {
     
@@ -66,6 +67,25 @@ class MovieController {
          }
          task.resume()
      }
+    
+    func decoder(data: Data) -> [Movie] {
+        
+        let decoder = JSONDecoder()
+        var movies : [Movie] = []
+        
+        do {
+            movies = try decoder.decode([Movie].self, from: data)
+
+            var database: MovieDatabase = MovieDatabase(config: Realm.Configuration())
+            for movie in movies {
+                database.addFilmDB(movie: movie)
+            }
+
+        } catch {
+            print(error)
+        }
+        return movies
+    }
     
     
 }
