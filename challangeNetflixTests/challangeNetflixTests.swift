@@ -14,41 +14,30 @@ class challangeNetflixTests: XCTestCase {
     
     let decoder = JSONDecoder()
     var movies: [Movie] = []
+    var movieAux: MovieController = MovieController()
 
     override func setUp() {
         super.setUp()
-        self.movies = decodeMovies(nameFile: "movies")
-    }
-
-    override func tearDown() {
-        super.tearDown()
-        self.movies.removeAll()
-    }
-    
-    func decodeMovies(nameFile: String) -> [Movie] {
         
-        guard let fileURL = Bundle.main.url(forResource: nameFile, withExtension: "json") else {
+        guard let fileURL = Bundle.main.url(forResource: "movies", withExtension: "json") else {
             print("couldn't find the file")
-            return []
+            return
         }
         
         do {
             let content = try Data(contentsOf: fileURL)
-            
-            do {
-                let movies = try decoder.decode([Movie].self, from: content)
-                return movies
-            } catch {
-                print(error)
-            }
+            movies = self.movieAux.decoder(data: content)
             
         } catch let error {
             print(error)
         }
-        return []
+    }
+
+    override func tearDown() {
+        super.tearDown()
     }
     
-    func testDecodingIsCorrect() {
+    func testDecoding() {
         
         XCTAssertEqual(movies.count, 4)
     }
@@ -73,8 +62,6 @@ class challangeNetflixTests: XCTestCase {
     func testIfTheSearchIsCorrect() {
         
         var moviesSearch: [Movie] = []
-        
-        let movieAux: MovieController = MovieController()
         
         moviesSearch = movieAux.searchMovie(movies: movies, search: "Av")
         
