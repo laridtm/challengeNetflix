@@ -107,7 +107,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        self.movies = movieAux.searchMovie(movies: realData, search: searchBar.text!)
+        let movieSearch: MovieSearch = MovieSearch()
+        
+        self.movies = movieSearch.searchMovie(movies: realData, search: searchBar.text!)
         
         self.collectionView.reloadData()
     }

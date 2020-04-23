@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15099F4F2451E8BF000EB03C /* MovieSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15099F4E2451E8BF000EB03C /* MovieSearch.swift */; };
 		15169B38240EEF2D00568CCB /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15169B37240EEF2D00568CCB /* Movie.swift */; };
 		151B50A8242E48C400EBABBA /* MovieFavRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151B50A7242E48C400EBABBA /* MovieFavRealm.swift */; };
 		152C9B1723FECD5000B970BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C9B1623FECD5000B970BD /* AppDelegate.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		0844A08E235F6B1791C5B52D /* Pods_challangeNetflix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_challangeNetflix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		15099F4E2451E8BF000EB03C /* MovieSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearch.swift; sourceTree = "<group>"; };
 		15169B37240EEF2D00568CCB /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		151B50A7242E48C400EBABBA /* MovieFavRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFavRealm.swift; sourceTree = "<group>"; };
 		152C9B1323FECD5000B970BD /* challangeNetflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = challangeNetflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 				156A991E2408304100ADF085 /* SearchCollectionReusableView.swift */,
 				155EAB3324104027001A42A6 /* DetailsViewController.swift */,
 				154AADA3243F8DC400272877 /* MovieController.swift */,
+				15099F4E2451E8BF000EB03C /* MovieSearch.swift */,
 				154BADAF24478CFC001C1AF8 /* MovieDatabase.swift */,
 				155EAB352417F944001A42A6 /* UIMinionButton.swift */,
 				152C9B1C23FECD5000B970BD /* Main.storyboard */,
@@ -449,6 +452,7 @@
 				152C9B1723FECD5000B970BD /* AppDelegate.swift in Sources */,
 				155EAB3424104027001A42A6 /* DetailsViewController.swift in Sources */,
 				154AADA4243F8DC400272877 /* MovieController.swift in Sources */,
+				15099F4F2451E8BF000EB03C /* MovieSearch.swift in Sources */,
 				156A991D2406CF5500ADF085 /* MovieCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

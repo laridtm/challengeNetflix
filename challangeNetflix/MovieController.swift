@@ -12,23 +12,6 @@ import RealmSwift
 
 class MovieController {
     
-    func searchMovie(movies: [Movie], search: String) -> [Movie] {
-        
-        var moviesAux: [Movie] = []
-        
-        for item in movies {
-            if (item.title.lowercased().contains(search.lowercased())) {
-                moviesAux.append(item)
-            }
-        }
-        
-        if (search.isEmpty) {
-            moviesAux = movies
-        }
-        
-        return moviesAux
-    }
-    
     func request(urlName: String, closure: ((Data) -> Void)?) {
          
          let session = URLSession.shared
