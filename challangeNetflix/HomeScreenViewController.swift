@@ -23,7 +23,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     let session = URLSession.shared
     let url: String = "http://localhost:8080/response.json"
     var movieSelected: Movie?
-    let movieAux: MovieController = MovieController()
+    var movieTakeData: MovieTakeData = MovieTakeData()
     
     var searchView = UICollectionReusableView()
     
@@ -32,7 +32,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
         
         let closure:(Data) -> Void = { data in
             
-            self.movies = self.movieAux.decoder(data: data)
+            self.movies = self.movieTakeData.decoder(data: data)
             
             DispatchQueue.main.async {
                 self.realData = self.movies
@@ -40,7 +40,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
             }
         }
         
-        movieAux.request(urlName: self.url, closure: closure)
+        movieTakeData.request(urlName: self.url, closure: closure)
         
         collectionView.delegate = self
         collectionView.dataSource = self

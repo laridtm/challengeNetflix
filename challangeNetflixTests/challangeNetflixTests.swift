@@ -14,8 +14,8 @@ class challangeNetflixTests: XCTestCase {
     
     let decoder = JSONDecoder()
     var movies: [Movie] = []
-    var movieAux: MovieController = MovieController()
     var movieSearch: MovieSearch = MovieSearch()
+    var movieTakeData: MovieTakeData = MovieTakeData()
 
     override func setUp() {
         super.setUp()
@@ -27,7 +27,7 @@ class challangeNetflixTests: XCTestCase {
         
         do {
             let content = try Data(contentsOf: fileURL)
-            movies = self.movieAux.decoder(data: content)
+            movies = self.movieTakeData.decoder(data: content)
             
         } catch let error {
             print(error)

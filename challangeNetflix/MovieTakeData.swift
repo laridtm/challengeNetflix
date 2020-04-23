@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class MovieController {
+class MovieTakeData {
     
     func request(urlName: String, closure: ((Data) -> Void)?) {
          
