@@ -29,27 +29,6 @@ class MovieController {
         return moviesAux
     }
     
-//    func request(urlName: String, ) -> Data { //aqui retornar a closure
-//
-//        let session = URLSession.shared
-//        let url = URL(string: urlName)!
-//        var responseData: Data?
-//
-//        let task = session.dataTask(with: url) {
-//            data, response, error in
-//
-//            guard let httpResponse = response as? HTTPURLResponse,
-//                (200...299).contains(httpResponse.statusCode) else {
-//                    print(error)
-//                    return
-//            }
-//            responseData! = data!
-//        }
-//        task.resume()
-//        return responseData!
-//        //return task
-//    }
-    
     func request(urlName: String, closure: ((Data) -> Void)?) {
          
          let session = URLSession.shared
