@@ -15,6 +15,7 @@ class challangeNetflixTests: XCTestCase {
     let decoder = JSONDecoder()
     var movies: [Movie] = []
     var movieAux: MovieController = MovieController()
+    var movieSearch: MovieSearch = MovieSearch()
 
     override func setUp() {
         super.setUp()
@@ -63,7 +64,7 @@ class challangeNetflixTests: XCTestCase {
         
         var moviesSearch: [Movie] = []
         
-        moviesSearch = movieAux.searchMovie(movies: movies, search: "Av")
+        moviesSearch = movieSearch.searchMovie(movies: movies, search: "Av")
         
         XCTAssertEqual(moviesSearch.count, 1)
         XCTAssertEqual(moviesSearch[0].title, "Avatar")
