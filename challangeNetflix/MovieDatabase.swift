@@ -49,18 +49,12 @@ class MovieDatabase {
     func retrieveAllObjects() -> [MovieRealm] {
         
         var allObjects: [MovieRealm] = []
-        
-//        do {
             
             var realmResults = realm.objects(MovieRealm.self)
             
             for movieRealm in realmResults {
                 allObjects.append(movieRealm)
             }
-//
-//        } catch let error as NSError {
-//            print(error)
-//        }
         
         return allObjects
     }

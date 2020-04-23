@@ -17,8 +17,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBAction func searchButton(_ sender: Any) {
         showSearchView()
     }
-    
-    let decoder = JSONDecoder()
+
     var movies: [Movie] = []
     var realData: [Movie] = []
     let session = URLSession.shared
