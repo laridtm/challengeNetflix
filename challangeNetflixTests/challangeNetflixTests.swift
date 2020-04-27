@@ -28,7 +28,6 @@ class challangeNetflixTests: XCTestCase {
         do {
             let content = try Data(contentsOf: fileURL)
             movies = self.movieTakeData.decoder(data: content)
-            
         } catch let error {
             print(error)
         }
@@ -77,7 +76,6 @@ class challangeNetflixTests: XCTestCase {
         
         for movie in self.movies {
             //Use an in-memory Realm
-            
             database.addFilmDB(movie: movie)
         }
         

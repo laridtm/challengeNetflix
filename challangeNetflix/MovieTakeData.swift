@@ -37,12 +37,6 @@ class MovieTakeData {
         
         do {
             movies = try decoder.decode([Movie].self, from: data)
-
-            var database: MovieDatabase = MovieDatabase(config: Realm.Configuration())
-            for movie in movies {
-                database.addFilmDB(movie: movie)
-            }
-
         } catch {
             print(error)
         }

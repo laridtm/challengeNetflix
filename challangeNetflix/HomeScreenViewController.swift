@@ -34,6 +34,11 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
             
             self.movies = self.movieTakeData.decoder(data: data)
             
+            var database: MovieDatabase = MovieDatabase(config: Realm.Configuration())
+            for movie in self.movies {
+                database.addFilmDB(movie: movie)
+            }
+            
             DispatchQueue.main.async {
                 self.realData = self.movies
                 self.collectionView.reloadData()
