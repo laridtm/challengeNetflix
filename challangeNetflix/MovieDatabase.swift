@@ -22,22 +22,36 @@ class MovieDatabase {
         }
     }
     
-    func addFilmDB(movie: Movie) {
-        
-        let movieRealm = MovieRealm()
-        
-        movieRealm.id = movie.id
-        movieRealm.title = movie.title
-        movieRealm.year = movie.year
-        movieRealm.runtime = movie.runtime
-        movieRealm.metascore = movie.metascore
-        movieRealm.resolution = movie.resolution
-        movieRealm.hdr = movie.hdr
+//    func addFilmDB(movie: Movie) {
+//
+//        let movieRealm = MovieRealm()
+//
+//        movieRealm.id = movie.id
+//        movieRealm.title = movie.title
+//        movieRealm.year = movie.year
+//        movieRealm.runtime = movie.runtime
+//        movieRealm.metascore = movie.metascore
+//        movieRealm.resolution = movie.resolution
+//        movieRealm.hdr = movie.hdr
+//
+//        do {
+//
+//            try realm.write {
+//                realm.add(movieRealm, update: .modified)
+//            }
+//
+//        } catch let error as NSError {
+//            print(error)
+//        }
+//
+//    }
+    
+    func addFilmDB(object: Object) {
         
         do {
             
             try realm.write {
-                realm.add(movieRealm, update: .modified)
+                realm.add(object, update: .modified)
             }
             
         } catch let error as NSError {
@@ -72,26 +86,6 @@ class MovieDatabase {
         }
         
         return false
-    }
-    
-    func addFavFilm(selected: Movie) {
-        
-        let movieFavRealm = MovieFavRealm()
-        
-        movieFavRealm.id = selected.id
-        
-        do {
-            
-            let realm = try Realm()
-            
-            try realm.write {
-                realm.add(movieFavRealm)
-            }
-            
-        } catch let error as NSError {
-            print(error)
-        }
-        
     }
     
     func deleteFavFilm(id: String) {

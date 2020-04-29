@@ -43,7 +43,9 @@ class DetailsViewController: UIViewController {
             movieDataBase.deleteFavFilm(id: selectedMovieFavorite.id)
             isFavorite = false
         } else {
-            movieDataBase.addFavFilm(selected: selectedMovieFavorite)
+            let movieFavRealm = MovieFavRealm()
+            movieFavRealm.id = selectedMovieFavorite.id
+            movieDataBase.addFilmDB(object: movieFavRealm)
             isFavorite = true
         }
         

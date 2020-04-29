@@ -36,7 +36,17 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
             
             var database: MovieDatabase = MovieDatabase(config: Realm.Configuration())
             for movie in self.movies {
-                database.addFilmDB(movie: movie)
+                let movieRealm = MovieRealm()
+                
+                movieRealm.id = movie.id
+                movieRealm.title = movie.title
+                movieRealm.year = movie.year
+                movieRealm.runtime = movie.runtime
+                movieRealm.metascore = movie.metascore
+                movieRealm.resolution = movie.resolution
+                movieRealm.hdr = movie.hdr
+                
+                database.addFilmDB(object: movieRealm)
             }
             
             DispatchQueue.main.async {
