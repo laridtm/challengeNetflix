@@ -40,7 +40,7 @@ class DetailsViewController: UIViewController {
         var isFavorite = movieDataBase.favExist(id: selectedMovieFavorite.id)
         
         if isFavorite {
-            deleteFavFilm(id: selectedMovieFavorite.id)
+            movieDataBase.deleteFavFilm(id: selectedMovieFavorite.id)
             isFavorite = false
         } else {
             movieDataBase.addFavFilm(selected: selectedMovieFavorite)
@@ -130,31 +130,5 @@ class DetailsViewController: UIViewController {
     func toggleFavButton(isFavorite: Bool) {
         markButton.image = UIImage(named: isFavorite ? "marked" : "mark")
     }
-    
-   
-    
-    func deleteFavFilm(id: String) {
 
-        do {
-
-            let realm = try Realm()
-
-            guard let object = realm.object(ofType: MovieFavRealm.self, forPrimaryKey: id) else {
-                return
-            }
-
-            do {
-                try realm.write {
-                    realm.delete(object)
-                }
-            } catch let error as NSError {
-                print(error)
-            }
-
-
-        } catch let error as NSError {
-            print(error)
-        }
-
-    }
 }

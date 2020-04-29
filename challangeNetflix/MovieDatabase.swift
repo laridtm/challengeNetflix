@@ -12,7 +12,7 @@ import RealmSwift
 class MovieDatabase {
     
     let realm: Realm
-
+    
     init(config: Realm.Configuration) {
         do {
             self.realm = try Realm(configuration: config)
@@ -49,49 +49,74 @@ class MovieDatabase {
     func retrieveAllObjects() -> [MovieRealm] {
         
         var allObjects: [MovieRealm] = []
-            
-            var realmResults = realm.objects(MovieRealm.self)
-            
-            for movieRealm in realmResults {
-                allObjects.append(movieRealm)
-            }
+        
+        var realmResults = realm.objects(MovieRealm.self)
+        
+        for movieRealm in realmResults {
+            allObjects.append(movieRealm)
+        }
         
         return allObjects
     }
     
     func favExist (id: String) -> Bool {
-           
-           do {
-               
-               let realm = try Realm()
-               
-               return realm.object(ofType: MovieFavRealm.self, forPrimaryKey: id) != nil
-               
-           } catch let error as NSError {
-               print(error)
-           }
-       
-           return false
-       }
+        
+        do {
+            
+            let realm = try Realm()
+            
+            return realm.object(ofType: MovieFavRealm.self, forPrimaryKey: id) != nil
+            
+        } catch let error as NSError {
+            print(error)
+        }
+        
+        return false
+    }
     
     func addFavFilm(selected: Movie) {
+        
+        let movieFavRealm = MovieFavRealm()
+        
+        movieFavRealm.id = selected.id
+        
+        do {
             
-            let movieFavRealm = MovieFavRealm()
+            let realm = try Realm()
             
-            movieFavRealm.id = selected.id
+            try realm.write {
+                realm.add(movieFavRealm)
+            }
+            
+        } catch let error as NSError {
+            print(error)
+        }
+        
+    }
+    
+    func deleteFavFilm(id: String) {
+        
+        do {
+            
+            let realm = try Realm()
+            
+            guard let object = realm.object(ofType: MovieFavRealm.self, forPrimaryKey: id) else {
+                return
+            }
             
             do {
-                 
-                let realm = try Realm()
-                
                 try realm.write {
-                    realm.add(movieFavRealm)
+                    realm.delete(object)
                 }
-           
             } catch let error as NSError {
                 print(error)
             }
-
+            
+            
+        } catch let error as NSError {
+            print(error)
         }
+        
+    }
     
 }
