@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class MovieDatabase {
+class HandlerDatabase {
     
     let realm: Realm
     
@@ -22,31 +22,7 @@ class MovieDatabase {
         }
     }
     
-//    func addFilmDB(movie: Movie) {
-//
-//        let movieRealm = MovieRealm()
-//
-//        movieRealm.id = movie.id
-//        movieRealm.title = movie.title
-//        movieRealm.year = movie.year
-//        movieRealm.runtime = movie.runtime
-//        movieRealm.metascore = movie.metascore
-//        movieRealm.resolution = movie.resolution
-//        movieRealm.hdr = movie.hdr
-//
-//        do {
-//
-//            try realm.write {
-//                realm.add(movieRealm, update: .modified)
-//            }
-//
-//        } catch let error as NSError {
-//            print(error)
-//        }
-//
-//    }
-    
-    func addFilmDB(object: Object) {
+    func addDB(object: Object) {
         
         do {
             
@@ -88,7 +64,8 @@ class MovieDatabase {
         return false
     }
     
-    func deleteFavFilm(id: String) {
+    
+    func deleteFav (id: String) {
         
         do {
             

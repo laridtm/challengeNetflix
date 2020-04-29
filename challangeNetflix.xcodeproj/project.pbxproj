@@ -22,7 +22,7 @@
 		154AADA2243E5B5C00272877 /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = 154AAD9E243E434700272877 /* movies.json */; };
 		154AADA4243F8DC400272877 /* MovieTakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154AADA3243F8DC400272877 /* MovieTakeData.swift */; };
 		154AC6572423DB6400143FA1 /* MovieRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154AC6562423DB6400143FA1 /* MovieRealm.swift */; };
-		154BADB024478CFC001C1AF8 /* MovieDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BADAF24478CFC001C1AF8 /* MovieDatabase.swift */; };
+		154BADB024478CFC001C1AF8 /* HandlerDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BADAF24478CFC001C1AF8 /* HandlerDatabase.swift */; };
 		155EAB3424104027001A42A6 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155EAB3324104027001A42A6 /* DetailsViewController.swift */; };
 		155EAB362417F944001A42A6 /* UIMinionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155EAB352417F944001A42A6 /* UIMinionButton.swift */; };
 		156A991D2406CF5500ADF085 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A991C2406CF5500ADF085 /* MovieCell.swift */; };
@@ -70,7 +70,7 @@
 		154AAD9E243E434700272877 /* movies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = movies.json; sourceTree = "<group>"; };
 		154AADA3243F8DC400272877 /* MovieTakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTakeData.swift; sourceTree = "<group>"; };
 		154AC6562423DB6400143FA1 /* MovieRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRealm.swift; sourceTree = "<group>"; };
-		154BADAF24478CFC001C1AF8 /* MovieDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDatabase.swift; sourceTree = "<group>"; };
+		154BADAF24478CFC001C1AF8 /* HandlerDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlerDatabase.swift; sourceTree = "<group>"; };
 		155EAB3324104027001A42A6 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		155EAB352417F944001A42A6 /* UIMinionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMinionButton.swift; sourceTree = "<group>"; };
 		156A991C2406CF5500ADF085 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				155EAB3324104027001A42A6 /* DetailsViewController.swift */,
 				154AADA3243F8DC400272877 /* MovieTakeData.swift */,
 				15099F4E2451E8BF000EB03C /* MovieSearch.swift */,
-				154BADAF24478CFC001C1AF8 /* MovieDatabase.swift */,
+				154BADAF24478CFC001C1AF8 /* HandlerDatabase.swift */,
 				155EAB352417F944001A42A6 /* UIMinionButton.swift */,
 				152C9B1C23FECD5000B970BD /* Main.storyboard */,
 				152C9B1F23FECD5200B970BD /* Assets.xcassets */,
@@ -445,7 +445,7 @@
 				152C9B1B23FECD5000B970BD /* HomeScreenViewController.swift in Sources */,
 				154AC6572423DB6400143FA1 /* MovieRealm.swift in Sources */,
 				156A991F2408304100ADF085 /* SearchCollectionReusableView.swift in Sources */,
-				154BADB024478CFC001C1AF8 /* MovieDatabase.swift in Sources */,
+				154BADB024478CFC001C1AF8 /* HandlerDatabase.swift in Sources */,
 				15169B38240EEF2D00568CCB /* Movie.swift in Sources */,
 				151B50A8242E48C400EBABBA /* MovieFavRealm.swift in Sources */,
 				155EAB362417F944001A42A6 /* UIMinionButton.swift in Sources */,

@@ -34,7 +34,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
             
             self.movies = self.movieTakeData.decoder(data: data)
             
-            var database: MovieDatabase = MovieDatabase(config: Realm.Configuration())
+            var database: HandlerDatabase = HandlerDatabase(config: Realm.Configuration())
             for movie in self.movies {
                 let movieRealm = MovieRealm()
                 
@@ -46,7 +46,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
                 movieRealm.resolution = movie.resolution
                 movieRealm.hdr = movie.hdr
                 
-                database.addFilmDB(object: movieRealm)
+                database.addDB(object: movieRealm)
             }
             
             DispatchQueue.main.async {
