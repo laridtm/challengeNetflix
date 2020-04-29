@@ -37,19 +37,17 @@ class DetailsViewController: UIViewController {
             return
         }
         
-        var isFavorite = handlerDataBase.favExist(id: selectedMovieFavorite.id)
+        let retrievedObject = handlerDataBase.retrieveObject(id: selectedMovieFavorite.id)
         
-        if isFavorite {
-            handlerDataBase.deleteFav(id: selectedMovieFavorite.id)
-            isFavorite = false
+        if retrievedObject != nil {
+            handlerDataBase.deleteDB(object: retrievedObject!)
+            toggleFavButton(isFavorite: false)
         } else {
             let movieFavRealm = MovieFavRealm()
             movieFavRealm.id = selectedMovieFavorite.id
             handlerDataBase.addDB(object: movieFavRealm)
-            isFavorite = true
+            toggleFavButton(isFavorite: true)
         }
-        
-        toggleFavButton(isFavorite: isFavorite)
     }
     
     @IBOutlet weak var star1: UIImageView!
@@ -70,8 +68,13 @@ class DetailsViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
     
-        let isFavorite = handlerDataBase.favExist(id: movie!.id)
-        toggleFavButton(isFavorite: isFavorite)
+        let retrievedObject = handlerDataBase.retrieveObject(id: movie!.id)
+        if retrievedObject != nil {
+            toggleFavButton(isFavorite: true)
+        } else {
+            toggleFavButton(isFavorite: false)
+        }
+        
     }
     
     func createScreen() {

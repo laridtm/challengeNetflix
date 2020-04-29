@@ -25,11 +25,9 @@ class HandlerDatabase {
     func addDB(object: Object) {
         
         do {
-            
             try realm.write {
                 realm.add(object, update: .modified)
             }
-            
         } catch let error as NSError {
             print(error)
         }
@@ -49,41 +47,16 @@ class HandlerDatabase {
         return allObjects
     }
     
-    func favExist (id: String) -> Bool {
-        
-        do {
-            
-            let realm = try Realm()
-            
-            return realm.object(ofType: MovieFavRealm.self, forPrimaryKey: id) != nil
-            
-        } catch let error as NSError {
-            print(error)
-        }
-        
-        return false
+    func retrieveObject (id: String) -> Object? {
+        return realm.object(ofType: MovieFavRealm.self, forPrimaryKey: id)
     }
     
-    
-    func deleteFav (id: String) {
+    func deleteDB (object: Object) {
         
         do {
-            
-            let realm = try Realm()
-            
-            guard let object = realm.object(ofType: MovieFavRealm.self, forPrimaryKey: id) else {
-                return
+            try realm.write {
+                realm.delete(object)
             }
-            
-            do {
-                try realm.write {
-                    realm.delete(object)
-                }
-            } catch let error as NSError {
-                print(error)
-            }
-            
-            
         } catch let error as NSError {
             print(error)
         }
