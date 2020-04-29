@@ -43,7 +43,7 @@ class DetailsViewController: UIViewController {
             deleteFavFilm(id: selectedMovieFavorite.id)
             isFavorite = false
         } else {
-            addFavFilm()
+            movieDataBase.addFavFilm(selected: selectedMovieFavorite)
             isFavorite = true
         }
         
@@ -68,7 +68,7 @@ class DetailsViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
     
-        let isFavorite = movieDataBase.favExist(id: movie!.id) 
+        let isFavorite = movieDataBase.favExist(id: movie!.id)
         toggleFavButton(isFavorite: isFavorite)
     }
     
@@ -128,10 +128,7 @@ class DetailsViewController: UIViewController {
     }
     
     func toggleFavButton(isFavorite: Bool) {
-
         markButton.image = UIImage(named: isFavorite ? "marked" : "mark")
-
-
     }
     
    
@@ -160,28 +157,4 @@ class DetailsViewController: UIViewController {
         }
 
     }
-
-    func addFavFilm() {
-        
-        let movieFavRealm = MovieFavRealm()
-         
-        guard let selectedMovie = self.movie else {
-            return
-        }
-        movieFavRealm.id = selectedMovie.id
-        
-        do {
-             
-            let realm = try Realm()
-            
-            try realm.write {
-                realm.add(movieFavRealm)
-            }
-       
-        } catch let error as NSError {
-            print(error)
-        }
-
-    }
-    
 }

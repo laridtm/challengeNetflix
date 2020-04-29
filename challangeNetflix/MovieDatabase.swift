@@ -74,4 +74,24 @@ class MovieDatabase {
            return false
        }
     
+    func addFavFilm(selected: Movie) {
+            
+            let movieFavRealm = MovieFavRealm()
+            
+            movieFavRealm.id = selected.id
+            
+            do {
+                 
+                let realm = try Realm()
+                
+                try realm.write {
+                    realm.add(movieFavRealm)
+                }
+           
+            } catch let error as NSError {
+                print(error)
+            }
+
+        }
+    
 }
