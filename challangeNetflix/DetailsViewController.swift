@@ -22,6 +22,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var resolutionHDR: UIImageView!
     @IBOutlet weak var markButton: UIBarButtonItem!
     
+    var movieDataBase: MovieDatabase = MovieDatabase(config: Realm.Configuration())
+    
     @IBAction func traillerButton(_ sender: UIMinionButton) {
         
         guard let trailerUrl =  movie?.trailer else {
@@ -35,7 +37,7 @@ class DetailsViewController: UIViewController {
             return
         }
         
-        var isFavorite = favExist(id: selectedMovieFavorite.id)
+        var isFavorite = movieDataBase.favExist(id: selectedMovieFavorite.id)
         
         if isFavorite {
             deleteFavFilm(id: selectedMovieFavorite.id)
@@ -66,7 +68,7 @@ class DetailsViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
     
-        let isFavorite = favExist(id: movie!.id)
+        let isFavorite = movieDataBase.favExist(id: movie!.id) 
         toggleFavButton(isFavorite: isFavorite)
     }
     
@@ -132,20 +134,7 @@ class DetailsViewController: UIViewController {
 
     }
     
-    func favExist (id: String) -> Bool {
-        
-        do {
-            
-            let realm = try Realm()
-            
-            return realm.object(ofType: MovieFavRealm.self, forPrimaryKey: id) != nil
-            
-        } catch let error as NSError {
-            print(error)
-        }
-    
-        return false
-    }
+   
     
     func deleteFavFilm(id: String) {
 

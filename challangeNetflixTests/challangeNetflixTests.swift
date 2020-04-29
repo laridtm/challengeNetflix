@@ -42,23 +42,6 @@ class challangeNetflixTests: XCTestCase {
         XCTAssertEqual(movies.count, 4)
     }
     
-//    func testIfTheCellContainsAnImage() {
-//
-//        let cell: MovieCell
-//        cell = MovieCell()
-//
-//        guard let urlImage: URL = self.movies[0].images[2] else {
-//            print(Error.self)
-//            return
-//        }
-//
-//        XCTAssertNil(cell.movieImage)
-//
-//        cell.configureImage(url: urlImage)
-//
-//        XCTAssertNotNil(cell.movieImage)
-//    }
-    
     func testIfTheSearchIsCorrect() {
         
         var moviesSearch: [Movie] = []

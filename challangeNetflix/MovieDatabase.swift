@@ -59,4 +59,19 @@ class MovieDatabase {
         return allObjects
     }
     
+    func favExist (id: String) -> Bool {
+           
+           do {
+               
+               let realm = try Realm()
+               
+               return realm.object(ofType: MovieFavRealm.self, forPrimaryKey: id) != nil
+               
+           } catch let error as NSError {
+               print(error)
+           }
+       
+           return false
+       }
+    
 }
