@@ -16,7 +16,7 @@ class challangeNetflixTests: XCTestCase {
     var movies: [Movie] = []
     var movieSearch: MovieSearch = MovieSearch()
     var movieTakeData: MovieTakeData = MovieTakeData()
-
+    
     override func setUp() {
         super.setUp()
         
@@ -32,7 +32,7 @@ class challangeNetflixTests: XCTestCase {
             print(error)
         }
     }
-
+    
     override func tearDown() {
         super.tearDown()
     }
@@ -55,14 +55,14 @@ class challangeNetflixTests: XCTestCase {
     
     func testIfTheDatabaseIsAddingCorrectly() {
         
-        let database: MovieDatabase = MovieDatabase(config: Realm.Configuration(inMemoryIdentifier: "inMemory"))
+        let database: HandlerDatabase = HandlerDatabase(config: Realm.Configuration(inMemoryIdentifier: "inMemory"))
         
         for movie in self.movies {
             //Use an in-memory Realm
-            database.addFilmDB(movie: movie)
+            database.addDB(object: movie.toMovieRealm())
         }
         
-        let allObjects = database.retrieveAllObjects()
+        let allObjects = database.retrieveAllObjects(type: MovieRealm.self) as! [MovieRealm]
         
         XCTAssertEqual(allObjects.count, 4)
         XCTAssertEqual(allObjects[0].title, "Avatar")
@@ -72,5 +72,5 @@ class challangeNetflixTests: XCTestCase {
         
         
     }
-
+    
 }

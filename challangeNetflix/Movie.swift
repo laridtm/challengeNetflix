@@ -39,5 +39,19 @@ struct Movie: Codable {
         case hdr, trailer, images
         
     }
+    
+    func toMovieRealm() -> MovieRealm {
+        let movieRealm = MovieRealm()
+        
+        movieRealm.id = self.id
+        movieRealm.title = self.title
+        movieRealm.year = self.year
+        movieRealm.runtime = self.runtime
+        movieRealm.metascore = self.metascore
+        movieRealm.resolution = self.resolution
+        movieRealm.hdr = self.hdr
+        
+        return movieRealm
+    }
 
 }

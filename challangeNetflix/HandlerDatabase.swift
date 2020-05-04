@@ -34,20 +34,20 @@ class HandlerDatabase {
         
     }
     
-    func retrieveAllObjects() -> [MovieRealm] {
+    func retrieveAllObjects(type: Object.Type) -> [Object] {
         
-        var allObjects: [MovieRealm] = []
+        var allObjects: [Object] = []
         
-        var realmResults = realm.objects(MovieRealm.self)
+        var realmResults = realm.objects(type)
         
-        for movieRealm in realmResults {
-            allObjects.append(movieRealm)
+        for object in realmResults {
+            allObjects.append(object)
         }
         
         return allObjects
     }
     
-    func retrieveObject (id: String) -> Object? {
+    func retrieveObject(id: String) -> Object? {
         return realm.object(ofType: MovieFavRealm.self, forPrimaryKey: id)
     }
     

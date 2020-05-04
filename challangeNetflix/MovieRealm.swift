@@ -20,7 +20,7 @@ class MovieRealm: Object {
     @objc dynamic var hdr = false
     @objc dynamic var trailer = ""
     let images = List<String>()
-    
+
     override static func primaryKey() -> String? {
         return "id"
     }

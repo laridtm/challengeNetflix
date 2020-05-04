@@ -31,10 +31,10 @@ class MovieTakeData {
      }
     
     func decoder(data: Data) -> [Movie] {
-        
+
         let decoder = JSONDecoder()
         var movies : [Movie] = []
-        
+
         do {
             movies = try decoder.decode([Movie].self, from: data)
         } catch {
@@ -42,6 +42,5 @@ class MovieTakeData {
         }
         return movies
     }
-    
-    
+
 }
