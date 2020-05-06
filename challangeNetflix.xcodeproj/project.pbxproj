@@ -11,7 +11,7 @@
 		15169B38240EEF2D00568CCB /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15169B37240EEF2D00568CCB /* Movie.swift */; };
 		151B50A8242E48C400EBABBA /* MovieFavRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151B50A7242E48C400EBABBA /* MovieFavRealm.swift */; };
 		152C9B1723FECD5000B970BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C9B1623FECD5000B970BD /* AppDelegate.swift */; };
-		152C9B1B23FECD5000B970BD /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C9B1A23FECD5000B970BD /* HomeScreenViewController.swift */; };
+		152C9B1B23FECD5000B970BD /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C9B1A23FECD5000B970BD /* MovieListViewController.swift */; };
 		152C9B1E23FECD5000B970BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152C9B1C23FECD5000B970BD /* Main.storyboard */; };
 		152C9B2023FECD5200B970BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 152C9B1F23FECD5200B970BD /* Assets.xcassets */; };
 		152C9B2323FECD5200B970BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152C9B2123FECD5200B970BD /* LaunchScreen.storyboard */; };
@@ -23,7 +23,7 @@
 		154AADA4243F8DC400272877 /* MovieTakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154AADA3243F8DC400272877 /* MovieTakeData.swift */; };
 		154AC6572423DB6400143FA1 /* MovieRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154AC6562423DB6400143FA1 /* MovieRealm.swift */; };
 		154BADB024478CFC001C1AF8 /* HandlerDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BADAF24478CFC001C1AF8 /* HandlerDatabase.swift */; };
-		155EAB3424104027001A42A6 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155EAB3324104027001A42A6 /* DetailsViewController.swift */; };
+		155EAB3424104027001A42A6 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155EAB3324104027001A42A6 /* MovieDetailsViewController.swift */; };
 		155EAB362417F944001A42A6 /* UIMinionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155EAB352417F944001A42A6 /* UIMinionButton.swift */; };
 		156A991D2406CF5500ADF085 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A991C2406CF5500ADF085 /* MovieCell.swift */; };
 		156A991F2408304100ADF085 /* SearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A991E2408304100ADF085 /* SearchCollectionReusableView.swift */; };
@@ -56,7 +56,7 @@
 		151B50A7242E48C400EBABBA /* MovieFavRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFavRealm.swift; sourceTree = "<group>"; };
 		152C9B1323FECD5000B970BD /* challangeNetflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = challangeNetflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		152C9B1623FECD5000B970BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		152C9B1A23FECD5000B970BD /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		152C9B1A23FECD5000B970BD /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		152C9B1D23FECD5000B970BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		152C9B1F23FECD5200B970BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		152C9B2223FECD5200B970BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 		154AADA3243F8DC400272877 /* MovieTakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTakeData.swift; sourceTree = "<group>"; };
 		154AC6562423DB6400143FA1 /* MovieRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRealm.swift; sourceTree = "<group>"; };
 		154BADAF24478CFC001C1AF8 /* HandlerDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlerDatabase.swift; sourceTree = "<group>"; };
-		155EAB3324104027001A42A6 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		155EAB3324104027001A42A6 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		155EAB352417F944001A42A6 /* UIMinionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMinionButton.swift; sourceTree = "<group>"; };
 		156A991C2406CF5500ADF085 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		156A991E2408304100ADF085 /* SearchCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -137,22 +137,19 @@
 		152C9B1523FECD5000B970BD /* challangeNetflix */ = {
 			isa = PBXGroup;
 			children = (
-				152C9B1623FECD5000B970BD /* AppDelegate.swift */,
-				152C9B1A23FECD5000B970BD /* HomeScreenViewController.swift */,
 				156A991C2406CF5500ADF085 /* MovieCell.swift */,
-				15169B37240EEF2D00568CCB /* Movie.swift */,
-				154AC6562423DB6400143FA1 /* MovieRealm.swift */,
-				151B50A7242E48C400EBABBA /* MovieFavRealm.swift */,
-				152C9B2423FECD5200B970BD /* Info.plist */,
 				156A991E2408304100ADF085 /* SearchCollectionReusableView.swift */,
-				155EAB3324104027001A42A6 /* DetailsViewController.swift */,
-				154AADA3243F8DC400272877 /* MovieTakeData.swift */,
 				15099F4E2451E8BF000EB03C /* MovieSearch.swift */,
+				154AADA3243F8DC400272877 /* MovieTakeData.swift */,
 				154BADAF24478CFC001C1AF8 /* HandlerDatabase.swift */,
-				155EAB352417F944001A42A6 /* UIMinionButton.swift */,
+				154994D724632BCB00736A8B /* MovieList */,
+				154994D824632C0700736A8B /* MovieDetails */,
+				154994D924632CAA00736A8B /* Models */,
 				152C9B1C23FECD5000B970BD /* Main.storyboard */,
-				152C9B1F23FECD5200B970BD /* Assets.xcassets */,
 				152C9B2123FECD5200B970BD /* LaunchScreen.storyboard */,
+				152C9B1F23FECD5200B970BD /* Assets.xcassets */,
+				152C9B1623FECD5000B970BD /* AppDelegate.swift */,
+				152C9B2423FECD5200B970BD /* Info.plist */,
 			);
 			path = challangeNetflix;
 			sourceTree = "<group>";
@@ -174,6 +171,33 @@
 				152C9B3A23FECD5300B970BD /* Info.plist */,
 			);
 			path = challangeNetflixUITests;
+			sourceTree = "<group>";
+		};
+		154994D724632BCB00736A8B /* MovieList */ = {
+			isa = PBXGroup;
+			children = (
+				152C9B1A23FECD5000B970BD /* MovieListViewController.swift */,
+			);
+			path = MovieList;
+			sourceTree = "<group>";
+		};
+		154994D824632C0700736A8B /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+				155EAB3324104027001A42A6 /* MovieDetailsViewController.swift */,
+			);
+			path = MovieDetails;
+			sourceTree = "<group>";
+		};
+		154994D924632CAA00736A8B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				15169B37240EEF2D00568CCB /* Movie.swift */,
+				154AC6562423DB6400143FA1 /* MovieRealm.swift */,
+				151B50A7242E48C400EBABBA /* MovieFavRealm.swift */,
+				155EAB352417F944001A42A6 /* UIMinionButton.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		3EB7FD7815FDD7660E79167F /* Pods */ = {
@@ -442,7 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				152C9B1B23FECD5000B970BD /* HomeScreenViewController.swift in Sources */,
+				152C9B1B23FECD5000B970BD /* MovieListViewController.swift in Sources */,
 				154AC6572423DB6400143FA1 /* MovieRealm.swift in Sources */,
 				156A991F2408304100ADF085 /* SearchCollectionReusableView.swift in Sources */,
 				154BADB024478CFC001C1AF8 /* HandlerDatabase.swift in Sources */,
@@ -450,7 +474,7 @@
 				151B50A8242E48C400EBABBA /* MovieFavRealm.swift in Sources */,
 				155EAB362417F944001A42A6 /* UIMinionButton.swift in Sources */,
 				152C9B1723FECD5000B970BD /* AppDelegate.swift in Sources */,
-				155EAB3424104027001A42A6 /* DetailsViewController.swift in Sources */,
+				155EAB3424104027001A42A6 /* MovieDetailsViewController.swift in Sources */,
 				154AADA4243F8DC400272877 /* MovieTakeData.swift in Sources */,
 				15099F4F2451E8BF000EB03C /* MovieSearch.swift in Sources */,
 				156A991D2406CF5500ADF085 /* MovieCell.swift in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class DetailsViewController: UIViewController {
+class MovieDetailsViewController: UIViewController {
 
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var nameFilm: UILabel!

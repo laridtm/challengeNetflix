@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
+class MovieListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var constraintTopCollectionView: NSLayoutConstraint!
@@ -76,7 +76,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let details = segue.destination as? DetailsViewController else {
+        guard let details = segue.destination as? MovieDetailsViewController else {
             return
         }
         details.movie = movieSelected
