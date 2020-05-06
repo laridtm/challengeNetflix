@@ -1,16 +1,20 @@
 //
-//  MovieController.swift
+//  MovieListWorker.swift
 //  challangeNetflix
 //
-//  Created by Larissa Diniz  on 09/04/20.
+//  Created by Larissa Diniz  on 06/05/20.
 //  Copyright © 2020 Larissa Diniz . All rights reserved.
 //
 
 import Foundation
-import UIKit
-import RealmSwift
 
-class MovieTakeData {
+protocol MovieListWorkerProtocol: class {
+    func request(urlName: String, closure: ((Data) -> Void)?)
+    func decoder(data: Data) -> [Movie]
+    func searchMovie(movies: [Movie], search: String) -> [Movie]
+}
+
+class MovieListProtocol: MovieListWorkerProtocol {
     
     func request(urlName: String, closure: ((Data) -> Void)?) {
          
@@ -42,5 +46,21 @@ class MovieTakeData {
         }
         return movies
     }
-
+    
+    func searchMovie(movies: [Movie], search: String) -> [Movie] {
+        
+        var moviesAux: [Movie] = []
+        
+        for item in movies {
+            if (item.title.lowercased().contains(search.lowercased())) {
+                moviesAux.append(item)
+            }
+        }
+        
+        if (search.isEmpty) {
+            moviesAux = movies
+        }
+        
+        return moviesAux
+    }
 }
