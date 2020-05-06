@@ -10,7 +10,6 @@ import Foundation
 import RealmSwift
 
 class MovieRealm: Object {
-    
     @objc dynamic var id = ""
     @objc dynamic var title = ""
     @objc dynamic var year = ""
@@ -19,10 +18,10 @@ class MovieRealm: Object {
     @objc dynamic var resolution = false
     @objc dynamic var hdr = false
     @objc dynamic var trailer = ""
+    
     let images = List<String>()
-
+    
     override static func primaryKey() -> String? {
         return "id"
     }
-    
 }

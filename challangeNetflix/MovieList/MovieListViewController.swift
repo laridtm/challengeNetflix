@@ -10,10 +10,8 @@ import UIKit
 import RealmSwift
 
 class MovieListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var constraintTopCollectionView: NSLayoutConstraint!
-    
     @IBAction func searchButton(_ sender: Any) {
         showSearchView()
     }
@@ -24,29 +22,22 @@ class MovieListViewController: UIViewController, UICollectionViewDelegate, UICol
     let url: String = "http://localhost:8080/response.json"
     var movieSelected: Movie?
     var movieTakeData: MovieTakeData = MovieTakeData()
-    
     var searchView = UICollectionReusableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let closure:(Data) -> Void = { data in
-            
             self.movies = self.movieTakeData.decoder(data: data)
-            
             var database: HandlerDatabase = HandlerDatabase(config: Realm.Configuration())
             for movie in self.movies {
                 database.addDB(object: movie.toMovieRealm())
             }
-            
             DispatchQueue.main.async {
                 self.realData = self.movies
                 self.collectionView.reloadData()
             }
         }
-        
         movieTakeData.request(urlName: self.url, closure: closure)
-        
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -56,22 +47,18 @@ class MovieListViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView,     cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
         guard let urlImage: URL = movies[indexPath.row].images[2] else {
             print(Error.self)
             return UICollectionViewCell()
         }
-        
         cell.configureImage(url: urlImage)
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         movieSelected = movies[indexPath.row]
-        
         performSegue(withIdentifier: "Details", sender: nil)
     }
     
@@ -83,13 +70,10 @@ class MovieListViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
         searchView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
-        
         hideSearchView()
-        
         return searchView
-        
+
     }
     
     func hideSearchView() {

@@ -10,11 +10,8 @@ import Foundation
 import RealmSwift
 
 class MovieFavRealm: Object {
-    
     @objc dynamic var id = ""
-    
     override static func primaryKey() -> String? {
         return "id"
     }
-    
 }

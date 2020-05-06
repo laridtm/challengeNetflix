@@ -15,12 +15,9 @@ protocol MovieListWorkerProtocol: class {
 }
 
 class MovieListProtocol: MovieListWorkerProtocol {
-    
     func request(urlName: String, closure: ((Data) -> Void)?) {
-         
          let session = URLSession.shared
          let url = URL(string: urlName)!
-         
          let task = session.dataTask(with: url) {
              data, response, error in
              
@@ -35,10 +32,9 @@ class MovieListProtocol: MovieListWorkerProtocol {
      }
     
     func decoder(data: Data) -> [Movie] {
-
         let decoder = JSONDecoder()
         var movies : [Movie] = []
-
+        
         do {
             movies = try decoder.decode([Movie].self, from: data)
         } catch {
@@ -48,7 +44,6 @@ class MovieListProtocol: MovieListWorkerProtocol {
     }
     
     func searchMovie(movies: [Movie], search: String) -> [Movie] {
-        
         var moviesAux: [Movie] = []
         
         for item in movies {

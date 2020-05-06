@@ -10,7 +10,6 @@ import UIKit
 import RealmSwift
 
 class MovieDetailsViewController: UIViewController {
-
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var nameFilm: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -21,11 +20,10 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var resolution4k: UIImageView!
     @IBOutlet weak var resolutionHDR: UIImageView!
     @IBOutlet weak var markButton: UIBarButtonItem!
-    
+
     var handlerDataBase: HandlerDatabase = HandlerDatabase(config: Realm.Configuration())
     
     @IBAction func traillerButton(_ sender: UIMinionButton) {
-        
         guard let trailerUrl =  movie?.trailer else {
             return
         }
@@ -74,7 +72,6 @@ class MovieDetailsViewController: UIViewController {
         } else {
             toggleFavButton(isFavorite: false)
         }
-        
     }
     
     func createScreen() {
@@ -96,7 +93,6 @@ class MovieDetailsViewController: UIViewController {
         guard let data = try? Data(contentsOf: urlImage) else { return }
         coverImage.image = UIImage(data: data)
         coverImage.layer.cornerRadius = 10
-        
     }
     
     func createBackground(urlImage: URL) {
@@ -106,7 +102,6 @@ class MovieDetailsViewController: UIViewController {
     
     func selectEvaluation(metascore: String) {
         guard var metascoreDouble = Double(metascore) else { return }
-        
         let images = [star1, star2, star3, star4, star5]
         var i = 1
 
@@ -135,5 +130,4 @@ class MovieDetailsViewController: UIViewController {
     func toggleFavButton(isFavorite: Bool) {
         markButton.image = UIImage(named: isFavorite ? "marked" : "mark")
     }
-
 }

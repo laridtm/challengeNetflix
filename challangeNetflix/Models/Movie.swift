@@ -10,7 +10,6 @@ import Foundation
 import RealmSwift
 
 struct Movie: Codable {
-    
     let id: String
     let title: String
     let year: String
@@ -37,12 +36,10 @@ struct Movie: Codable {
         actors, plot, language, country, awards, poster, metascore
         case resolution = "4k"
         case hdr, trailer, images
-        
     }
     
     func toMovieRealm() -> MovieRealm {
         let movieRealm = MovieRealm()
-        
         movieRealm.id = self.id
         movieRealm.title = self.title
         movieRealm.year = self.year
@@ -50,8 +47,6 @@ struct Movie: Codable {
         movieRealm.metascore = self.metascore
         movieRealm.resolution = self.resolution
         movieRealm.hdr = self.hdr
-        
         return movieRealm
     }
-
 }
