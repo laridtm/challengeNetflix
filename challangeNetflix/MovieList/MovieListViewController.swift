@@ -9,6 +9,12 @@
 import UIKit
 import RealmSwift
 
+protocol MovieView: class {
+    func show(items: [Movie]?)
+    func show(error: String)
+    func blockView()
+}
+
 class MovieListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var constraintTopCollectionView: NSLayoutConstraint!
@@ -17,27 +23,17 @@ class MovieListViewController: UIViewController, UICollectionViewDelegate, UICol
     }
 
     var movies: [Movie] = []
-    var realData: [Movie] = []
-    let session = URLSession.shared
-    let url: String = "http://localhost:8080/response.json"
+//    var realData: [Movie] = []
     var movieSelected: Movie?
-    var movieTakeData: MovieTakeData = MovieTakeData()
     var searchView = UICollectionReusableView()
+    
+    var interactor: MovieListInteractorProtocol?
+    var items: [Movie]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let closure:(Data) -> Void = { data in
-            self.movies = self.movieTakeData.decoder(data: data)
-            var database: HandlerDatabase = HandlerDatabase(config: Realm.Configuration())
-            for movie in self.movies {
-                database.addDB(object: movie.toMovieRealm())
-            }
-            DispatchQueue.main.async {
-                self.realData = self.movies
-                self.collectionView.reloadData()
-            }
-        }
-        movieTakeData.request(urlName: self.url, closure: closure)
+        interactor?.onViewLoaded()
+        
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -96,11 +92,34 @@ class MovieListViewController: UIViewController, UICollectionViewDelegate, UICol
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        let movieSearch: MovieSearch = MovieSearch()
+//        let movieSearch: MovieSearch = MovieSearch()
         
-        self.movies = movieSearch.searchMovie(movies: realData, search: searchBar.text!)
+//        self.movies = movieSearch.searchMovie(movies: realData, search: searchBar.text!)
         
         self.collectionView.reloadData()
+    }
+    
+}
+
+extension MovieListViewController: MovieView {
+    
+    func show(items: [Movie]?) {
+        self.movies = items!
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func show(error: String) {
+//        showSimpleAlertController(title: "error".localized(), message: error)
+    }
+    
+    func blockView() {
+//        let blockViewController = R.storyboard.block().instantiateInitialViewController()
+//        
+//        if let blockView = blockViewController?.view {
+//            self.view.addSubview(blockView)
+//        }
     }
     
 }

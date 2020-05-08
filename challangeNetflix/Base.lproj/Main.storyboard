@@ -11,7 +11,7 @@
         <!--Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeScreenViewController" customModule="challangeNetflix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Movies" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MovieListViewController" customModule="challangeNetflix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,9 +112,6 @@
                                 <action selector="searchButton:" destination="BYZ-38-t0r" id="7h7-ok-HwG"/>
                             </connections>
                         </barButtonItem>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                        </userDefinedRuntimeAttributes>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Yfk-lW-wEY" id="9uN-Ko-z0f"/>
@@ -126,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="818.84057971014499" y="138.61607142857142"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Movie Details View Controller-->
         <scene sceneID="WbO-9j-5B9">
             <objects>
-                <viewController id="JyC-Cz-tj5" customClass="DetailsViewController" customModule="challangeNetflix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JyC-Cz-tj5" customClass="MovieDetailsViewController" customModule="challangeNetflix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KZa-U2-UXN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -308,7 +305,7 @@
         <!--Navigation Controller-->
         <scene sceneID="bir-Cc-WSf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gRO-x1-MZn" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Navigation" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gRO-x1-MZn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="JxP-UH-Sav">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

@@ -14,7 +14,7 @@ protocol MovieListWorkerProtocol: class {
     func searchMovie(movies: [Movie], search: String) -> [Movie]
 }
 
-class MovieListProtocol: MovieListWorkerProtocol {
+class MovieListWorker: MovieListWorkerProtocol {
     func request(urlName: String, closure: ((Data) -> Void)?) {
          let session = URLSession.shared
          let url = URL(string: urlName)!
@@ -34,7 +34,6 @@ class MovieListProtocol: MovieListWorkerProtocol {
     func decoder(data: Data) -> [Movie] {
         let decoder = JSONDecoder()
         var movies : [Movie] = []
-        
         do {
             movies = try decoder.decode([Movie].self, from: data)
         } catch {
