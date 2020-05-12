@@ -11,8 +11,6 @@ import RealmSwift
 
 protocol MovieViewDetails: class {
     func show(item: Movie?)
-    func show(error: String)
-    func blockView()
     func toggleFavButton(isFavorite: Bool)
 }
 

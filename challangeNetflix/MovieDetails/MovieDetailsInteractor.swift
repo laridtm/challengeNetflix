@@ -18,7 +18,6 @@ class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
     
     private let presenter: MovieDetailsPresentable
     private let worker: MovieDetailsWorkerProtocol
-    var movie: Movie?
     
     init(presenter: MovieDetailsPresentable, worker: MovieDetailsWorkerProtocol) {
         self.presenter = presenter
@@ -41,7 +40,7 @@ class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
             worker.deleteDB(object: retrievedObject!)
             presenter.callToggleFavButton(isFavorite: false)
         } else {
-            worker.addDatabase(movie: self.movie!)
+            worker.addDatabase(movie: worker.movie!)
             presenter.callToggleFavButton(isFavorite: true)
         }
     }
