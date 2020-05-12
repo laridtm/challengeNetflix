@@ -61,6 +61,12 @@ class MovieListViewController: UIViewController, UICollectionViewDelegate, UICol
             return
         }
         details.movie = movieSelected
+        
+        let controllerDetails = details
+        let presenterDetails = MovieDetailsPresenter(view: controllerDetails)
+        let workerDetails = MovieDetailsWorker()
+        let interactorDetails = MovieDetailsInteractor(presenter: presenterDetails, worker: workerDetails)
+        controllerDetails.interactor = interactorDetails
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
