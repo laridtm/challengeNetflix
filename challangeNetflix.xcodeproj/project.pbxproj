@@ -145,8 +145,9 @@
 		152C9B1523FECD5000B970BD /* challangeNetflix */ = {
 			isa = PBXGroup;
 			children = (
-				156A991C2406CF5500ADF085 /* MovieCell.swift */,
 				154BADAF24478CFC001C1AF8 /* HandlerDatabase.swift */,
+				156A991E2408304100ADF085 /* SearchCollectionReusableView.swift */,
+				155EAB352417F944001A42A6 /* UIMinionButton.swift */,
 				154994D724632BCB00736A8B /* MovieList */,
 				154994D824632C0700736A8B /* MovieDetails */,
 				154994D924632CAA00736A8B /* Models */,
@@ -185,6 +186,7 @@
 				154994DA2463357800736A8B /* MovieListWorker.swift */,
 				154994DC24633F2200736A8B /* MovieListInteractor.swift */,
 				154994DE24633FB800736A8B /* MovieListPresenter.swift */,
+				156A991C2406CF5500ADF085 /* MovieCell.swift */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
@@ -206,8 +208,6 @@
 				15169B37240EEF2D00568CCB /* Movie.swift */,
 				154AC6562423DB6400143FA1 /* MovieRealm.swift */,
 				151B50A7242E48C400EBABBA /* MovieFavRealm.swift */,
-				155EAB352417F944001A42A6 /* UIMinionButton.swift */,
-				156A991E2408304100ADF085 /* SearchCollectionReusableView.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

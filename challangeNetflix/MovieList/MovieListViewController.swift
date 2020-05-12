@@ -60,13 +60,13 @@ class MovieListViewController: UIViewController, UICollectionViewDelegate, UICol
         guard let details = segue.destination as? MovieDetailsViewController else {
             return
         }
+        
         let controllerDetails = details
         let presenterDetails = MovieDetailsPresenter(view: controllerDetails)
-        let workerDetails = MovieDetailsWorker()
+        let workerDetails = MovieDetailsWorker() //colocar init movie
+        workerDetails.movie = movieSelected
         let interactorDetails = MovieDetailsInteractor(presenter: presenterDetails, worker: workerDetails)
         controllerDetails.interactor = interactorDetails
-        
-        workerDetails.movie = movieSelected
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

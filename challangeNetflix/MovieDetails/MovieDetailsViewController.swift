@@ -59,19 +59,16 @@ class MovieDetailsViewController: UIViewController {
         interactor?.onViewLoaded()
     }
     
-    func createScreen() {
-        guard let selectedMovie = self.movie else {
-            return
-        }
-        createPoster(urlImage: selectedMovie.images.first!)
-        createBackground(urlImage: selectedMovie.images[1])
-        self.nameFilm.text = selectedMovie.title
-        self.metascore.text = "(\(selectedMovie.metascore))"
-        self.textFilm.text = selectedMovie.plot
-        self.yearFilm.text = selectedMovie.year
-        self.timeFilm.text = selectedMovie.runtime
-        selectEvaluation(metascore: selectedMovie.metascore)
-        resolution(k: selectedMovie.resolution, HDR: selectedMovie.hdr)
+    func createScreen(movie: Movie) {
+        createPoster(urlImage: movie.images.first!)
+        createBackground(urlImage: movie.images[1])
+        self.nameFilm.text = movie.title
+        self.metascore.text = "(\(movie.metascore))"
+        self.textFilm.text = movie.plot
+        self.yearFilm.text = movie.year
+        self.timeFilm.text = movie.runtime
+        selectEvaluation(metascore: movie.metascore)
+        resolution(k: movie.resolution, HDR: movie.hdr)
     }
     
     func createPoster(urlImage: URL) {
@@ -120,8 +117,7 @@ extension MovieDetailsViewController: MovieViewDetails {
     }
     
     func show(item: Movie?) {
-        self.movie = item!
-        createScreen()
+        createScreen(movie: item!)
     }
     
     func show(error: String) {

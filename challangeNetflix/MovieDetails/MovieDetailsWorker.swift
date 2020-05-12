@@ -16,10 +16,11 @@ protocol MovieDetailsWorkerProtocol: class {
     var movie: Movie? { get set }
 }
 
-var handlerDataBase: HandlerDatabase = HandlerDatabase(config: Realm.Configuration())
-
 class MovieDetailsWorker: MovieDetailsWorkerProtocol {
     var movie: Movie?
+    //worker -> dataprovider -> handlerdatabase
+    //init worker movie e dataprovider
+    var handlerDataBase: HandlerDatabase = HandlerDatabase(config: Realm.Configuration())
     
     func consultDatabase() -> Object? {
         let retrievedObject = handlerDataBase.retrieveObject(id: movie!.id)
