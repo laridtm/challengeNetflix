@@ -24,6 +24,9 @@
 		154AADA2243E5B5C00272877 /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = 154AAD9E243E434700272877 /* movies.json */; };
 		154AC6572423DB6400143FA1 /* MovieRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154AC6562423DB6400143FA1 /* MovieRealm.swift */; };
 		154BADB024478CFC001C1AF8 /* HandlerDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154BADAF24478CFC001C1AF8 /* HandlerDatabase.swift */; };
+		154FEA7D246ADE6F009E6DD9 /* MovieDetailsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154FEA7C246ADE6F009E6DD9 /* MovieDetailsWorker.swift */; };
+		154FEA7F246AE0A7009E6DD9 /* MovieDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154FEA7E246AE0A7009E6DD9 /* MovieDetailsInteractor.swift */; };
+		154FEA81246AE120009E6DD9 /* MovieDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154FEA80246AE120009E6DD9 /* MovieDetailsPresenter.swift */; };
 		155EAB3424104027001A42A6 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155EAB3324104027001A42A6 /* MovieDetailsViewController.swift */; };
 		155EAB362417F944001A42A6 /* UIMinionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155EAB352417F944001A42A6 /* UIMinionButton.swift */; };
 		156A991D2406CF5500ADF085 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156A991C2406CF5500ADF085 /* MovieCell.swift */; };
@@ -73,6 +76,9 @@
 		154AAD9E243E434700272877 /* movies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = movies.json; sourceTree = "<group>"; };
 		154AC6562423DB6400143FA1 /* MovieRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRealm.swift; sourceTree = "<group>"; };
 		154BADAF24478CFC001C1AF8 /* HandlerDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlerDatabase.swift; sourceTree = "<group>"; };
+		154FEA7C246ADE6F009E6DD9 /* MovieDetailsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsWorker.swift; sourceTree = "<group>"; };
+		154FEA7E246AE0A7009E6DD9 /* MovieDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsInteractor.swift; sourceTree = "<group>"; };
+		154FEA80246AE120009E6DD9 /* MovieDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsPresenter.swift; sourceTree = "<group>"; };
 		155EAB3324104027001A42A6 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		155EAB352417F944001A42A6 /* UIMinionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMinionButton.swift; sourceTree = "<group>"; };
 		156A991C2406CF5500ADF085 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
@@ -187,6 +193,9 @@
 			isa = PBXGroup;
 			children = (
 				155EAB3324104027001A42A6 /* MovieDetailsViewController.swift */,
+				154FEA7C246ADE6F009E6DD9 /* MovieDetailsWorker.swift */,
+				154FEA7E246AE0A7009E6DD9 /* MovieDetailsInteractor.swift */,
+				154FEA80246AE120009E6DD9 /* MovieDetailsPresenter.swift */,
 			);
 			path = MovieDetails;
 			sourceTree = "<group>";
@@ -472,11 +481,14 @@
 				152C9B1B23FECD5000B970BD /* MovieListViewController.swift in Sources */,
 				154AC6572423DB6400143FA1 /* MovieRealm.swift in Sources */,
 				154994DB2463357800736A8B /* MovieListWorker.swift in Sources */,
+				154FEA7D246ADE6F009E6DD9 /* MovieDetailsWorker.swift in Sources */,
+				154FEA81246AE120009E6DD9 /* MovieDetailsPresenter.swift in Sources */,
 				156A991F2408304100ADF085 /* SearchCollectionReusableView.swift in Sources */,
 				154BADB024478CFC001C1AF8 /* HandlerDatabase.swift in Sources */,
 				15169B38240EEF2D00568CCB /* Movie.swift in Sources */,
 				151B50A8242E48C400EBABBA /* MovieFavRealm.swift in Sources */,
 				154994DD24633F2200736A8B /* MovieListInteractor.swift in Sources */,
+				154FEA7F246AE0A7009E6DD9 /* MovieDetailsInteractor.swift in Sources */,
 				154994DF24633FB800736A8B /* MovieListPresenter.swift in Sources */,
 				155EAB362417F944001A42A6 /* UIMinionButton.swift in Sources */,
 				152C9B1723FECD5000B970BD /* AppDelegate.swift in Sources */,

@@ -9,6 +9,13 @@
 import UIKit
 import RealmSwift
 
+protocol MovieViewDetails: class {
+    func show(item: Movie?)
+    func show(error: String)
+    func blockView()
+    func toggleFavButton(isFavorite: Bool)
+}
+
 class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var nameFilm: UILabel!
@@ -20,8 +27,8 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var resolution4k: UIImageView!
     @IBOutlet weak var resolutionHDR: UIImageView!
     @IBOutlet weak var markButton: UIBarButtonItem!
-
-    var handlerDataBase: HandlerDatabase = HandlerDatabase(config: Realm.Configuration())
+    
+    var interactor: MovieDetailsInteractorProtocol?
     
     @IBAction func traillerButton(_ sender: UIMinionButton) {
         guard let trailerUrl =  movie?.trailer else {
@@ -31,21 +38,7 @@ class MovieDetailsViewController: UIViewController {
     }
     
     @IBAction func favButton(_ sender: UIBarButtonItem) {
-        guard let selectedMovieFavorite = self.movie else {
-            return
-        }
-        
-        let retrievedObject = handlerDataBase.retrieveObject(id: selectedMovieFavorite.id)
-        
-        if retrievedObject != nil {
-            handlerDataBase.deleteDB(object: retrievedObject!)
-            toggleFavButton(isFavorite: false)
-        } else {
-            let movieFavRealm = MovieFavRealm()
-            movieFavRealm.id = selectedMovieFavorite.id
-            handlerDataBase.addDB(object: movieFavRealm)
-            toggleFavButton(isFavorite: true)
-        }
+        interactor?.onFavButton(movie: movie!)
     }
     
     @IBOutlet weak var star1: UIImageView!
@@ -66,12 +59,7 @@ class MovieDetailsViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
     
-        let retrievedObject = handlerDataBase.retrieveObject(id: movie!.id)
-        if retrievedObject != nil {
-            toggleFavButton(isFavorite: true)
-        } else {
-            toggleFavButton(isFavorite: false)
-        }
+        interactor?.onViewLoaded(movie: movie!)
     }
     
     func createScreen() {
@@ -126,8 +114,31 @@ class MovieDetailsViewController: UIViewController {
             resolutionHDR.image = UIImage(named: "hdr")
         }
     }
+}
+
+extension MovieDetailsViewController: MovieViewDetails {
     
     func toggleFavButton(isFavorite: Bool) {
         markButton.image = UIImage(named: isFavorite ? "marked" : "mark")
     }
+    
+    func show(item: Movie?) {
+        self.movie = item!
+        DispatchQueue.main.async {
+//            self.collectionView.reloadData()
+        }
+    }
+    
+    func show(error: String) {
+//        showSimpleAlertController(title: "error".localized(), message: error)
+    }
+    
+    func blockView() {
+//        let blockViewController = R.storyboard.block().instantiateInitialViewController()
+//
+//        if let blockView = blockViewController?.view {
+//            self.view.addSubview(blockView)
+//        }
+    }
+    
 }
