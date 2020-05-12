@@ -11,8 +11,6 @@ import Foundation
 protocol MovieDetailsPresentable: class {
     var view: MovieViewDetails? { get }
     func showItem(item: Movie?)
-    func showError(error: String)
-    func showBlockedView()
     func callToggleFavButton(isFavorite: Bool)
 }
 
@@ -31,14 +29,4 @@ final class MovieDetailsPresenter: MovieDetailsPresentable {
     func showItem(item: Movie?) {
         view?.show(item: item)
     }
-    
-    //por enquanto tratando só sucesso, nunca vai chamar essas funções
-    func showError(error: String) {
-        view?.show(error: error)
-    }
-    
-    func showBlockedView() {
-        view?.blockView()
-    }
-    
 }

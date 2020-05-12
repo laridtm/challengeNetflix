@@ -32,14 +32,15 @@ class MovieDetailsViewController: UIViewController {
     var movie: Movie?
     
     @IBAction func traillerButton(_ sender: UIMinionButton) {
-        guard let trailerUrl =  movie?.trailer else {
+        //mudar para interactor -> worker
+        guard let trailerUrl = movie?.trailer else {
             return
         }
         UIApplication.shared.open(trailerUrl)
     }
     
     @IBAction func favButton(_ sender: UIBarButtonItem) {
-        interactor?.onFavButton(movie: movie!)
+        interactor?.onFavButton()
     }
     
     @IBOutlet weak var star1: UIImageView!
@@ -119,17 +120,4 @@ extension MovieDetailsViewController: MovieViewDetails {
     func show(item: Movie?) {
         createScreen(movie: item!)
     }
-    
-    func show(error: String) {
-//        showSimpleAlertController(title: "error".localized(), message: error)
-    }
-    
-    func blockView() {
-//        let blockViewController = R.storyboard.block().instantiateInitialViewController()
-//
-//        if let blockView = blockViewController?.view {
-//            self.view.addSubview(blockView)
-//        }
-    }
-    
 }
