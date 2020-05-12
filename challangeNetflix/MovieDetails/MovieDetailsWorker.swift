@@ -10,21 +10,19 @@ import Foundation
 import RealmSwift
 
 protocol MovieDetailsWorkerProtocol: class {
-//    func manageFavorites()
-    func consultDatabase(movie: Movie) -> Object?
+    func consultDatabase() -> Object?
     func addDatabase(movie: Movie)
     func deleteDB(object: Object)
+    var movie: Movie? { get set }
 }
 
 var handlerDataBase: HandlerDatabase = HandlerDatabase(config: Realm.Configuration())
 
 class MovieDetailsWorker: MovieDetailsWorkerProtocol {
-//    func manageFavorites() {
-//        <#code#>
-//    }
+    var movie: Movie?
     
-    func consultDatabase(movie: Movie) -> Object? {
-        let retrievedObject = handlerDataBase.retrieveObject(id: movie.id)
+    func consultDatabase() -> Object? {
+        let retrievedObject = handlerDataBase.retrieveObject(id: movie!.id)
         return retrievedObject
     }
     

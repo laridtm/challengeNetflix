@@ -29,6 +29,7 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var markButton: UIBarButtonItem!
     
     var interactor: MovieDetailsInteractorProtocol?
+    var movie: Movie?
     
     @IBAction func traillerButton(_ sender: UIMinionButton) {
         guard let trailerUrl =  movie?.trailer else {
@@ -47,19 +48,15 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var star4: UIImageView!
     @IBOutlet weak var star5: UIImageView!
     
-    var movie: Movie?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        createScreen()
-        
+    
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
     
-        interactor?.onViewLoaded(movie: movie!)
+        interactor?.onViewLoaded()
     }
     
     func createScreen() {
@@ -124,9 +121,7 @@ extension MovieDetailsViewController: MovieViewDetails {
     
     func show(item: Movie?) {
         self.movie = item!
-        DispatchQueue.main.async {
-//            self.collectionView.reloadData()
-        }
+        createScreen()
     }
     
     func show(error: String) {
