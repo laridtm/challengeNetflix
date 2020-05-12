@@ -23,12 +23,10 @@ class MovieListViewController: UIViewController, UICollectionViewDelegate, UICol
     }
 
     var movies: [Movie] = []
-//    var realData: [Movie] = []
     var movieSelected: Movie?
     var searchView = UICollectionReusableView()
     
     var interactor: MovieListInteractorProtocol?
-    var items: [Movie]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,12 +89,7 @@ class MovieListViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-//        let movieSearch: MovieSearch = MovieSearch()
-        
-//        self.movies = movieSearch.searchMovie(movies: realData, search: searchBar.text!)
-        
-        self.collectionView.reloadData()
+        interactor?.onSearchMovie(search: searchBar.text!)
     }
     
 }

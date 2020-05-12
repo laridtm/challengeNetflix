@@ -11,6 +11,7 @@ import RealmSwift
 
 protocol MovieListInteractorProtocol: class {
     func onViewLoaded()
+    func onSearchMovie(search: String)
 }
 
 class MovieListInteractor: MovieListInteractorProtocol {
@@ -38,5 +39,10 @@ class MovieListInteractor: MovieListInteractorProtocol {
             self.presenter.showItems(items: self.items)
         }
         worker.request(urlName: self.url, closure: closure)
+    }
+    
+    func onSearchMovie(search: String) {
+        var searchResult = worker.searchMovie(movies: items, search: search)
+        self.presenter.showItems(items: searchResult)
     }
 }
