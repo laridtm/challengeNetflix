@@ -11,8 +11,6 @@ import RealmSwift
 
 protocol MovieView: class {
     func show(items: [Movie]?)
-    func show(error: String)
-    func blockView()
 }
 
 class MovieListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
@@ -107,19 +105,6 @@ extension MovieListViewController: MovieView {
             self.collectionView.reloadData()
         }
     }
-    
-    func show(error: String) {
-//        showSimpleAlertController(title: "error".localized(), message: error)
-    }
-    
-    func blockView() {
-//        let blockViewController = R.storyboard.block().instantiateInitialViewController()
-//        
-//        if let blockView = blockViewController?.view {
-//            self.view.addSubview(blockView)
-//        }
-    }
-    
 }
 
 
