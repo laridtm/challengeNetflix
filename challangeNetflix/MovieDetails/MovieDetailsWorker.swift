@@ -10,30 +10,33 @@ import Foundation
 import RealmSwift
 
 protocol MovieDetailsWorkerProtocol: class {
+    var movie: Movie { get }
     func consultDatabase() -> Object?
-    func addDatabase(movie: Movie)
+    func addDatabase()
     func deleteDB(object: Object)
-    var movie: Movie? { get set }
 }
 
 class MovieDetailsWorker: MovieDetailsWorkerProtocol {
-    var movie: Movie?
     //worker -> dataprovider -> handlerdatabase
     //init worker movie e dataprovider
-    var handlerDataBase: HandlerDatabase = HandlerDatabase(config: Realm.Configuration())
+    var movie: Movie
+    let dataProvider: DataProvider
     
+    init(movie: Movie, dataProvider: DataProvider) {
+        self.movie = movie
+        self.dataProvider = dataProvider
+    }
+
     func consultDatabase() -> Object? {
-        let retrievedObject = handlerDataBase.retrieveObject(id: movie!.id)
+        let retrievedObject = dataProvider.consultDatabase(movie: movie)
         return retrievedObject
     }
     
-    func addDatabase(movie: Movie) {
-        let movieFavRealm = MovieFavRealm()
-        movieFavRealm.id = movie.id
-        handlerDataBase.addDB(object: movieFavRealm)
+    func addDatabase() {
+        dataProvider.addDatabase(movie: movie)
     }
     
     func deleteDB(object: Object) {
-        handlerDataBase.deleteDB(object: object)
+        dataProvider.deleteDB(object: object)
     }
 }

@@ -40,7 +40,7 @@ class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
             worker.deleteDB(object: retrievedObject!)
             presenter.callToggleFavButton(isFavorite: false)
         } else {
-            worker.addDatabase(movie: worker.movie!)
+            worker.addDatabase()
             presenter.callToggleFavButton(isFavorite: true)
         }
     }
