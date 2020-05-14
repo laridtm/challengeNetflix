@@ -35,7 +35,6 @@ class MovieListInteractor: MovieListInteractorProtocol {
             for item in self.items {
                 database.addDB(object: item.toMovieRealm())
             }
-            //por enquanto tratando só sucesso
             self.presenter.showItems(items: self.items)
         }
         worker.request(urlName: self.url, closure: closure)

@@ -60,8 +60,8 @@ class MovieListViewController: UIViewController, UICollectionViewDelegate, UICol
         }
         let controllerDetails = details
         let presenterDetails = MovieDetailsPresenter(view: controllerDetails)
-        let dataProvider: DataProvider = DataProvider(config: Realm.Configuration())
-        let workerDetails = MovieDetailsWorker(movie: movieSelected!, dataProvider: dataProvider)
+        let dataProviderDetails: MovieDetailsDataProvider = MovieDetailsDataProvider(config: Realm.Configuration())
+        let workerDetails = MovieDetailsWorker(movie: movieSelected!, dataProvider: dataProviderDetails)
         let interactorDetails = MovieDetailsInteractor(presenter: presenterDetails, worker: workerDetails)
         controllerDetails.interactor = interactorDetails
     }

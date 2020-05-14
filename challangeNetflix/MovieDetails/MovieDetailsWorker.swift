@@ -20,23 +20,23 @@ class MovieDetailsWorker: MovieDetailsWorkerProtocol {
     //worker -> dataprovider -> handlerdatabase
     //init worker movie e dataprovider
     var movie: Movie
-    let dataProvider: DataProvider
+    let dataProviderDetails: MovieDetailsDataProvider
     
-    init(movie: Movie, dataProvider: DataProvider) {
+    init(movie: Movie, dataProvider: MovieDetailsDataProvider) {
         self.movie = movie
-        self.dataProvider = dataProvider
+        self.dataProviderDetails = dataProvider
     }
 
     func consultDatabase() -> Object? {
-        let retrievedObject = dataProvider.consultDatabase(movie: movie)
+        let retrievedObject = dataProviderDetails.consultDatabase(movie: movie)
         return retrievedObject
     }
     
     func addDatabase() {
-        dataProvider.addDatabase(movie: movie)
+        dataProviderDetails.addDatabase(movie: movie)
     }
     
     func deleteDB(object: Object) {
-        dataProvider.deleteDB(object: object)
+        dataProviderDetails.deleteDB(object: object)
     }
 }

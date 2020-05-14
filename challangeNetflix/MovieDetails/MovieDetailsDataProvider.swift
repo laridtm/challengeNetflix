@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class DataProvider {
+class MovieDetailsDataProvider {
     let database: HandlerDatabase
     
     init(config: Realm.Configuration) {

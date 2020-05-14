@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let worker = MovieListWorker()
         let interactor = MovieListInteractor(presenter: presenter, worker: worker)
         controller.interactor = interactor
+        
         let navigationController = storyboard.instantiateViewController(withIdentifier: "Navigation") as! UINavigationController
         navigationController.viewControllers = [controller]
         self.window?.rootViewController = navigationController

@@ -11,8 +11,6 @@ import Foundation
 protocol MovieListPresentable: class {
     var view: MovieView? { get }
     func showItems(items: [Movie]?)
-    func showError(error: String)
-    func showBlockedView()
 }
 
 final class MovieListPresenter: MovieListPresentable {
@@ -26,14 +24,5 @@ final class MovieListPresenter: MovieListPresentable {
     func showItems(items: [Movie]?) {
         view?.show(items: items)
     }
-    
-    //por enquanto tratando só sucesso, nunca vai chamar essas funções
-    func showError(error: String) {
-        view?.show(error: error)
-    }
-    
-    func showBlockedView() {
-        view?.blockView()
-    }
-    
+
 }
