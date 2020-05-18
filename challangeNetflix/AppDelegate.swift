@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "Movies") as! MovieListViewController
         let presenter = MovieListPresenter(view: controller)
-        let worker = MovieListWorker()
+        let dataProviderList = MovieListDataProvider(config: Realm.Configuration())
+        let worker = MovieListWorker(dataProvider: dataProviderList)
         let interactor = MovieListInteractor(presenter: presenter, worker: worker)
         controller.interactor = interactor
         

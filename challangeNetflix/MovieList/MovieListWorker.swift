@@ -7,14 +7,23 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol MovieListWorkerProtocol: class {
     func request(urlName: String, closure: ((Data) -> Void)?)
     func decoder(data: Data) -> [Movie]
     func searchMovie(movies: [Movie], search: String) -> [Movie]
+    func addDB(movie: Movie)
+    var dataProviderList: MovieListDataProvider { get }
 }
 
 class MovieListWorker: MovieListWorkerProtocol {
+    let dataProviderList: MovieListDataProvider
+    
+    init(dataProvider: MovieListDataProvider) {
+        self.dataProviderList = dataProvider
+    }
+    
     func request(urlName: String, closure: ((Data) -> Void)?) {
          let session = URLSession.shared
          let url = URL(string: urlName)!
@@ -56,5 +65,9 @@ class MovieListWorker: MovieListWorkerProtocol {
         }
         
         return moviesAux
+    }
+    
+    func addDB(movie: Movie) {
+        self.dataProviderList.addDB(movie: movie)
     }
 }

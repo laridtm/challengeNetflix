@@ -29,15 +29,13 @@ class MovieListInteractor: MovieListInteractorProtocol {
     }
     
     func onViewLoaded() {
-        let closure:(Data) -> Void = { data in
+        worker.request(urlName: self.url) { data in
             self.items = self.worker.decoder(data: data)
-            var database: HandlerDatabase = HandlerDatabase(config: Realm.Configuration())
             for item in self.items {
-                database.addDB(object: item.toMovieRealm())
+                self.worker.addDB(movie: item)
             }
             self.presenter.showItems(items: self.items)
         }
-        worker.request(urlName: self.url, closure: closure)
     }
     
     func onSearchMovie(search: String) {
