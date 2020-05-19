@@ -45,7 +45,7 @@ class HandlerDatabase {
         return realm.object(ofType: MovieFavRealm.self, forPrimaryKey: id)
     }
     
-    func deleteDB (object: Object) {
+    func deleteDB(object: Object) {
         do {
             try realm.write {
                 realm.delete(object)
