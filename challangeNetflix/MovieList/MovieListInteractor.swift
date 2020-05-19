@@ -29,13 +29,6 @@ class MovieListInteractor: MovieListInteractorProtocol {
     }
     
     func onViewLoaded() {
-//        worker.request(urlName: self.url) { data in
-//            self.items = self.worker.decoder(data: data)
-//            for item in self.items {
-//                self.worker.addDB(movie: item)
-//            }
-//            self.presenter.showItems(items: self.items)
-//        }
         worker.request(urlName: self.url) { [weak self] items in
             self?.items = items
             self?.presenter.showItems(items: items)

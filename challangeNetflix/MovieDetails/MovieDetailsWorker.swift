@@ -17,8 +17,6 @@ protocol MovieDetailsWorkerProtocol: class {
 }
 
 class MovieDetailsWorker: MovieDetailsWorkerProtocol {
-    //worker -> dataprovider -> handlerdatabase
-    //init worker movie e dataprovider
     var movie: Movie
     let dataProviderDetails: MovieDetailsDataProvider
     

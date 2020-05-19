@@ -10,47 +10,12 @@ import Foundation
 import RealmSwift
 
 protocol MovieListWorkerProtocol: class {
-//    func request(urlName: String, closure: ((Data) -> Void)?)
-//    func decoder(data: Data) -> [Movie]
-//    func searchMovie(movies: [Movie], search: String) -> [Movie]
-//    func addDB(movie: Movie)
-//    var dataProviderList: MovieListDataProvider { get }
     func request(urlName: String, closure: (([Movie]) -> Void)?)
     func searchMovie(movies: [Movie], search: String) -> [Movie]
     var dataProviderList: MovieListDataProvider { get }
 }
 
 class MovieListWorker: MovieListWorkerProtocol {
-//    func request(urlName: String, closure: ((Data) -> Void)?) {
-//         let session = URLSession.shared
-//         let url = URL(string: urlName)!
-//         let task = session.dataTask(with: url) {
-//             data, response, error in
-//
-//             guard let httpResponse = response as? HTTPURLResponse,
-//                 (200...299).contains(httpResponse.statusCode) else {
-//                     print(error)
-//                     return
-//             }
-//            closure!(data!)
-//         }
-//         task.resume()
-//     }
-//
-//    func decoder(data: Data) -> [Movie] {
-//        let decoder = JSONDecoder()
-//        var movies : [Movie] = []
-//        do {
-//            movies = try decoder.decode([Movie].self, from: data)
-//        } catch {
-//            print(error)
-//        }
-//        return movies
-//    }
-//
-//    func addDB(movie: Movie) {
-//        self.dataProviderList.addDB(movie: movie)
-//    }
     let dataProviderList: MovieListDataProvider
 
     init(dataProvider: MovieListDataProvider) {
