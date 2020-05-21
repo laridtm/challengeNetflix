@@ -10,7 +10,7 @@ import Foundation
 
 protocol MovieListPresentable: class {
     var view: MovieView? { get }
-    func showItems(items: [Movie]?)
+    func showItems(items: [Movie])
 }
 
 final class MovieListPresenter: MovieListPresentable {
@@ -21,7 +21,7 @@ final class MovieListPresenter: MovieListPresentable {
         self.view = view
     }
     
-    func showItems(items: [Movie]?) {
+    func showItems(items: [Movie]) {
         view?.show(items: items)
     }
 

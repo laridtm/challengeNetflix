@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 protocol MovieView: class {
-    func show(items: [Movie]?)
+    func show(items: [Movie])
 }
 
 class MovieListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
@@ -99,8 +99,8 @@ class MovieListViewController: UIViewController, UICollectionViewDelegate, UICol
 
 extension MovieListViewController: MovieView {
     
-    func show(items: [Movie]?) {
-        self.movies = items!
+    func show(items: [Movie]) {
+        self.movies = items
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
