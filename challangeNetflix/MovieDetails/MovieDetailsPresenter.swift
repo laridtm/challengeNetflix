@@ -10,8 +10,8 @@ import Foundation
 
 protocol MovieDetailsPresentable: class {
     var view: MovieViewDetails? { get }
-    func showItem(item: Movie?)
-    func callToggleFavButton(isFavorite: Bool)
+    func show(item: Movie?)
+    func toggleFavButton(favorite: Bool)
 }
 
 final class MovieDetailsPresenter: MovieDetailsPresentable {
@@ -22,11 +22,11 @@ final class MovieDetailsPresenter: MovieDetailsPresentable {
         self.view = view
     }
     
-    func callToggleFavButton(isFavorite: Bool) {
-        view?.toggleFavButton(isFavorite: isFavorite)
+    func toggleFavButton(favorite: Bool) {
+        view?.toggleFavButton(favorite: favorite)
     }
     
-    func showItem(item: Movie?) {
+    func show(item: Movie?) {
         view?.show(item: item)
     }
 }

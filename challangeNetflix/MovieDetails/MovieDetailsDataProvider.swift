@@ -24,10 +24,10 @@ class MovieDetailsDataProvider {
     func addDatabase(movie: Movie) {
         let movieFavRealm = MovieFavRealm()
         movieFavRealm.id = movie.id
-        database.addDB(object: movieFavRealm)
+        database.add(object: movieFavRealm)
     }
     
-    func deleteDB(object: Object) {
-        database.deleteDB(object: object)
+    func delete(object: Object) {
+        database.delete(object: object)
     }
 }

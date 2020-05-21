@@ -21,7 +21,7 @@ class HandlerDatabase {
         }
     }
     
-    func addDB(object: Object) {
+    func add(object: Object) {
         do {
             try realm.write {
                 realm.add(object, update: .modified)
@@ -45,7 +45,7 @@ class HandlerDatabase {
         return realm.object(ofType: MovieFavRealm.self, forPrimaryKey: id)
     }
     
-    func deleteDB(object: Object) {
+    func delete(object: Object) {
         do {
             try realm.write {
                 realm.delete(object)

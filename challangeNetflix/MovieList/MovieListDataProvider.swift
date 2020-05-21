@@ -16,13 +16,13 @@ class MovieListDataProvider {
         self.config = config
     }
 
-    func addDB(movies: [Movie]) {
+    func add(movies: [Movie]) {
         let handler = HandlerDatabase(config: config)
         var moviesRealm: [MovieRealm] = []
         moviesRealm = movies.map { $0.toMovieRealm() }
 
         moviesRealm.forEach { movie in
-            handler.addDB(object: movie)
+            handler.add(object: movie)
         }
     }
 }

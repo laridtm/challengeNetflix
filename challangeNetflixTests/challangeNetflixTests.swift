@@ -59,7 +59,7 @@ class challangeNetflixTests: XCTestCase {
         
         for movie in self.movies {
             //Use an in-memory Realm
-            database.addDB(object: movie.toMovieRealm())
+            database.add(object: movie.toMovieRealm())
         }
         
         let allObjects = database.retrieveAllObjects(type: MovieRealm.self) as! [MovieRealm]

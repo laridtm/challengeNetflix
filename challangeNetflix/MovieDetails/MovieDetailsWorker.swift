@@ -35,6 +35,6 @@ class MovieDetailsWorker: MovieDetailsWorkerProtocol {
     }
     
     func deleteDB(object: Object) {
-        dataProviderDetails.deleteDB(object: object)
+        dataProviderDetails.delete(object: object)
     }
 }

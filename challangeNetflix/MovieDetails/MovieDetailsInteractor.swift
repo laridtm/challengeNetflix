@@ -11,7 +11,7 @@ import RealmSwift
 
 protocol MovieDetailsInteractorProtocol: class {
     func onViewLoaded()
-    func onFavButton()
+    func onFavTapped()
 }
 
 class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
@@ -25,23 +25,23 @@ class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
     }
     
     func onViewLoaded() {
-        self.presenter.showItem(item: worker.movie)
+        self.presenter.show(item: worker.movie)
         let retrievedObject = worker.consultDatabase()
         if retrievedObject != nil {
-            presenter.callToggleFavButton(isFavorite: true)
+            presenter.toggleFavButton(favorite: true)
         } else {
-            presenter.callToggleFavButton(isFavorite: false)
+            presenter.toggleFavButton(favorite: false)
         }
     }
     
-    func onFavButton() {
+    func onFavTapped() {
         let retrievedObject = worker.consultDatabase()
         if retrievedObject != nil {
             worker.deleteDB(object: retrievedObject!)
-            presenter.callToggleFavButton(isFavorite: false)
+            presenter.toggleFavButton(favorite: false)
         } else {
             worker.addDatabase()
-            presenter.callToggleFavButton(isFavorite: true)
+            presenter.toggleFavButton(favorite: true)
         }
     }
 }

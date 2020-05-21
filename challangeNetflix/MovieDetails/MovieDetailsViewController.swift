@@ -11,7 +11,7 @@ import RealmSwift
 
 protocol MovieViewDetails: class {
     func show(item: Movie?)
-    func toggleFavButton(isFavorite: Bool)
+    func toggleFavButton(favorite: Bool)
 }
 
 class MovieDetailsViewController: UIViewController {
@@ -38,7 +38,7 @@ class MovieDetailsViewController: UIViewController {
     }
     
     @IBAction func favButton(_ sender: UIBarButtonItem) {
-        interactor?.onFavButton()
+        interactor?.onFavTapped()
     }
     
     @IBOutlet weak var star1: UIImageView!
@@ -111,8 +111,8 @@ class MovieDetailsViewController: UIViewController {
 
 extension MovieDetailsViewController: MovieViewDetails {
     
-    func toggleFavButton(isFavorite: Bool) {
-        markButton.image = UIImage(named: isFavorite ? "marked" : "mark")
+    func toggleFavButton(favorite: Bool) {
+        markButton.image = UIImage(named: favorite ? "marked" : "mark")
     }
     
     func show(item: Movie?) {

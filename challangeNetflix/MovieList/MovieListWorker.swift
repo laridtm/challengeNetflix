@@ -35,7 +35,7 @@ class MovieListWorker: MovieListWorkerProtocol {
             }
 
             let movies = try? JSONDecoder().decode([Movie].self, from: data!)
-            self?.dataProviderList.addDB(movies: movies ?? [])
+            self?.dataProviderList.add(movies: movies ?? [])
             closure!(movies ?? [])
         }
         task.resume()
