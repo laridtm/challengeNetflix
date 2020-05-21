@@ -47,13 +47,7 @@ class MovieListWorker: MovieListWorkerProtocol {
     }
 
     func searchMovie(movies: [Movie], search: String) -> [Movie] {
-        var responseMovies: [Movie] = []
-
-        for item in movies {
-            if (item.title.lowercased().contains(search.lowercased())) {
-                responseMovies.append(item)
-            }
-        }
+        var responseMovies = movies.filter { $0.title.lowercased().contains(search.lowercased()) }
 
         if (search.isEmpty) {
             responseMovies = movies
