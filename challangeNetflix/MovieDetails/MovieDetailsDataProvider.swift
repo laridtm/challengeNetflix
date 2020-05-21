@@ -21,7 +21,7 @@ class MovieDetailsDataProvider {
         return retrievedObject
     }
     
-    func addDatabase(movie: Movie) {
+    func add(movie: Movie) {
         let movieFavRealm = MovieFavRealm()
         movieFavRealm.id = movie.id
         database.add(object: movieFavRealm)
