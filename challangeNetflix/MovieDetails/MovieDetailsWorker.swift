@@ -12,8 +12,8 @@ import RealmSwift
 protocol MovieDetailsWorkerProtocol: class {
     var movie: Movie { get }
     func consultDatabase() -> Object?
-    func addDatabase()
-    func deleteDB(object: Object)
+    func add()
+    func delete(object: Object)
 }
 
 class MovieDetailsWorker: MovieDetailsWorkerProtocol {
@@ -30,11 +30,11 @@ class MovieDetailsWorker: MovieDetailsWorkerProtocol {
         return retrievedObject
     }
     
-    func addDatabase() {
-        dataProviderDetails.addDatabase(movie: movie)
+    func add() {
+        dataProviderDetails.add(movie: movie)
     }
     
-    func deleteDB(object: Object) {
+    func delete(object: Object) {
         dataProviderDetails.delete(object: object)
     }
 }

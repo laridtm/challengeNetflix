@@ -37,10 +37,10 @@ class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
     func onFavTapped() {
         let retrievedObject = worker.consultDatabase()
         if retrievedObject != nil {
-            worker.deleteDB(object: retrievedObject!)
+            worker.delete(object: retrievedObject!)
             presenter.toggleFavButton(favorite: false)
         } else {
-            worker.addDatabase()
+            worker.add()
             presenter.toggleFavButton(favorite: true)
         }
     }
