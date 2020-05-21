@@ -26,7 +26,7 @@ class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
     
     func onViewLoaded() {
         self.presenter.show(item: worker.movie)
-        let retrievedObject = worker.consultDatabase()
+        let retrievedObject = worker.retrievedObject()
         if retrievedObject != nil {
             presenter.toggleFavButton(favorite: true)
         } else {
@@ -35,7 +35,7 @@ class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
     }
     
     func onFavTapped() {
-        let retrievedObject = worker.consultDatabase()
+        let retrievedObject = worker.retrievedObject()
         if retrievedObject != nil {
             worker.delete(object: retrievedObject!)
             presenter.toggleFavButton(favorite: false)

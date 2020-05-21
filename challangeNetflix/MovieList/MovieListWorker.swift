@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 protocol MovieListWorkerProtocol: class {
-    func request(urlName: String, closure: (([Movie]) -> Void)?)
+    func request(urlName: String, completion: (([Movie]) -> Void)?)
     func searchMovie(movies: [Movie], search: String) -> [Movie]
     var dataProviderList: MovieListDataProvider { get }
 }
@@ -22,7 +22,7 @@ class MovieListWorker: MovieListWorkerProtocol {
         self.dataProviderList = dataProvider
     }
 
-    func request(urlName: String, closure: (([Movie]) -> Void)?) {
+    func request(urlName: String, completion: (([Movie]) -> Void)?) {
         let session = URLSession.shared
         let url = URL(string: urlName)!
         let task = session.dataTask(with: url) { [weak self]
@@ -40,7 +40,7 @@ class MovieListWorker: MovieListWorkerProtocol {
             }
             
             self?.dataProviderList.add(movies: movies)
-            closure!(movies)
+            completion!(movies)
         }
         task.resume()
         
