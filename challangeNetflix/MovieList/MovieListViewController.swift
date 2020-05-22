@@ -58,12 +58,16 @@ class MovieListViewController: UIViewController, UICollectionViewDelegate, UICol
         guard let details = segue.destination as? MovieDetailsViewController else {
             return
         }
-        let controllerDetails = details
-        let presenterDetails = MovieDetailsPresenter(view: controllerDetails)
-        let dataProviderDetails: MovieDetailsDataProvider = MovieDetailsDataProvider(config: Realm.Configuration())
-        let workerDetails = MovieDetailsWorker(movie: movieSelected!, dataProvider: dataProviderDetails)
-        let interactorDetails = MovieDetailsInteractor(presenter: presenterDetails, worker: workerDetails)
-        controllerDetails.interactor = interactorDetails
+        if let tempMovie = movieSelected {
+            let controllerDetails = details
+            let presenterDetails = MovieDetailsPresenter(view: controllerDetails)
+            let dataProviderDetails: MovieDetailsDataProvider = MovieDetailsDataProvider(config: Realm.Configuration())
+            let workerDetails = MovieDetailsWorker(movie: tempMovie, dataProvider: dataProviderDetails)
+            let interactorDetails = MovieDetailsInteractor(presenter: presenterDetails, worker: workerDetails)
+            controllerDetails.interactor = interactorDetails
+        } else {
+            print("movieSelected não encontrado")
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
