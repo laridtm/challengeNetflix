@@ -27,14 +27,9 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var markButton: UIBarButtonItem!
     
     var interactor: MovieDetailsInteractorProtocol?
-    var movie: Movie?
     
     @IBAction func traillerButton(_ sender: UIMinionButton) {
-        //mudar para interactor -> worker
-        guard let trailerUrl = movie?.trailer else {
-            return
-        }
-        UIApplication.shared.open(trailerUrl)
+        interactor?.showTrailler()
     }
     
     @IBAction func favButton(_ sender: UIBarButtonItem) {

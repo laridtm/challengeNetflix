@@ -12,6 +12,7 @@ import RealmSwift
 protocol MovieDetailsInteractorProtocol: class {
     func onViewLoaded()
     func onFavTapped()
+    func showTrailler()
 }
 
 class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
@@ -43,5 +44,9 @@ class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
             worker.add()
             presenter.toggleFavButton(favorite: true)
         }
+    }
+    
+    func showTrailler() {
+        worker.showTrailler()
     }
 }

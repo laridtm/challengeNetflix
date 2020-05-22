@@ -14,6 +14,7 @@ protocol MovieDetailsWorkerProtocol: class {
     func retrievedObject() -> Object?
     func add()
     func delete(object: Object)
+    func showTrailler()
 }
 
 class MovieDetailsWorker: MovieDetailsWorkerProtocol {
@@ -36,5 +37,12 @@ class MovieDetailsWorker: MovieDetailsWorkerProtocol {
     
     func delete(object: Object) {
         dataProviderDetails.delete(object: object)
+    }
+    
+    func showTrailler() {
+        guard let traillerUrl = movie.trailer else {
+            return
+        }
+        UIApplication.shared.open(traillerUrl)
     }
 }
