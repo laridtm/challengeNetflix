@@ -16,8 +16,8 @@ class MovieDetailsDataProvider {
         self.database = HandlerDatabase(config: config)
     }
     
-    func retrievedObject(movie: Movie) -> Object? {
-        let retrievedObject = database.retrieveObject(id: movie.id)
+    func retrievedObject(id: String) -> Object? {
+        let retrievedObject = database.retrieveObject(id: id)
         return retrievedObject
     }
     

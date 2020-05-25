@@ -27,7 +27,7 @@ class MovieDetailsWorker: MovieDetailsWorkerProtocol {
     }
 
     func retrievedObject() -> Object? {
-        let retrievedObject = dataProviderDetails.retrievedObject(movie: movie)
+        let retrievedObject = dataProviderDetails.retrievedObject(id: movie.id)
         return retrievedObject
     }
     
