@@ -36,14 +36,14 @@ class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
     }
     
     func onFavTapped() {
-        let retrievedObject = worker.retrievedObject()
-        if retrievedObject != nil {
-            worker.delete(object: retrievedObject!)
+        if let retrievedObject = worker.retrievedObject() {
+            worker.delete(object: retrievedObject)
             presenter.toggleFavButton(favorite: false)
         } else {
             worker.add()
             presenter.toggleFavButton(favorite: true)
         }
+//        presenter.toggleFavButton(favorite: retrievedObject != nil)
     }
     
     func showTrailler() {
