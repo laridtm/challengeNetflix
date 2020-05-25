@@ -40,7 +40,7 @@ class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
             worker.delete(object: retrievedObject)
             presenter.toggleFavButton(favorite: false)
         } else {
-            worker.add()
+            worker.add(movie: self.worker.movie)
             presenter.toggleFavButton(favorite: true)
         }
 //        presenter.toggleFavButton(favorite: retrievedObject != nil)
