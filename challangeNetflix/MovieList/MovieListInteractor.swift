@@ -20,7 +20,7 @@ class MovieListInteractor: MovieListInteractorProtocol {
     private let worker: MovieListWorkerProtocol
     
     private var items: [Movie]
-    let url: String = "http://localhost:8080/response.json"
+    private let url: String = "http://localhost:8080/response.json"
     
     init(presenter: MovieListPresentable, worker: MovieListWorkerProtocol) {
         self.presenter = presenter
