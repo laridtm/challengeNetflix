@@ -24,7 +24,7 @@ class MovieListWorker: MovieListWorkerProtocol {
 
     func request(urlName: String, completion: (([Movie]) -> Void)?) {
         let session = URLSession.shared
-        let url = URL(string: urlName)!
+        guard let url = URL(string: urlName) else { return }
         let task = session.dataTask(with: url) { [weak self]
             data, response, error in
 
