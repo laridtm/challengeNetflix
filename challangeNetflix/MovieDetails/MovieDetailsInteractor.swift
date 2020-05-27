@@ -27,13 +27,13 @@ class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
     
     func onViewLoaded() {
         self.presenter.show(item: worker.movie)
-        let retrievedMovie = worker.retrievedMovie()
-        presenter.toggleFavButton(favorite: retrievedMovie != nil)
+        let movie = worker.retrieveMovie()
+        presenter.toggleFavButton(favorite: movie != nil)
     }
     
     func onFavTapped() {
-        if let retrievedMovie = worker.retrievedMovie() {
-            worker.delete(object: retrievedMovie)
+        if let movie = worker.retrieveMovie() {
+            worker.delete(object: movie)
             presenter.toggleFavButton(favorite: false)
         } else {
             worker.add(movie: self.worker.movie)
