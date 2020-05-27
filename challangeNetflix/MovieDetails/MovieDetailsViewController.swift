@@ -54,8 +54,12 @@ class MovieDetailsViewController: UIViewController {
     }
     
     func createScreen(movie: Movie) {
-        createPoster(urlImage: movie.images.first!)
-        createBackground(urlImage: movie.images[1])
+        if let posterImage = movie.images.first {
+            createPoster(urlImage: posterImage)
+        }
+        if let backgroundImage = movie.images.last {
+            createBackground(urlImage: backgroundImage)
+        }
         self.nameFilm.text = movie.title
         self.metascore.text = "(\(movie.metascore))"
         self.textFilm.text = movie.plot
