@@ -11,7 +11,7 @@ import RealmSwift
 
 protocol MovieDetailsWorkerProtocol: class {
     var movie: Movie { get }
-    func retrievedObject() -> Object?
+    func retrievedMovie() -> Object?
     func add(movie: Movie)
     func delete(object: Object)
     func showTrailler()
@@ -26,9 +26,9 @@ class MovieDetailsWorker: MovieDetailsWorkerProtocol {
         self.dataProviderDetails = dataProvider
     }
 
-    func retrievedObject() -> Object? {
-        let retrievedObject = dataProviderDetails.retrievedObject(id: movie.id)
-        return retrievedObject
+    func retrievedMovie() -> Object? {
+        let retrievedMovie = dataProviderDetails.retrievedObject(id: movie.id)
+        return retrievedMovie
     }
     
     func add(movie: Movie) {
