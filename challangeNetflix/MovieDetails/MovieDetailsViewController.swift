@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 protocol MovieViewDetails: class {
-    func show(item: Movie?)
+    func show(item: Movie)
     func toggleFavButton(favorite: Bool)
 }
 
@@ -114,7 +114,7 @@ extension MovieDetailsViewController: MovieViewDetails {
         markButton.image = UIImage(named: favorite ? "marked" : "mark")
     }
     
-    func show(item: Movie?) {
-        createScreen(movie: item!)
+    func show(item: Movie) {
+        createScreen(movie: item)
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 protocol MovieDetailsPresentable: class {
     var view: MovieViewDetails? { get }
-    func show(item: Movie?)
+    func show(item: Movie)
     func toggleFavButton(favorite: Bool)
 }
 
@@ -26,7 +26,7 @@ final class MovieDetailsPresenter: MovieDetailsPresentable {
         view?.toggleFavButton(favorite: favorite)
     }
     
-    func show(item: Movie?) {
+    func show(item: Movie) {
         view?.show(item: item)
     }
 }
