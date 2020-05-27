@@ -28,11 +28,7 @@ class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
     func onViewLoaded() {
         self.presenter.show(item: worker.movie)
         let retrievedObject = worker.retrievedObject()
-        if retrievedObject != nil {
-            presenter.toggleFavButton(favorite: true)
-        } else {
-            presenter.toggleFavButton(favorite: false)
-        }
+        presenter.toggleFavButton(favorite: retrievedObject != nil)
     }
     
     func onFavTapped() {
