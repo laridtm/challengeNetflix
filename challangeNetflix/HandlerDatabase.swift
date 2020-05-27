@@ -33,7 +33,7 @@ class HandlerDatabase {
     
     func retrieveAllObjects(type: Object.Type) -> [Object] {
         var allObjects: [Object] = []
-        var realmResults = realm.objects(type)
+        let realmResults = realm.objects(type)
         
         for object in realmResults {
             allObjects.append(object)

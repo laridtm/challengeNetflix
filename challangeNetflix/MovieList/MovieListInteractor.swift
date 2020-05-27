@@ -36,7 +36,7 @@ class MovieListInteractor: MovieListInteractorProtocol {
     }
     
     func onSearchMovie(search: String) {
-        var searchResult = worker.searchMovie(movies: items, search: search)
+        let searchResult = worker.searchMovie(movies: items, search: search)
         self.presenter.showItems(items: searchResult)
     }
 }

@@ -33,8 +33,10 @@ class MovieListWorker: MovieListWorkerProtocol {
                     print(error)
                     return
             }
-
-            guard let movies = try? JSONDecoder().decode([Movie].self, from: data!) else {
+            guard let data = data else {
+                return
+            }
+            guard let movies = try? JSONDecoder().decode([Movie].self, from: data) else {
                 print(error)
                 return
             }
