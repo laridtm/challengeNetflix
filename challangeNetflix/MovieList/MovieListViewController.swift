@@ -96,7 +96,7 @@ class MovieListViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        interactor?.onSearchMovie(search: searchBar.text!)
+        interactor?.onSearchMovie(search: searchBar.text ?? "")
     }
     
 }
