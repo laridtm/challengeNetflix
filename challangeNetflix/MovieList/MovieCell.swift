@@ -9,7 +9,6 @@
 import UIKit
 
 class MovieCell: UICollectionViewCell {
-  
     @IBOutlet weak var movieImage: UIImageView!
     
     override func awakeFromNib() {
@@ -30,5 +29,4 @@ class MovieCell: UICollectionViewCell {
         }
         task.resume()
     }
-  
 }

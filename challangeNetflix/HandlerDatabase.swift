@@ -10,7 +10,6 @@ import Foundation
 import RealmSwift
 
 class HandlerDatabase {
-    
     let realm: Realm
     
     init(config: Realm.Configuration) {
@@ -22,8 +21,7 @@ class HandlerDatabase {
         }
     }
     
-    func addDB(object: Object) {
-        
+    func add(object: Object) {
         do {
             try realm.write {
                 realm.add(object, update: .modified)
@@ -31,19 +29,15 @@ class HandlerDatabase {
         } catch let error as NSError {
             print(error)
         }
-        
     }
     
     func retrieveAllObjects(type: Object.Type) -> [Object] {
-        
         var allObjects: [Object] = []
-        
-        var realmResults = realm.objects(type)
+        let realmResults = realm.objects(type)
         
         for object in realmResults {
             allObjects.append(object)
         }
-        
         return allObjects
     }
     
@@ -51,8 +45,7 @@ class HandlerDatabase {
         return realm.object(ofType: MovieFavRealm.self, forPrimaryKey: id)
     }
     
-    func deleteDB (object: Object) {
-        
+    func delete(object: Object) {
         do {
             try realm.write {
                 realm.delete(object)
@@ -60,7 +53,5 @@ class HandlerDatabase {
         } catch let error as NSError {
             print(error)
         }
-        
     }
-    
 }

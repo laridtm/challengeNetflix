@@ -9,8 +9,12 @@
 import UIKit
 import RealmSwift
 
-class DetailsViewController: UIViewController {
+protocol MovieViewDetails: class {
+    func show(item: Movie)
+    func toggleFavButton(favorite: Bool)
+}
 
+class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var nameFilm: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -22,32 +26,14 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var resolutionHDR: UIImageView!
     @IBOutlet weak var markButton: UIBarButtonItem!
     
-    var handlerDataBase: HandlerDatabase = HandlerDatabase(config: Realm.Configuration())
+    var interactor: MovieDetailsInteractorProtocol?
     
     @IBAction func traillerButton(_ sender: UIMinionButton) {
-        
-        guard let trailerUrl =  movie?.trailer else {
-            return
-        }
-        UIApplication.shared.open(trailerUrl)
+        interactor?.showTrailler()
     }
     
     @IBAction func favButton(_ sender: UIBarButtonItem) {
-        guard let selectedMovieFavorite = self.movie else {
-            return
-        }
-        
-        let retrievedObject = handlerDataBase.retrieveObject(id: selectedMovieFavorite.id)
-        
-        if retrievedObject != nil {
-            handlerDataBase.deleteDB(object: retrievedObject!)
-            toggleFavButton(isFavorite: false)
-        } else {
-            let movieFavRealm = MovieFavRealm()
-            movieFavRealm.id = selectedMovieFavorite.id
-            handlerDataBase.addDB(object: movieFavRealm)
-            toggleFavButton(isFavorite: true)
-        }
+        interactor?.onFavTapped()
     }
     
     @IBOutlet weak var star1: UIImageView!
@@ -56,47 +42,37 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var star4: UIImageView!
     @IBOutlet weak var star5: UIImageView!
     
-    var movie: Movie?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        createScreen()
-        
+    
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
     
-        let retrievedObject = handlerDataBase.retrieveObject(id: movie!.id)
-        if retrievedObject != nil {
-            toggleFavButton(isFavorite: true)
-        } else {
-            toggleFavButton(isFavorite: false)
-        }
-        
+        interactor?.onViewLoaded()
     }
     
-    func createScreen() {
-        guard let selectedMovie = self.movie else {
-            return
+    func createScreen(movie: Movie) {
+        if let posterImage = movie.images.first {
+            createPoster(urlImage: posterImage)
         }
-        createPoster(urlImage: selectedMovie.images.first!)
-        createBackground(urlImage: selectedMovie.images[1])
-        self.nameFilm.text = selectedMovie.title
-        self.metascore.text = "(\(selectedMovie.metascore))"
-        self.textFilm.text = selectedMovie.plot
-        self.yearFilm.text = selectedMovie.year
-        self.timeFilm.text = selectedMovie.runtime
-        selectEvaluation(metascore: selectedMovie.metascore)
-        resolution(k: selectedMovie.resolution, HDR: selectedMovie.hdr)
+        if let backgroundImage = movie.images.last {
+            createBackground(urlImage: backgroundImage)
+        }
+        self.nameFilm.text = movie.title
+        self.metascore.text = "(\(movie.metascore))"
+        self.textFilm.text = movie.plot
+        self.yearFilm.text = movie.year
+        self.timeFilm.text = movie.runtime
+        selectEvaluation(metascore: movie.metascore)
+        resolution(k: movie.resolution, HDR: movie.hdr)
     }
     
     func createPoster(urlImage: URL) {
         guard let data = try? Data(contentsOf: urlImage) else { return }
         coverImage.image = UIImage(data: data)
         coverImage.layer.cornerRadius = 10
-        
     }
     
     func createBackground(urlImage: URL) {
@@ -106,7 +82,6 @@ class DetailsViewController: UIViewController {
     
     func selectEvaluation(metascore: String) {
         guard var metascoreDouble = Double(metascore) else { return }
-        
         let images = [star1, star2, star3, star4, star5]
         var i = 1
 
@@ -131,9 +106,15 @@ class DetailsViewController: UIViewController {
             resolutionHDR.image = UIImage(named: "hdr")
         }
     }
-    
-    func toggleFavButton(isFavorite: Bool) {
-        markButton.image = UIImage(named: isFavorite ? "marked" : "mark")
-    }
+}
 
+extension MovieDetailsViewController: MovieViewDetails {
+    
+    func toggleFavButton(favorite: Bool) {
+        markButton.image = UIImage(named: favorite ? "marked" : "mark")
+    }
+    
+    func show(item: Movie) {
+        createScreen(movie: item)
+    }
 }

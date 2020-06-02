@@ -7,18 +7,29 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
 	var window: UIWindow?
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "Movies") as! MovieListViewController
+        let presenter = MovieListPresenter(view: controller)
+        let dataProviderList = MovieListDataProvider(config: Realm.Configuration())
+        let worker = MovieListWorker(dataProvider: dataProviderList)
+        let interactor = MovieListInteractor(presenter: presenter, worker: worker)
+        controller.interactor = interactor
+        
+        let navigationController = storyboard.instantiateViewController(withIdentifier: "Navigation") as! UINavigationController
+        navigationController.viewControllers = [controller]
+        self.window?.rootViewController = navigationController
+
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
-
-
-
 }
 
