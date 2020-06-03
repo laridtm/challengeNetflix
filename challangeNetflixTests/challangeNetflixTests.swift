@@ -62,12 +62,7 @@ class challangeNetflixTests: XCTestCase {
         
         let database: HandlerDatabase = HandlerDatabase(config: Realm.Configuration(inMemoryIdentifier: "inMemory"))
         
-        for movie in self.movies {
-            //Use an in-memory Realm
-            database.add(object: movie.toMovieRealm())
-        }
-        
-//        worker?.dataProviderList.add(movies: self.movies)
+        worker?.dataProviderList.add(movies: self.movies)
         
         let allObjects = database.retrieveAllObjects(type: MovieRealm.self) as! [MovieRealm]
         
@@ -76,8 +71,6 @@ class challangeNetflixTests: XCTestCase {
         XCTAssertEqual(allObjects[1].title, "Interstellar")
         XCTAssertEqual(allObjects[2].title, "Assassin's Creed")
         XCTAssertEqual(allObjects[3].title, "Rogue One: A Star Wars Story")
-        
-        
     }
     
 }
