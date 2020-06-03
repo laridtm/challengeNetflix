@@ -14,11 +14,13 @@ class challangeNetflixTests: XCTestCase {
     
     let decoder = JSONDecoder()
     var movies: [Movie] = []
-    var movieSearch: MovieSearch = MovieSearch()
-    var movieTakeData: MovieTakeData = MovieTakeData()
+    var worker: MovieListWorkerProtocol?
+    let dataprovider: MovieListDataProvider = MovieListDataProvider(config: Realm.Configuration(inMemoryIdentifier: "inMemory"))
     
     override func setUp() {
         super.setUp()
+        
+        worker = MovieListWorker(dataProvider: dataprovider)
         
         guard let fileURL = Bundle.main.url(forResource: "movies", withExtension: "json") else {
             print("couldn't find the file")
@@ -27,7 +29,7 @@ class challangeNetflixTests: XCTestCase {
         
         do {
             let content = try Data(contentsOf: fileURL)
-            movies = self.movieTakeData.decoder(data: content)
+            movies = try JSONDecoder().decode([Movie].self, from: content)
         } catch let error {
             print(error)
         }
@@ -44,13 +46,16 @@ class challangeNetflixTests: XCTestCase {
     
     func testIfTheSearchIsCorrect() {
         
-        var moviesSearch: [Movie] = []
+        var moviesSearch: [Movie]?
         
-        moviesSearch = movieSearch.searchMovie(movies: movies, search: "Av")
+        moviesSearch = worker?.searchMovie(movies: self.movies, search: "Av")
         
-        XCTAssertEqual(moviesSearch.count, 1)
-        XCTAssertEqual(moviesSearch[0].title, "Avatar")
-        
+        if let searchResult = moviesSearch {
+            XCTAssertEqual(searchResult.count, 1)
+            XCTAssertEqual(searchResult[0].title, "Avatar")
+        } else {
+            XCTAssertTrue(false)
+        }
     }
     
     func testIfTheDatabaseIsAddingCorrectly() {
@@ -61,6 +66,8 @@ class challangeNetflixTests: XCTestCase {
             //Use an in-memory Realm
             database.add(object: movie.toMovieRealm())
         }
+        
+//        worker?.dataProviderList.add(movies: self.movies)
         
         let allObjects = database.retrieveAllObjects(type: MovieRealm.self) as! [MovieRealm]
         
