@@ -1,4 +1,4 @@
-# challangeNetflix
+# challengeNetflix
 
 ## Descrição
 
