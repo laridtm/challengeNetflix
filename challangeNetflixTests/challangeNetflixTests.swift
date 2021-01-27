@@ -8,27 +8,69 @@
 
 import XCTest
 @testable import challangeNetflix
+import RealmSwift
 
 class challangeNetflixTests: XCTestCase {
-
+    
+    let decoder = JSONDecoder()
+    var movies: [Movie] = []
+    var worker: MovieListWorkerProtocol?
+    let dataprovider: MovieListDataProvider = MovieListDataProvider(config: Realm.Configuration(inMemoryIdentifier: "inMemory"))
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        super.setUp()
+        
+        worker = MovieListWorker(dataProvider: dataprovider)
+        
+        guard let fileURL = Bundle.main.url(forResource: "movies", withExtension: "json") else {
+            print("couldn't find the file")
+            return
+        }
+        
+        do {
+            let content = try Data(contentsOf: fileURL)
+            movies = try JSONDecoder().decode([Movie].self, from: content)
+        } catch let error {
+            print(error)
         }
     }
-
+    
+    override func tearDown() {
+        super.tearDown()
+    }
+    
+    func testDecoding() {
+        
+        XCTAssertEqual(movies.count, 4)
+    }
+    
+    func testIfTheSearchIsCorrect() {
+        
+        var moviesSearch: [Movie]?
+        
+        moviesSearch = worker?.searchMovie(movies: self.movies, search: "Av")
+        
+        if let searchResult = moviesSearch {
+            XCTAssertEqual(searchResult.count, 1)
+            XCTAssertEqual(searchResult[0].title, "Avatar")
+        } else {
+            XCTAssertTrue(false)
+        }
+    }
+    
+    func testIfTheDatabaseIsAddingCorrectly() {
+        
+        let database: HandlerDatabase = HandlerDatabase(config: Realm.Configuration(inMemoryIdentifier: "inMemory"))
+        
+        worker?.dataProviderList.add(movies: self.movies)
+        
+        let allObjects = database.retrieveAllObjects(type: MovieRealm.self) as! [MovieRealm]
+        
+        XCTAssertEqual(allObjects.count, 4)
+        XCTAssertEqual(allObjects[0].title, "Avatar")
+        XCTAssertEqual(allObjects[1].title, "Interstellar")
+        XCTAssertEqual(allObjects[2].title, "Assassin's Creed")
+        XCTAssertEqual(allObjects[3].title, "Rogue One: A Star Wars Story")
+    }
+    
 }
